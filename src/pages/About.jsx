@@ -70,6 +70,87 @@ export default function About() {
         </section>
 
         {/* ========================================================
+            IMPACT DASHBOARD (VERIFIED RECORDS)
+            ======================================================== */}
+        <section id="impact" className="py-20 bg-slate-900 text-white scroll-mt-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-12">
+              <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold block">
+                {content.impactBadge || "VERIFIED RECORDS"}
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
+                {content.impactHeading || "Impact Dashboard"}
+              </h2>
+              <p className="text-xs text-slate-400 mt-2">
+                *Statistical placeholders displayed pending periodic internal audit verification.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              {/* Card 1 */}
+              <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-lg">
+                <div>
+                  <span className="text-4xl sm:text-5xl font-extrabold font-mono text-amber-400 block mb-3">
+                    {content.stat1Number || "1, 200+"}
+                  </span>
+                  <h3 className="text-base font-bold text-white mb-2">
+                    {content.stat1Label || "People Reached"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat1Desc || "Direct beneficiaries of all field activities"}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-emerald-500/50 transition-all shadow-lg">
+                <div>
+                  <span className="text-4xl sm:text-5xl font-extrabold font-mono text-emerald-400 block mb-3">
+                    {content.stat2Number || "4+"}
+                  </span>
+                  <h3 className="text-base font-bold text-white mb-2">
+                    {content.stat2Label || "Eye Camps"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat2Desc || "Full-day clinical diagnostic screening camps"}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-lg">
+                <div>
+                  <span className="text-4xl sm:text-5xl font-extrabold font-mono text-sky-400 block mb-3">
+                    {content.stat3Number || "450+"}
+                  </span>
+                  <h3 className="text-base font-bold text-white mb-2">
+                    {content.stat3Label || "Spectacles Distributed"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat3Desc || "Free prescription corrective eyeglasses"}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 4 */}
+              <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-rose-500/50 transition-all shadow-lg">
+                <div>
+                  <span className="text-4xl sm:text-5xl font-extrabold font-mono text-rose-400 block mb-3">
+                    {content.stat4Number || "50+"}
+                  </span>
+                  <h3 className="text-base font-bold text-white mb-2">
+                    {content.stat4Label || "Volunteers & Supporters"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat4Desc || "Professionals, doctors & community members"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
             SECTION 2 — OUR VISION
             ======================================================== */}
         <section className="relative py-24 bg-sky-950 text-white overflow-hidden">
@@ -125,11 +206,11 @@ export default function About() {
 
               <div className="p-7 rounded-3xl bg-white border border-slate-200/80 shadow-xs hover:shadow-md transition-all">
                 <div className="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center text-xl font-bold mb-5">
-                  🍲
+                  🤲
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Community Service</h3>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Community Welfare</h3>
                 <p className="text-sm text-slate-600 leading-relaxed">
-                  Providing food relief and nutritional care with dignity through regular Sewa Rasoi community kitchen drives.
+                  Providing direct support, health awareness, and dignified care through grassroots community welfare drives.
                 </p>
               </div>
 
@@ -230,15 +311,15 @@ export default function About() {
               <div className="relative pl-8 md:pl-10">
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-600 border-4 border-white shadow-xs" />
                 <span className="text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-50 px-2.5 py-1 rounded-md">
-                  Nutritional Dignity
+                  Community Welfare
                 </span>
                 <h3 className="text-xl font-bold text-slate-900 mt-2">
-                  Establishment of Sewa Rasoi
+                  Expansion of Grassroots Health Drives
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed mt-2 mb-4">
-                  Commenced volunteer-driven community kitchens serving warm, hygienic, and nutritious meals to attendants outside hospitals and underserved neighbourhoods.
+                  Commenced volunteer-driven outreach programmes providing free vision care, patient support, and health relief directly to underserved neighbourhoods.
                 </p>
-                <img src="/image.png" alt="Sewa Rasoi launch" className="w-full max-w-md h-48 object-cover rounded-2xl shadow-xs" />
+                <img src="/camps/camp2/2nd Camp/E2-3.jpeg" alt="Grassroots health drives" className="w-full max-w-md h-48 object-cover rounded-2xl shadow-xs" />
               </div>
 
               {/* Milestone 4 */}

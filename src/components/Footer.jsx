@@ -49,8 +49,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/sewa-rasoi" className="hover:text-white transition-colors">
-                  Sewa Rasoi (Food Relief)
+                <Link to="/about#impact" className="hover:text-white transition-colors">
+                  Impact Dashboard
                 </Link>
               </li>
               <li>
@@ -59,8 +59,8 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/impact" className="hover:text-white transition-colors">
-                  Verified Social Impact
+                <Link to="/about" className="hover:text-white transition-colors">
+                  Vision & Mission
                 </Link>
               </li>
             </ul>
