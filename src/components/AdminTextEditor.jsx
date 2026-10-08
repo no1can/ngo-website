@@ -10,7 +10,7 @@ export default function AdminTextEditor({
   isSavingContent,
   showToast
 }) {
-  const [activeCategory, setActiveCategory] = useState("home");
+  const [activeCategory, setActiveCategory] = useState("upcoming");
   const [searchQuery, setSearchQuery] = useState("");
   const [customKey, setCustomKey] = useState("");
   const [customVal, setCustomVal] = useState("");
@@ -124,9 +124,118 @@ export default function AdminTextEditor({
       ]
     },
     {
+      id: "upcoming",
+      label: "🚩 Upcoming Eye Camp",
+      description: "Spotlight details for upcoming Shakurpur Colony Camp (11-Oct-2026), banner, time & location",
+      groups: [
+        {
+          title: "🌟 Upcoming Camp Spotlight Announcement",
+          desc: "Displayed prominently at the top of the Eye Camps page and Homepage",
+          fields: [
+            { key: "upcomingCampTitle", label: "Camp Title / Heading", type: "text", helper: "e.g. नि:शुल्क नेत्र जाँच शिविर" },
+            { key: "upcomingCampTagline", label: "Camp Tagline / Subtitle", type: "text", helper: "e.g. Shakurpur Colony, New Delhi • 11-Oct-2026" },
+            { key: "upcomingCampDate", label: "Event Date (Hindi / English)", type: "text", helper: "e.g. 11 अक्टूबर 2026 (रविवार / Sunday)" },
+            { key: "upcomingCampTime", label: "Camp Timings", type: "text", helper: "e.g. सुबह 10:00 बजे से दोपहर 2:00 बजे तक" },
+            { key: "upcomingCampLocation", label: "Camp Venue / Address", type: "text", helper: "e.g. ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली" },
+            { key: "upcomingCampSpecial", label: "Special Highlight Badge", type: "text", helper: "e.g. नज़र के चश्में भी मुफ्त दिए जाएंगे" },
+            { key: "upcomingCampSummary", label: "Camp Summary / Description", type: "textarea", helper: "Full briefing of the upcoming camp" },
+            { key: "upcomingCampBanner", label: "Banner Image URL or Path", type: "text", helper: "Default: /shakurpur-eye-camp-banner.jpg" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "sewa",
+      label: "🍲 Sewa Rasoi",
+      description: "Nutrition relief programme, core philosophy, and live impact numbers",
+      groups: [
+        {
+          title: "🍲 Sewa Rasoi Header & Philosophy",
+          desc: "Header banner and introduction on /sewa-rasoi",
+          fields: [
+            { key: "sewaBadge", label: "Header Badge", type: "text", helper: "e.g. Nutritional Relief & Dignity" },
+            { key: "sewaHeading", label: "Main Heading", type: "text", helper: "e.g. Sewa Rasoi" },
+            { key: "sewaTagline", label: "Page Tagline", type: "text", helper: "e.g. Food with Dignity. Service with Compassion." },
+            { key: "sewaSubtext", label: "Page Subtext / Intro", type: "textarea", helper: "Mission statement of Sewa Rasoi" },
+            { key: "sewaPhilosophyTitle", label: "Philosophy Section Title", type: "text", helper: "e.g. More Than a Meal" },
+            { key: "sewaPhilosophyP1", label: "Philosophy Paragraph 1", type: "textarea" },
+            { key: "sewaPhilosophyP2", label: "Philosophy Paragraph 2", type: "textarea" }
+          ]
+        },
+        {
+          title: "📊 Sewa Rasoi Impact Statistics",
+          desc: "The 4 key metrics displayed on the Sewa Rasoi page",
+          fields: [
+            { key: "sewaMealsCount", label: "Hot Meals Served (e.g. 2,500+)", type: "text" },
+            { key: "sewaVolunteersCount", label: "Kitchen & Delivery Volunteers (e.g. 45+)", type: "text" },
+            { key: "sewaDaysCount", label: "Days of Community Rasoi (e.g. 30+)", type: "text" },
+            { key: "sewaCommunitiesCount", label: "Hospital & Bastis Reached (e.g. 12+)", type: "text" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "camps",
+      label: "👁️ Eye Camps",
+      description: "Header and details for Bhati Mines, Kusumpur, Mewla Maharajpur & Follow-up camps",
+      groups: [
+        {
+          title: "🚩 Eye Camps Page Banner",
+          desc: "Banner on /eye-camps",
+          fields: [
+            { key: "campsPageBadge", label: "Header Badge", type: "text" },
+            { key: "campsPageTitle", label: "Header Title", type: "text" },
+            { key: "campsPageSubtitle", label: "Header Description", type: "textarea" },
+            { key: "campsProcessTitle", label: "Process Section Title", type: "text" },
+            { key: "campsProcessSubtitle", label: "Process Section Subtitle", type: "textarea" }
+          ]
+        },
+        {
+          title: "📍 Bhati Mines, New Delhi",
+          desc: "Abhyudaya, Sanjay Colony, Bhati Mines camp details",
+          fields: [
+            { key: "camp1Title", label: "Camp Title", type: "text" },
+            { key: "camp1DateLoc", label: "Date & Location", type: "text" },
+            { key: "camp1Desc", label: "Objective & Description", type: "textarea" },
+            { key: "camp1Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
+          ]
+        },
+        {
+          title: "📍 Kusumpur Pahari, New Delhi",
+          desc: "Sherawali Mata Mandir, Kusumpur Pahari camp details",
+          fields: [
+            { key: "camp2Title", label: "Camp Title", type: "text" },
+            { key: "camp2DateLoc", label: "Date & Location", type: "text" },
+            { key: "camp2Desc", label: "Objective & Description", type: "textarea" },
+            { key: "camp2Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
+          ]
+        },
+        {
+          title: "📍 Mewla Maharajpur, Faridabad",
+          desc: "Deepak Bensla Baithak, Mewla Maharajpur camp details",
+          fields: [
+            { key: "camp3Title", label: "Camp Title", type: "text" },
+            { key: "camp3DateLoc", label: "Date & Location", type: "text" },
+            { key: "camp3Desc", label: "Objective & Description", type: "textarea" },
+            { key: "camp3Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
+          ]
+        },
+        {
+          title: "📍 Comprehensive Follow-up Camp",
+          desc: "Follow-up and second-stage spectacles dispensing",
+          fields: [
+            { key: "camp4Title", label: "Camp Title", type: "text" },
+            { key: "camp4DateLoc", label: "Date & Location", type: "text" },
+            { key: "camp4Desc", label: "Objective & Description", type: "textarea" },
+            { key: "camp4Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
+          ]
+        }
+      ]
+    },
+    {
       id: "about",
-      label: "📖 About Us Page",
-      description: "Origin story, Who We Are, Vision, Mission, and Core Objectives",
+      label: "📖 About Tandicia",
+      description: "Origin story, Who We Are, Guiding Quote, Vision Quote & Core Objectives",
       groups: [
         {
           title: "🌟 About Hero Banner",
@@ -139,7 +248,7 @@ export default function AdminTextEditor({
           ]
         },
         {
-          title: "👥 Who We Are & Identity",
+          title: "👥 Who We Are & Guiding Light",
           desc: "The detailed backstory and founding principles",
           fields: [
             { key: "aboutWhoHeading", label: "Section Heading", type: "text" },
@@ -156,61 +265,47 @@ export default function AdminTextEditor({
             { key: "aboutVisionSectionQuote", label: "Vision Quote", type: "textarea" },
             { key: "aboutVisionSectionDesc", label: "Supporting Principle", type: "textarea" }
           ]
+        },
+        {
+          title: "💎 Core Objectives",
+          desc: "Strategic focus areas on the About page",
+          fields: [
+            { key: "aboutObj1Title", label: "Objective 1 Title", type: "text" },
+            { key: "aboutObj1Desc", label: "Objective 1 Description", type: "textarea" },
+            { key: "aboutObj2Title", label: "Objective 2 Title", type: "text" },
+            { key: "aboutObj2Desc", label: "Objective 2 Description", type: "textarea" },
+            { key: "aboutObj3Title", label: "Objective 3 Title", type: "text" },
+            { key: "aboutObj3Desc", label: "Objective 3 Description", type: "textarea" },
+            { key: "aboutObj4Title", label: "Objective 4 Title", type: "text" },
+            { key: "aboutObj4Desc", label: "Objective 4 Description", type: "textarea" }
+          ]
         }
       ]
     },
     {
-      id: "camps",
-      label: "👁️ Eye Camps (Camps 1–4)",
-      description: "Titles, venues, dates, doctor names & descriptions for all 4 camps",
+      id: "donate",
+      label: "💳 Donate & Bank Details",
+      description: "Support page header and verified bank account, IFSC & UPI details",
       groups: [
         {
-          title: "🚩 Eye Camps Page Header",
-          desc: "Banner on /eye-camps",
+          title: "💖 Support Our Work Banner",
+          desc: "Header of /donate",
           fields: [
-            { key: "campsPageBadge", label: "Header Badge", type: "text" },
-            { key: "campsPageTitle", label: "Header Title", type: "text" },
-            { key: "campsPageSubtitle", label: "Header Description", type: "textarea" }
+            { key: "donateBadge", label: "Page Badge", type: "text" },
+            { key: "donateTitle", label: "Page Title", type: "text" },
+            { key: "donateTagline", label: "Page Tagline", type: "text" },
+            { key: "donateDesc", label: "Page Description", type: "textarea" }
           ]
         },
         {
-          title: "📍 Camp 1 — Bhati Mines, New Delhi",
-          desc: "Details of Camp 1 (29 Aug 2025)",
+          title: "🏦 Official Bank Account & UPI",
+          desc: "Official bank credentials displayed for direct contributions",
           fields: [
-            { key: "camp1Title", label: "Camp 1 Title", type: "text" },
-            { key: "camp1DateLoc", label: "Date & Location", type: "text" },
-            { key: "camp1Desc", label: "Objective & Description", type: "textarea" },
-            { key: "camp1Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
-          ]
-        },
-        {
-          title: "📍 Camp 2 — Kusumpur Pahari, New Delhi",
-          desc: "Details of Camp 2 (14 Sep 2025)",
-          fields: [
-            { key: "camp2Title", label: "Camp 2 Title", type: "text" },
-            { key: "camp2DateLoc", label: "Date & Location", type: "text" },
-            { key: "camp2Desc", label: "Objective & Description", type: "textarea" },
-            { key: "camp2Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
-          ]
-        },
-        {
-          title: "📍 Camp 3 — Mewla Maharajpur, Faridabad",
-          desc: "Details of Camp 3 (12 Oct 2025)",
-          fields: [
-            { key: "camp3Title", label: "Camp 3 Title", type: "text" },
-            { key: "camp3DateLoc", label: "Date & Location", type: "text" },
-            { key: "camp3Desc", label: "Objective & Description", type: "textarea" },
-            { key: "camp3Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
-          ]
-        },
-        {
-          title: "📍 Camp 4 — Follow-up & Comprehensive Camp",
-          desc: "Details of Camp 4",
-          fields: [
-            { key: "camp4Title", label: "Camp 4 Title", type: "text" },
-            { key: "camp4DateLoc", label: "Date & Location", type: "text" },
-            { key: "camp4Desc", label: "Objective & Description", type: "textarea" },
-            { key: "camp4Doctor", label: "Medical Team / Senior Surgeon", type: "text" }
+            { key: "bankAccountName", label: "Account Holder Name", type: "text" },
+            { key: "bankName", label: "Bank Name", type: "text" },
+            { key: "bankAccountNumber", label: "Account Number", type: "text" },
+            { key: "bankIfsc", label: "IFSC Code", type: "text" },
+            { key: "bankUpi", label: "UPI ID / VPA", type: "text" }
           ]
         }
       ]
@@ -257,20 +352,26 @@ export default function AdminTextEditor({
             { key: "impactPageBadge", label: "Header Badge", type: "text" },
             { key: "impactPageTitle", label: "Header Title", type: "text" },
             { key: "impactPageTagline", label: "Header Tagline", type: "text" },
-            { key: "impactPageDesc", label: "Header Description", type: "textarea" }
+            { key: "impactPageDesc", label: "Header Description", type: "textarea" },
+            { key: "impactAccountabilityTitle", label: "Accountability Title", type: "text" },
+            { key: "impactAccountabilityDesc", label: "Accountability Description", type: "textarea" }
           ]
         }
       ]
     },
     {
       id: "contact",
-      label: "📞 Contact, Bank & Footer",
-      description: "Official contact details, bank accounts, and footer text",
+      label: "📞 Contact & Footer",
+      description: "Official contact details, office address, and footer text",
       groups: [
         {
           title: "🏢 Official Contact Info",
           desc: "Displayed on Contact page, Footer, and Header",
           fields: [
+            { key: "contactBadge", label: "Contact Page Badge", type: "text" },
+            { key: "contactTitle", label: "Contact Page Title", type: "text" },
+            { key: "contactTagline", label: "Contact Page Tagline", type: "text" },
+            { key: "contactDesc", label: "Contact Page Description", type: "textarea" },
             { key: "orgName", label: "Organisation Name", type: "text" },
             { key: "orgEmail", label: "Official Email Address", type: "text" },
             { key: "orgPhone", label: "Official Phone Number", type: "text" },
@@ -279,41 +380,11 @@ export default function AdminTextEditor({
           ]
         },
         {
-          title: "🏦 Bank & Donation Details",
-          desc: "Displayed on /donate for transparent contributions",
-          fields: [
-            { key: "bankAccountName", label: "Account Name", type: "text" },
-            { key: "bankName", label: "Bank Name", type: "text" },
-            { key: "bankAccountNumber", label: "Account Number", type: "text" },
-            { key: "bankIfsc", label: "IFSC Code", type: "text" },
-            { key: "bankUpi", label: "UPI ID / VPA", type: "text" }
-          ]
-        },
-        {
           title: "📑 Footer Bios & Copyright",
           desc: "Bottom footer content across all pages",
           fields: [
             { key: "footerBio", label: "Footer Summary Bio", type: "textarea" },
             { key: "footerCopyright", label: "Footer Copyright Line", type: "text" }
-          ]
-        }
-      ]
-    },
-    {
-      id: "team",
-      label: "👥 Team Page Text",
-      description: "Hero banner, headings, intro and Patron section text",
-      groups: [
-        {
-          title: "🌟 Team Page Header",
-          desc: "Header on /team",
-          fields: [
-            { key: "teamPageBadge", label: "Header Badge", type: "text" },
-            { key: "teamPageTitle", label: "Header Title", type: "text" },
-            { key: "teamPageTagline", label: "Header Subtitle / Tagline", type: "text" },
-            { key: "teamPageDesc", label: "Header Description", type: "textarea" },
-            { key: "teamPatronHeading", label: "Patron Section Title", type: "text" },
-            { key: "teamPatronSub", label: "Patron Section Subtitle", type: "text" }
           ]
         }
       ]

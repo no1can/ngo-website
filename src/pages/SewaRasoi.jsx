@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useContent } from "../utils/contentStore";
 
 export default function SewaRasoi() {
+  const content = useContent();
+
   const steps = [
     {
       step: "01",
@@ -53,16 +56,16 @@ export default function SewaRasoi() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-3 block">
-              Nutritional Relief & Dignity
+              {content.sewaBadge || "Nutritional Relief & Dignity"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              Sewa Rasoi
+              {content.sewaHeading || "Sewa Rasoi"}
             </h1>
             <p className="text-xl sm:text-2xl text-emerald-300 font-serif mb-6">
-              Food with Dignity. Service with Compassion.
+              {content.sewaTagline || "Food with Dignity. Service with Compassion."}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              No one should have to sleep on an empty stomach or endure hunger while tending to an ill family member. Sewa Rasoi is our community commitment to ensure wholesome food for all.
+              {content.sewaSubtext || "No one should have to sleep on an empty stomach or endure hunger while tending to an ill family member. Sewa Rasoi is our community commitment to ensure wholesome food for all."}
             </p>
           </div>
         </section>
@@ -76,15 +79,15 @@ export default function SewaRasoi() {
               The Guiding Philosophy
             </span>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2 mb-6">
-              More Than a Meal
+              {content.sewaPhilosophyTitle || "More Than a Meal"}
             </h2>
             <div className="w-16 h-1 bg-amber-600 mx-auto mb-8 rounded-full" />
             <div className="space-y-5 text-slate-700 text-lg leading-relaxed text-left">
               <p>
-                Sewa Rasoi represents service, dignity, human connection, and community participation. It is not just about distributing calories; it is about reassuring people that in their toughest moments, they are not alone.
+                {content.sewaPhilosophyP1 || "Sewa Rasoi represents service, dignity, human connection, and community participation. It is not just about distributing calories; it is about reassuring people that in their toughest moments, they are not alone."}
               </p>
               <p>
-                Many attendants who travel from far-off villages to city hospitals spend their last penny on medical treatments, skipping meals themselves. Sewa Rasoi reaches these quiet warriors with hot, wholesome nutrition served with unconditional respect.
+                {content.sewaPhilosophyP2 || "Many attendants who travel from far-off villages to city hospitals spend their last penny on medical treatments, skipping meals themselves. Sewa Rasoi reaches these quiet warriors with hot, wholesome nutrition served with unconditional respect."}
               </p>
             </div>
           </div>
@@ -98,7 +101,7 @@ export default function SewaRasoi() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
               <div>
                 <span className="text-3xl sm:text-5xl font-extrabold text-amber-400 font-mono block">
-                  XX+
+                  {content.sewaMealsCount || "2,500+"}
                 </span>
                 <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
                   Meals Served
@@ -107,7 +110,7 @@ export default function SewaRasoi() {
               </div>
               <div>
                 <span className="text-3xl sm:text-5xl font-extrabold text-white font-mono block">
-                  XX+
+                  {content.sewaVolunteersCount || "45+"}
                 </span>
                 <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
                   Volunteers Involved
@@ -116,7 +119,7 @@ export default function SewaRasoi() {
               </div>
               <div>
                 <span className="text-3xl sm:text-5xl font-extrabold text-amber-300 font-mono block">
-                  XX+
+                  {content.sewaDaysCount || "30+"}
                 </span>
                 <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
                   Days of Service
@@ -125,7 +128,7 @@ export default function SewaRasoi() {
               </div>
               <div>
                 <span className="text-3xl sm:text-5xl font-extrabold text-sky-400 font-mono block">
-                  XX+
+                  {content.sewaCommunitiesCount || "12+"}
                 </span>
                 <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
                   Communities Reached

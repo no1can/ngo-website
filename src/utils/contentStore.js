@@ -139,13 +139,22 @@ export const DEFAULT_CONTENT = {
   aboutObj4Desc: "Maintaining 100% verified records, photographs, and public accountability for every single initiative.",
 
   // ==========================================
-  // 4. EYE CAMPS PAGE
+  // 4. EYE CAMPS & UPCOMING CAMP
   // ==========================================
   campsPageBadge: "Flagship Healthcare Initiative",
   campsPageTitle: "Free Eye Screening Camps",
   campsPageSubtitle: "Our Vision: Perfect Vision for All — Professional ophthalmic care, computerized autorefraction, senior surgeon diagnosis, and free spectacles distribution directly to underserved communities.",
   campsProcessTitle: "How Our Eye Camps Work",
   campsProcessSubtitle: "A standardized, medically rigorous 4-step protocol ensuring dignity and clinical accuracy for every patient.",
+
+  upcomingCampTitle: "नि:शुल्क नेत्र जाँच शिविर",
+  upcomingCampTagline: "Shakurpur Colony, New Delhi • 11-Oct-2026",
+  upcomingCampDate: "11 अक्टूबर 2026 (रविवार / Sunday)",
+  upcomingCampTime: "सुबह 10:00 बजे से दोपहर 2:00 बजे तक",
+  upcomingCampLocation: "ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली, दिल्ली-110034",
+  upcomingCampSpecial: "नज़र के चश्में भी मुफ्त दिए जाएंगे",
+  upcomingCampSummary: "टेंडिशिया एसोसिएशन एवं सेवा भारती द्वारा आयोजित — निःशुल्क नेत्र जाँच, अनुभवी डॉक्टरों का परामर्श एवं नज़र के चश्में भी मुफ्त दिए जाएंगे।",
+  upcomingCampBanner: "/shakurpur-eye-camp-banner.jpg",
 
   camp1Title: "Bhati Mines, New Delhi",
   camp1DateLoc: "29 August 2025 • Abhyudaya, Sanjay Colony, Bhati Mines",
@@ -168,7 +177,22 @@ export const DEFAULT_CONTENT = {
   camp4Doctor: "Tandicia Medical Volunteer Team & Senior Optometrists",
 
   // ==========================================
-  // 5. NAI PEHAL PAGE
+  // 5. SEWA RASOI PAGE
+  // ==========================================
+  sewaBadge: "Nutritional Relief & Dignity",
+  sewaHeading: "Sewa Rasoi",
+  sewaTagline: "Food with Dignity. Service with Compassion.",
+  sewaSubtext: "No one should have to sleep on an empty stomach or endure hunger while tending to an ill family member. Sewa Rasoi is our community commitment to ensure wholesome food for all.",
+  sewaPhilosophyTitle: "More Than a Meal",
+  sewaPhilosophyP1: "Sewa Rasoi represents service, dignity, human connection, and community participation. It is not just about distributing calories; it is about reassuring people that in their toughest moments, they are not alone.",
+  sewaPhilosophyP2: "Many attendants who travel from far-off villages to city hospitals spend their last penny on medical treatments, skipping meals themselves. Sewa Rasoi reaches these quiet warriors with hot, wholesome nutrition served with unconditional respect.",
+  sewaMealsCount: "2,500+",
+  sewaVolunteersCount: "45+",
+  sewaDaysCount: "30+",
+  sewaCommunitiesCount: "12+",
+
+  // ==========================================
+  // 6. NAI PEHAL PAGE
   // ==========================================
   naiBadge: "Community Initiatives",
   naiTitle: "Nai Pehal",

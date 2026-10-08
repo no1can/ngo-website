@@ -12,7 +12,6 @@ export default function AdminTeamManager({ showToast }) {
   const members = useTeamMembers();
 
   // Filter state
-  const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
   // Modal State (for both Add & Edit)
@@ -21,9 +20,7 @@ export default function AdminTeamManager({ showToast }) {
 
   // Form Fields
   const [formName, setFormName] = useState("");
-  const [formVolunteerId, setFormVolunteerId] = useState("");
-  const [formCategory, setFormCategory] = useState("Volunteer");
-  const [formRole, setFormRole] = useState("");
+  const [formRole, setFormRole] = useState("Volunteer");
   const [formBio, setFormBio] = useState("");
   const [formImage, setFormImage] = useState("");
   const [imageUploadType, setImageUploadType] = useState("url"); // "url" or "file"
@@ -32,23 +29,19 @@ export default function AdminTeamManager({ showToast }) {
   // Filtered members list
   const filteredMembers = useMemo(() => {
     return members.filter(member => {
-      const matchesCat = selectedCategory === "All" || member.category === selectedCategory;
       const q = searchQuery.toLowerCase();
       const matchesSearch =
         member.name.toLowerCase().includes(q) ||
-        (member.volunteerId && member.volunteerId.toLowerCase().includes(q)) ||
         (member.role && member.role.toLowerCase().includes(q));
-      return matchesCat && matchesSearch;
+      return matchesSearch;
     });
-  }, [members, selectedCategory, searchQuery]);
+  }, [members, searchQuery]);
 
   // Open modal for Adding
   const handleOpenAddModal = () => {
     setEditingMember(null);
     setFormName("");
-    setFormVolunteerId(String(members.length + 1).padStart(3, "0"));
-    setFormCategory("Volunteer");
-    setFormRole("");
+    setFormRole("Volunteer");
     setFormBio("");
     setFormImage("/camps/camp_team_selfie.jpg");
     setPreviewSrc("/camps/camp_team_selfie.jpg");
@@ -59,9 +52,7 @@ export default function AdminTeamManager({ showToast }) {
   const handleOpenEditModal = (member) => {
     setEditingMember(member);
     setFormName(member.name || "");
-    setFormVolunteerId(member.volunteerId || "");
-    setFormCategory(member.category || "Volunteer");
-    setFormRole(member.role || "");
+    setFormRole(member.role || "Volunteer");
     setFormBio(member.bio || "");
     setFormImage(member.image || "");
     setPreviewSrc(member.image || "");
@@ -100,9 +91,8 @@ export default function AdminTeamManager({ showToast }) {
       // Update
       updateTeamMember(editingMember.id, {
         name: formName.trim(),
-        volunteerId: formVolunteerId.trim(),
-        category: formCategory,
-        role: formRole.trim(),
+        category: "Volunteer",
+        role: formRole.trim() || "Volunteer",
         bio: formBio.trim(),
         image: finalImage
       });
@@ -111,9 +101,8 @@ export default function AdminTeamManager({ showToast }) {
       // Add
       addTeamMember({
         name: formName.trim(),
-        volunteerId: formVolunteerId.trim(),
-        category: formCategory,
-        role: formRole.trim() || "Community Volunteer",
+        category: "Volunteer",
+        role: formRole.trim() || "Volunteer",
         bio: formBio.trim() || "Dedicated community volunteer.",
         image: finalImage
       });
@@ -125,7 +114,7 @@ export default function AdminTeamManager({ showToast }) {
 
   // Delete Member
   const handleDelete = (member) => {
-    if (window.confirm(`Are you sure you want to remove "${member.name}" (ID: ${member.volunteerId}) from the team?`)) {
+    if (window.confirm(`Are you sure you want to remove "${member.name}" from the team?`)) {
       deleteTeamMember(member.id);
       showToast(`Removed "${member.name}" from team list.`, "info");
     }
@@ -358,8 +347,9 @@ export default function AdminTeamManager({ showToast }) {
               </div>
 
               {/* Name & ID */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                <div className="sm:col-span-2">
+              {/* Name & Role */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
                     Full Name *
                   </label>
@@ -368,41 +358,9 @@ export default function AdminTeamManager({ showToast }) {
                     required
                     value={formName}
                     onChange={(e) => setFormName(e.target.value)}
-                    placeholder="e.g. Dr. Prabhat Manocha"
+                    placeholder="e.g. Rahul Sharma"
                     className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm font-semibold"
                   />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Volunteer ID
-                  </label>
-                  <input
-                    type="text"
-                    value={formVolunteerId}
-                    onChange={(e) => setFormVolunteerId(e.target.value)}
-                    placeholder="040"
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm font-mono"
-                  />
-                </div>
-              </div>
-
-              {/* Category & Role */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Category
-                  </label>
-                  <select
-                    value={formCategory}
-                    onChange={(e) => setFormCategory(e.target.value)}
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs bg-white font-medium"
-                  >
-                    <option value="Volunteer">Volunteer</option>
-                    <option value="Core">Core Field Leader</option>
-                    <option value="Medical">Medical / Doctor</option>
-                    <option value="Patron">Patron / Guide</option>
-                  </select>
                 </div>
 
                 <div>
@@ -413,8 +371,8 @@ export default function AdminTeamManager({ showToast }) {
                     type="text"
                     value={formRole}
                     onChange={(e) => setFormRole(e.target.value)}
-                    placeholder="e.g. Senior Eye Specialist"
-                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-xs font-medium"
+                    placeholder="e.g. Volunteer (or Eye Surgeon, Coordinator)"
+                    className="w-full px-3.5 py-2 rounded-xl border border-slate-200 text-sm font-medium"
                   />
                 </div>
               </div>
