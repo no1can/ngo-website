@@ -273,8 +273,6 @@ export default function About() {
               <div className="relative pl-8 md:pl-12 group">
                 <div className="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-emerald-700 border-4 border-white shadow-md group-hover:scale-125 transition-transform" />
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-100 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-2">
-                  <span>Phase 1</span>
-                  <span>•</span>
                   <span>Inception</span>
                 </div>
                 <h3 className="text-2xl font-extrabold text-slate-900 mt-1">
@@ -292,8 +290,6 @@ export default function About() {
               <div className="relative pl-8 md:pl-12 group">
                 <div className="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-sky-700 border-4 border-white shadow-md group-hover:scale-125 transition-transform" />
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-sky-100 text-sky-900 text-xs font-bold uppercase tracking-wider mb-2">
-                  <span>Phase 2</span>
-                  <span>•</span>
                   <span>Clinical Outreach</span>
                 </div>
                 <h3 className="text-2xl font-extrabold text-slate-900 mt-1">
@@ -311,8 +307,6 @@ export default function About() {
               <div className="relative pl-8 md:pl-12 group">
                 <div className="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-amber-600 border-4 border-white shadow-md group-hover:scale-125 transition-transform" />
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-100 text-amber-900 text-xs font-bold uppercase tracking-wider mb-2">
-                  <span>Phase 3</span>
-                  <span>•</span>
                   <span>Community Expansion</span>
                 </div>
                 <h3 className="text-2xl font-extrabold text-slate-900 mt-1">
@@ -330,8 +324,6 @@ export default function About() {
               <div className="relative pl-8 md:pl-12 group">
                 <div className="absolute -left-[11px] top-1.5 w-5 h-5 rounded-full bg-indigo-700 border-4 border-white shadow-md group-hover:scale-125 transition-transform" />
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-indigo-100 text-indigo-900 text-xs font-bold uppercase tracking-wider mb-2">
-                  <span>Phase 4</span>
-                  <span>•</span>
                   <span>Broadening Horizons</span>
                 </div>
                 <h3 className="text-2xl font-extrabold text-slate-900 mt-1">
