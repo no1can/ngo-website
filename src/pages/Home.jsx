@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { useTeamMembers } from "../utils/teamStore";
 import { useContent } from "../utils/contentStore";
 
 const HOME_HERO_IMAGES = [
@@ -81,7 +80,6 @@ const EYE_CAMP_FEATURE_SLIDES = [
 
 export default function Home() {
   const content = useContent();
-  const teamMembers = useTeamMembers();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [campPhotoSlide, setCampPhotoSlide] = useState(0);
   const [selectedPoster, setSelectedPoster] = useState(null);
@@ -749,45 +747,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ========================================================
-            SECTION 9 — TEAM
-            ======================================================== */}
-        <section className="py-20 bg-stone-50 border-t border-slate-200">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-              <div className="lg:col-span-7 rounded-2xl overflow-hidden shadow-md">
-                <img
-                  src="/camps/camp1/1st Camp/E1-1.jpeg"
-                  alt="Tandicia Team and Volunteers"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              <div className="lg:col-span-5 space-y-5">
-                <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
-                  Our Community
-                </span>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900">
-                  The People Behind Tandicia
-                </h2>
-                <p className="text-slate-600 text-base leading-relaxed italic">
-                  "Tandicia is powered by people who believe that meaningful change begins when we come together."
-                </p>
-                <p className="text-slate-600 text-sm leading-relaxed">
-                  From experienced medical doctors and field coordinators to devoted citizens giving their time, our collective strength lies in pure service and empathy.
-                </p>
-                <div className="pt-2">
-                  <Link
-                    to="/team"
-                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-all"
-                  >
-                    <span>Meet All {teamMembers.length} Volunteers</span>
-                    <span>→</span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+
 
         {/* POSTER LIGHTBOX MODAL */}
         {selectedPoster && (
