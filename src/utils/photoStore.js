@@ -4,6 +4,7 @@
  * Supports:
  * - Default verified historical photos (camp banners, doctor exam, etc.)
  * - Instant in-browser upload & local persistence (visible immediately upon refresh)
+ * - Replace/override any existing photo from Admin dashboard
  * - Cloud database sync (Supabase / REST backend if configured)
  */
 
@@ -35,6 +36,7 @@ export const DEFAULT_PHOTOS = [
 ];
 
 const STORAGE_KEY = "tandicia_custom_photos_v1";
+const OVERRIDES_KEY = "tandicia_photo_overrides_v1";
 
 // Helper to get uploaded custom photos from localStorage
 export function getCustomPhotos() {
@@ -48,10 +50,63 @@ export function getCustomPhotos() {
   }
 }
 
-// Get all photos (custom uploads appear first, followed by default photos)
+// Get photo overrides (replacements for default photos)
+export function getPhotoOverrides() {
+  try {
+    const raw = localStorage.getItem(OVERRIDES_KEY);
+    if (!raw) return {};
+    return JSON.parse(raw);
+  } catch (err) {
+    console.warn("Error reading photo overrides:", err);
+    return {};
+  }
+}
+
+// Get all photos (custom uploads first, then defaults with overrides applied)
 export function getAllPhotos() {
   const custom = getCustomPhotos();
-  return [...custom, ...DEFAULT_PHOTOS];
+  const overrides = getPhotoOverrides();
+  
+  // Apply overrides to default photos
+  const mergedDefaults = DEFAULT_PHOTOS.map(photo => {
+    if (overrides[photo.id]) {
+      return { ...photo, ...overrides[photo.id], isDefault: true, isOverridden: true, originalSrc: photo.src };
+    }
+    return photo;
+  });
+  
+  return [...custom, ...mergedDefaults];
+}
+
+// Replace/override an existing default photo
+export function replacePhoto(photoId, updates) {
+  const overrides = getPhotoOverrides();
+  overrides[photoId] = {
+    ...overrides[photoId],
+    ...updates,
+    replacedAt: new Date().toISOString()
+  };
+  try {
+    localStorage.setItem(OVERRIDES_KEY, JSON.stringify(overrides));
+    window.dispatchEvent(new Event("tandicia_photos_updated"));
+  } catch (err) {
+    console.error("Override save failed:", err);
+    throw err;
+  }
+}
+
+// Reset a single photo override back to original
+export function resetPhotoOverride(photoId) {
+  const overrides = getPhotoOverrides();
+  delete overrides[photoId];
+  localStorage.setItem(OVERRIDES_KEY, JSON.stringify(overrides));
+  window.dispatchEvent(new Event("tandicia_photos_updated"));
+}
+
+// Reset all photo overrides
+export function resetAllOverrides() {
+  localStorage.removeItem(OVERRIDES_KEY);
+  window.dispatchEvent(new Event("tandicia_photos_updated"));
 }
 
 // Add a newly uploaded photo

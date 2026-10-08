@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { getAllPhotos, getCustomPhotos, addPhoto, deletePhoto, clearAllCustomPhotos, DEFAULT_PHOTOS } from "../utils/photoStore";
+import { getAllPhotos, getCustomPhotos, addPhoto, deletePhoto, clearAllCustomPhotos, DEFAULT_PHOTOS, replacePhoto, resetPhotoOverride, resetAllOverrides, getPhotoOverrides } from "../utils/photoStore";
 
 export default function Admin() {
   // Authentication State
@@ -16,8 +16,12 @@ export default function Admin() {
   const [photos, setPhotos] = useState(getAllPhotos());
   const [customPhotos, setCustomPhotos] = useState(getCustomPhotos());
 
+  const [editingPhoto, setEditingPhoto] = useState(null); // photo being replaced
+  const [replacePreview, setReplacePreview] = useState(null);
+  const [replaceFile, setReplaceFile] = useState(null);
+
   // Form State
-  const [activeTab, setActiveTab] = useState("upload"); // upload, manage, cloud
+  const [activeTab, setActiveTab] = useState("all"); // all, upload, manage, cloud
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Eye Camps");
   const [location, setLocation] = useState("");
@@ -137,6 +141,35 @@ export default function Admin() {
     if (window.confirm(`Are you sure you want to remove "${photoTitle}" from the website?`)) {
       deletePhoto(id);
       showToast("Photo deleted successfully.", "info");
+    }
+  };
+
+  const handleReplaceFile = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image must be under 5MB.");
+      return;
+    }
+    setReplaceFile(file);
+    const reader = new FileReader();
+    reader.onloadend = () => setReplacePreview(reader.result);
+    reader.readAsDataURL(file);
+  };
+
+  const handleReplaceSubmit = () => {
+    if (!editingPhoto || !replacePreview) return;
+    replacePhoto(editingPhoto.id, { src: replacePreview });
+    showToast(`✅ "${editingPhoto.title}" photo replaced successfully!`);
+    setEditingPhoto(null);
+    setReplacePreview(null);
+    setReplaceFile(null);
+  };
+
+  const handleResetPhoto = (photo) => {
+    if (window.confirm(`Reset "${photo.title}" back to original photo?`)) {
+      resetPhotoOverride(photo.id);
+      showToast(`Photo reset to original.`, "info");
     }
   };
 
@@ -265,24 +298,35 @@ export default function Admin() {
             <span className="text-2xl sm:text-3xl font-extrabold text-emerald-700 block font-mono">
               {customPhotos.length}
             </span>
-            <span className="text-xs font-medium text-slate-500">Admin Uploaded Photos</span>
+            <span className="text-xs font-medium text-slate-500">Admin Uploaded</span>
           </div>
           <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
-            <span className="text-2xl sm:text-3xl font-extrabold text-sky-800 block font-mono">
-              {DEFAULT_PHOTOS.length}
+            <span className="text-2xl sm:text-3xl font-extrabold text-amber-700 block font-mono">
+              {Object.keys(getPhotoOverrides()).length}
             </span>
-            <span className="text-xs font-medium text-slate-500">Verified Base Photos</span>
+            <span className="text-xs font-medium text-slate-500">Photos Replaced</span>
           </div>
           <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
             <span className="text-2xl sm:text-3xl font-extrabold text-amber-700 block font-mono">
               Real-time
             </span>
-            <span className="text-xs font-medium text-slate-500">Sync Status: Active</span>
+            <span className="text-xs font-medium text-slate-500">Sync Status</span>
           </div>
         </div>
 
         {/* Navigation Tabs */}
         <div className="flex border-b border-slate-200 mb-8 space-x-2">
+          <button
+            onClick={() => setActiveTab("all")}
+            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
+              activeTab === "all"
+                ? "border-emerald-700 text-emerald-800"
+                : "border-transparent text-slate-500 hover:text-slate-900"
+            }`}
+          >
+            <span>📷 All Website Photos</span>
+          </button>
+
           <button
             onClick={() => setActiveTab("upload")}
             className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
@@ -316,6 +360,155 @@ export default function Admin() {
             <span>☁️ Cloud Sync & Storage</span>
           </button>
         </div>
+
+        {/* ========================================================
+            TAB 0: ALL WEBSITE PHOTOS
+            ======================================================== */}
+        {activeTab === "all" && (
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+              <div>
+                <h2 className="text-xl font-bold text-slate-900">
+                  All Website Photos ({photos.length})
+                </h2>
+                <p className="text-xs text-slate-500">
+                  Every photo currently visible on the website. Click "Replace" on any photo to change it.
+                </p>
+              </div>
+              {Object.keys(getPhotoOverrides()).length > 0 && (
+                <button
+                  onClick={() => {
+                    if (window.confirm("Reset ALL replaced photos back to originals?")) {
+                      resetAllOverrides();
+                      showToast("All photos reset to originals.", "info");
+                    }
+                  }}
+                  className="px-4 py-2 rounded-xl text-xs font-semibold text-amber-700 bg-amber-50 hover:bg-amber-100 transition-colors cursor-pointer self-start"
+                >
+                  Reset All to Original
+                </button>
+              )}
+            </div>
+
+            {/* Replace Photo Modal */}
+            {editingPhoto && (
+              <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => { setEditingPhoto(null); setReplacePreview(null); setReplaceFile(null); }}>
+                <div className="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl" onClick={e => e.stopPropagation()}>
+                  <h3 className="text-lg font-bold text-slate-900 mb-1">Replace Photo</h3>
+                  <p className="text-xs text-slate-500 mb-4">Replacing: <strong>{editingPhoto.title}</strong></p>
+                  
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div>
+                      <p className="text-[10px] font-semibold text-slate-400 uppercase mb-1">Current</p>
+                      <div className="h-36 rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
+                        <img src={editingPhoto.src} alt="Current" className="w-full h-full object-cover" />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-semibold text-emerald-600 uppercase mb-1">New Photo</p>
+                      <div className="h-36 rounded-xl overflow-hidden bg-slate-100 border-2 border-dashed border-emerald-300 flex items-center justify-center">
+                        {replacePreview ? (
+                          <img src={replacePreview} alt="New" className="w-full h-full object-cover" />
+                        ) : (
+                          <span className="text-xs text-slate-400">Select below ↓</span>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <label className="block w-full cursor-pointer">
+                    <div className="w-full py-3 rounded-xl border-2 border-dashed border-slate-300 hover:border-emerald-400 text-center transition-colors">
+                      <span className="text-sm font-semibold text-slate-600">📁 Choose New Photo</span>
+                      <p className="text-[10px] text-slate-400 mt-0.5">PNG, JPG, JPEG, WEBP up to 5MB</p>
+                    </div>
+                    <input type="file" accept="image/*" className="hidden" onChange={handleReplaceFile} />
+                  </label>
+
+                  <div className="flex gap-3 mt-5">
+                    <button
+                      onClick={handleReplaceSubmit}
+                      disabled={!replacePreview}
+                      className="flex-1 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 disabled:bg-slate-200 disabled:text-slate-400 text-white font-semibold text-sm transition-all cursor-pointer disabled:cursor-not-allowed"
+                    >
+                      ✓ Replace Photo
+                    </button>
+                    <button
+                      onClick={() => { setEditingPhoto(null); setReplacePreview(null); setReplaceFile(null); }}
+                      className="px-5 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-sm transition-colors cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Photos Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {photos.map((photo) => (
+                <div
+                  key={photo.id}
+                  className={`border rounded-2xl overflow-hidden bg-stone-50 flex flex-col justify-between transition-all hover:shadow-md ${
+                    photo.isOverridden ? "border-amber-300 ring-1 ring-amber-200" : "border-slate-200"
+                  }`}
+                >
+                  <div>
+                    <div className="relative h-44 bg-slate-200">
+                      <img
+                        src={photo.src}
+                        alt={photo.title}
+                        className="w-full h-full object-cover"
+                        onError={(e) => { e.target.src = '/image.png'; }}
+                      />
+                      <span className="absolute top-2.5 left-2.5 bg-slate-900/80 text-white text-[10px] font-semibold px-2.5 py-1 rounded-full">
+                        {photo.category}
+                      </span>
+                      {photo.isOverridden && (
+                        <span className="absolute top-2.5 right-2.5 bg-amber-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                          Replaced
+                        </span>
+                      )}
+                      {photo.isCustom && (
+                        <span className="absolute top-2.5 right-2.5 bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">
+                          Uploaded
+                        </span>
+                      )}
+                    </div>
+                    <div className="p-3.5">
+                      <h3 className="text-sm font-bold text-slate-800 line-clamp-1">{photo.title}</h3>
+                      <p className="text-[11px] text-slate-500 mt-0.5 line-clamp-2">{photo.desc}</p>
+                      <p className="text-[10px] text-slate-400 mt-1">📍 {photo.location} • 📅 {photo.date}</p>
+                    </div>
+                  </div>
+                  <div className="px-3.5 pb-3.5 flex gap-2">
+                    <button
+                      onClick={() => { setEditingPhoto(photo); setReplacePreview(null); setReplaceFile(null); }}
+                      className="flex-1 py-2 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-800 text-xs font-bold transition-colors cursor-pointer"
+                    >
+                      🔄 Replace
+                    </button>
+                    {photo.isOverridden && (
+                      <button
+                        onClick={() => handleResetPhoto(photo)}
+                        className="py-2 px-3 rounded-lg bg-amber-50 hover:bg-amber-100 text-amber-700 text-xs font-bold transition-colors cursor-pointer"
+                      >
+                        ↩ Reset
+                      </button>
+                    )}
+                    {photo.isCustom && (
+                      <button
+                        onClick={() => handleDelete(photo.id, photo.title)}
+                        className="py-2 px-3 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 text-xs font-bold transition-colors cursor-pointer"
+                      >
+                        ✕ Delete
+                      </button>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* ========================================================
             TAB 1: UPLOAD PHOTO
@@ -637,39 +830,7 @@ export default function Admin() {
               </div>
             )}
 
-            {/* Default Base Photos Gallery */}
-            <div className="mt-10 pt-8 border-t border-slate-200">
-              <h2 className="text-xl font-bold text-slate-900 mb-1">
-                Default Camp Photos ({DEFAULT_PHOTOS.length})
-              </h2>
-              <p className="text-xs text-slate-500 mb-6">
-                These are the verified base photos from all eye camps. They are always visible across the website.
-              </p>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {DEFAULT_PHOTOS.map((photo) => (
-                  <div
-                    key={photo.id}
-                    className="border border-slate-200 rounded-xl overflow-hidden bg-stone-50"
-                  >
-                    <div className="relative h-32 bg-slate-200">
-                      <img
-                        src={photo.src}
-                        alt={photo.title}
-                        className="w-full h-full object-cover"
-                        onError={(e) => { e.target.src = '/image.png'; }}
-                      />
-                      <span className="absolute top-2 left-2 bg-sky-800/80 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full">
-                        {photo.category}
-                      </span>
-                    </div>
-                    <div className="p-2.5">
-                      <h4 className="text-xs font-bold text-slate-800 line-clamp-1">{photo.title}</h4>
-                      <p className="text-[10px] text-slate-500 mt-0.5">{photo.location} • {photo.date}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
+
           </div>
         )}
 
