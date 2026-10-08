@@ -54,9 +54,11 @@ export const DEFAULT_PHOTOS = [
   { id: "def-sn-4", title: "Free Spectacles Fitting Session", category: "Eye Camps", src: "/camps/shradnand_marg/shradnand_4.jpg", desc: "Volunteers assisting beneficiaries with prescription eyeglasses.", date: "9 Nov 2025", location: "Shraddhanand Marg, Delhi", isDefault: true },
   { id: "def-sn-5", title: "Elders Diagnostic Consultation", category: "Eye Camps", src: "/camps/shradnand_marg/shradnand_5.jpg", desc: "Personalized eye healthcare guidance for local community elders.", date: "9 Nov 2025", location: "Shraddhanand Marg, Delhi", isDefault: true },
   { id: "def-sn-6", title: "Tandicia Volunteer Team in Action", category: "Events", src: "/camps/shradnand_marg/shradnand_7.jpg", desc: "Field volunteers ensuring smooth operations and compassionate care.", date: "9 Nov 2025", location: "Shraddhanand Marg, Delhi", isDefault: true },
-  // Keep existing non-camp defaults
-  { id: "def-16", title: "Sewa Rasoi Volunteer Kitchen", category: "Sewa Rasoi", src: "/image.png", desc: "Fresh meals cooked daily with devotion and cleanliness.", date: "Ongoing", location: "Community Kitchen", isDefault: true },
-  { id: "def-17", title: "Community Meal Distribution", category: "Sewa Rasoi", src: "/image copy.png", desc: "Serving warm food to hospital attendants and daily wagers.", date: "Weekly", location: "Public Hospital Gates", isDefault: true },
+  // Sewa Rasoi Authentic Moments (From Google Drive)
+  { id: "def-sr-1", title: "Sewa Rasoi Wholesome Cooking", category: "Sewa Rasoi", src: "/sewa_rasoi/sewa_rasoi_1.jpg", desc: "Volunteers cooking fresh, pure food with devotion and cleanliness.", date: "Ongoing", location: "Community Kitchen", isDefault: true },
+  { id: "def-sr-2", title: "Warm Food Distribution at Hospital Gates", category: "Sewa Rasoi", src: "/sewa_rasoi/sewa_rasoi_4.jpg", desc: "Handing hot meal plates to hospital attendants and daily wagers.", date: "Weekly", location: "Hospital Gates & Public Hubs", isDefault: true },
+  { id: "def-sr-3", title: "Grassroots Meal Service & Dignity", category: "Sewa Rasoi", src: "/sewa_rasoi/sewa_rasoi_5.jpg", desc: "Honoring every person as a guest with unconditional respect.", date: "Weekly", location: "Field Food Outreaches", isDefault: true },
+  { id: "def-sr-4", title: "Pure Nutritional Care for Needy Families", category: "Sewa Rasoi", src: "/sewa_rasoi/sewa_rasoi_2.jpg", desc: "Hygienic community kitchen operations powered by volunteers.", date: "Ongoing", location: "Sewa Rasoi Center", isDefault: true },
   { id: "def-18", title: "Elders Gathering Under Nai Pehal", category: "Nai Pehal", src: "/story5.png", desc: "Listening, sharing, and creating mutual belonging.", date: "2025", location: "Community Center", isDefault: true },
 ];
 
