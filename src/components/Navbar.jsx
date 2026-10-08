@@ -57,6 +57,17 @@ export default function Navbar() {
             </Link>
 
             <Link
+              to="/sewa-rasoi"
+              className={`px-3.5 py-2 rounded-xl transition-colors ${
+                isActive("/sewa-rasoi")
+                  ? "text-amber-900 font-bold bg-amber-50"
+                  : "hover:text-amber-900 hover:bg-slate-50"
+              }`}
+            >
+              Sewa Rasoi
+            </Link>
+
+            <Link
               to="/team"
               className={`px-3.5 py-2 rounded-xl transition-colors ${
                 isActive("/team")
@@ -134,6 +145,13 @@ export default function Navbar() {
             className="block py-2.5 text-base font-semibold text-slate-800 hover:text-emerald-800"
           >
             Eye Camps
+          </Link>
+
+          <Link
+            to="/sewa-rasoi"
+            className="block py-2.5 text-base font-semibold text-slate-800 hover:text-amber-800"
+          >
+            Sewa Rasoi
           </Link>
 
           <Link
