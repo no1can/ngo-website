@@ -46,16 +46,57 @@ const AWARENESS_POSTERS = [
   },
 ];
 
+const EYE_CAMP_FEATURE_SLIDES = [
+  {
+    image: "/camps/camp1/1st Camp/E1-4.jpeg",
+    alt: "Doctor screening an elderly beneficiary at Tandicia Eye Camp",
+    caption: "On-site diagnostic screening by qualified eye specialists",
+  },
+  {
+    image: "/camps/camp2/2nd Camp/E2-3.jpeg",
+    alt: "Computerized autorefractor examination at Kusumpur Pahari",
+    caption: "Computerized autorefractor examination & vision diagnostics",
+  },
+  {
+    image: "/camps/camp3/3rd camp/E3-10.jpeg",
+    alt: "Doctor performing eye checkup at Tandicia camp",
+    caption: "Diagnostic eye checkups and customized prescription testing",
+  },
+  {
+    image: "/camps/budh_vihar/budh_vihar_1.jpg",
+    alt: "Doctor consultation and spectacles distribution at Budh Vihar",
+    caption: "Free custom prescription spectacles fitting & distribution",
+  },
+  {
+    image: "/camps/gao_thora/gao_thora_1.jpg",
+    alt: "Direct grassroots healthcare outreach at Gao Thora",
+    caption: "Direct healthcare outreach serving grassroots communities",
+  },
+  {
+    image: "/camps/shradnand_marg/shradnand_3.jpg",
+    alt: "Compassionate specialist medical care at Shradhanand Marg",
+    caption: "Compassionate specialist medical care and cataract referrals",
+  },
+];
+
 export default function Home() {
   const content = useContent();
   const teamMembers = useTeamMembers();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [campPhotoSlide, setCampPhotoSlide] = useState(0);
   const [selectedPoster, setSelectedPoster] = useState(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % HOME_HERO_IMAGES.length);
     }, 4500);
+    return () => clearInterval(timer);
+  }, []);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCampPhotoSlide((prev) => (prev + 1) % EYE_CAMP_FEATURE_SLIDES.length);
+    }, 3800);
     return () => clearInterval(timer);
   }, []);
 
@@ -279,19 +320,60 @@ export default function Home() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
               
-              {/* Large photograph on left */}
+              {/* Rotating photograph on left */}
               <div className="lg:col-span-6">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 aspect-4/3">
-                  <img
-                    src="/camps/camp1/1st Camp/E1-4.jpeg"
-                    alt="Doctor screening an elderly beneficiary at Tandicia Eye Camp"
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent flex items-end p-6">
-                    <p className="text-white text-sm font-medium">
-                      On-site diagnostic screening by qualified eye specialists
-                    </p>
+                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 aspect-4/3 group bg-slate-900">
+                  {EYE_CAMP_FEATURE_SLIDES.map((slide, idx) => (
+                    <div
+                      key={idx}
+                      className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                        idx === campPhotoSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
+                      }`}
+                    >
+                      <img
+                        src={slide.image}
+                        alt={slide.alt}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-6">
+                        <p className="text-white text-sm font-medium drop-shadow-sm pr-20">
+                          {slide.caption}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+
+                  {/* Slide Indicators / Dots */}
+                  <div className="absolute bottom-4 right-5 z-20 flex gap-1.5 bg-black/40 backdrop-blur-xs px-2.5 py-1.5 rounded-full">
+                    {EYE_CAMP_FEATURE_SLIDES.map((_, idx) => (
+                      <button
+                        key={idx}
+                        onClick={() => setCampPhotoSlide(idx)}
+                        aria-label={`Go to slide ${idx + 1}`}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${
+                          idx === campPhotoSlide
+                            ? "w-5 bg-white"
+                            : "w-1.5 bg-white/50 hover:bg-white/80"
+                        }`}
+                      />
+                    ))}
                   </div>
+
+                  {/* Left / Right mini navigation buttons */}
+                  <button
+                    onClick={() => setCampPhotoSlide((prev) => (prev - 1 + EYE_CAMP_FEATURE_SLIDES.length) % EYE_CAMP_FEATURE_SLIDES.length)}
+                    aria-label="Previous slide"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={() => setCampPhotoSlide((prev) => (prev + 1) % EYE_CAMP_FEATURE_SLIDES.length)}
+                    aria-label="Next slide"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    ›
+                  </button>
                 </div>
               </div>
 
