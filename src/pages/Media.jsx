@@ -364,7 +364,7 @@ export default function Media() {
                 LinkedIn
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/tandicia_eye/"
                 target="_blank"
                 rel="noreferrer"
                 className="px-5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200"

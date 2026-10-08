@@ -62,6 +62,14 @@ export default function Footer() {
             >
               LinkedIn
             </a>
+            <a
+              href="https://www.instagram.com/tandicia_eye/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-rose-400 transition-colors"
+            >
+              Instagram
+            </a>
             <Link to="/contact" className="hover:text-slate-300 transition-colors">
               Contact
             </Link>
