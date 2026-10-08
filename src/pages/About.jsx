@@ -82,27 +82,9 @@ export default function About() {
             </p>
 
             {/* Subtext */}
-            <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light mb-10">
+            <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
               {content.aboutSubtext || "Connecting People. Serving Communities. Being There for Each Other."}
             </p>
-
-            {/* Quick Hero Actions */}
-            <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold">
-              <a
-                href="#who-we-are"
-                className="px-6 py-3 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white shadow-lg shadow-emerald-950/50 transition-all flex items-center gap-2"
-              >
-                <span>Discover Our Story</span>
-                <span>↓</span>
-              </a>
-              <Link
-                to="/donate"
-                className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md transition-all flex items-center gap-2"
-              >
-                <span>Support Our Work</span>
-                <span className="text-amber-400">♥</span>
-              </Link>
-            </div>
           </div>
         </section>
 
