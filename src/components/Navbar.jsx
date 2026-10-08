@@ -33,10 +33,10 @@ export default function Navbar() {
           </Link>
 
           {/* DESKTOP NAVIGATION */}
-          <nav className="hidden lg:flex items-center gap-1.5 xl:gap-2.5 text-sm xl:text-[15px] font-medium text-slate-700">
+          <nav className="hidden lg:flex items-center gap-2 xl:gap-3 text-[15px] font-medium text-slate-700">
             <Link
               to="/about"
-              className={`px-2.5 xl:px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
+              className={`px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
                 isActive("/about")
                   ? "text-sky-950 font-bold bg-slate-100"
                   : "hover:text-sky-950 hover:bg-slate-50"
@@ -47,7 +47,7 @@ export default function Navbar() {
 
             <Link
               to="/eye-camps"
-              className={`px-2.5 xl:px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
+              className={`px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
                 isActive("/eye-camps")
                   ? "text-emerald-900 font-bold bg-emerald-50"
                   : "hover:text-emerald-900 hover:bg-slate-50"
@@ -58,7 +58,7 @@ export default function Navbar() {
 
             <Link
               to="/sewa-rasoi"
-              className={`px-2.5 xl:px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
+              className={`px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
                 isActive("/sewa-rasoi")
                   ? "text-amber-900 font-bold bg-amber-50"
                   : "hover:text-amber-900 hover:bg-slate-50"
@@ -68,19 +68,8 @@ export default function Navbar() {
             </Link>
 
             <Link
-              to="/donate"
-              className={`px-2.5 xl:px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
-                isActive("/donate")
-                  ? "text-emerald-900 font-bold bg-emerald-50"
-                  : "hover:text-emerald-900 hover:bg-slate-50"
-              }`}
-            >
-              Support Our Work
-            </Link>
-
-            <Link
               to="/team"
-              className={`px-2.5 xl:px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
+              className={`px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
                 isActive("/team")
                   ? "text-sky-950 font-bold bg-slate-100"
                   : "hover:text-sky-950 hover:bg-slate-50"
@@ -91,7 +80,7 @@ export default function Navbar() {
 
             <Link
               to="/contact"
-              className={`px-2.5 xl:px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
+              className={`px-3.5 py-2 rounded-xl transition-colors whitespace-nowrap ${
                 isActive("/contact")
                   ? "text-sky-950 font-bold bg-slate-100"
                   : "hover:text-sky-950 hover:bg-slate-50"
@@ -102,18 +91,18 @@ export default function Navbar() {
           </nav>
 
           {/* DESKTOP GLOBAL CTA BUTTONS */}
-          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/contact?interest=Volunteering"
-              className="text-xs xl:text-sm font-semibold text-emerald-800 hover:text-emerald-950 px-3 xl:px-3.5 py-2 xl:py-2.5 rounded-full border border-emerald-700/30 hover:border-emerald-700/70 hover:bg-emerald-50/50 transition-all whitespace-nowrap"
+              className="text-xs xl:text-sm font-semibold text-emerald-800 hover:text-emerald-950 px-3.5 py-2.5 rounded-full border border-emerald-700/30 hover:border-emerald-700/70 hover:bg-emerald-50/50 transition-all whitespace-nowrap"
             >
               Join Us
             </Link>
             <Link
               to="/donate"
-              className="text-xs xl:text-sm font-semibold text-white bg-emerald-800 hover:bg-emerald-900 px-4 xl:px-5 py-2 xl:py-2.5 rounded-full shadow-xs hover:shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap"
+              className="text-xs xl:text-sm font-semibold text-white bg-emerald-800 hover:bg-emerald-900 px-5 py-2.5 rounded-full shadow-xs hover:shadow-md transition-all flex items-center gap-1.5 whitespace-nowrap"
             >
-              <span>Donate</span>
+              <span>Support Our Work</span>
               <span className="text-amber-300">♥</span>
             </Link>
           </div>
@@ -163,13 +152,6 @@ export default function Navbar() {
             className="block py-2.5 text-base font-semibold text-slate-800 hover:text-amber-800"
           >
             Sewa Rasoi
-          </Link>
-
-          <Link
-            to="/donate"
-            className="block py-2.5 text-base font-semibold text-slate-800 hover:text-emerald-800"
-          >
-            Support Our Work
           </Link>
 
           <Link
