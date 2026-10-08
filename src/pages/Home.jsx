@@ -139,7 +139,7 @@ export default function Home() {
         {/* ========================================================
             HERO SECTION
             ======================================================== */}
-        <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-slate-950">
+        <section className="relative min-h-[75vh] sm:min-h-[88vh] flex items-center justify-center overflow-hidden bg-slate-950">
           {/* Animated Background Image Slideshow with Smooth Crossfade & Subtle Zoom */}
           <div className="absolute inset-0 z-0">
             {HOME_HERO_IMAGES.map((img, idx) => {
@@ -166,34 +166,34 @@ export default function Home() {
             <div className="absolute inset-0 z-2 bg-gradient-to-b from-emerald-950/25 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-white">
+          <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 text-center text-white">
             
 
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-5 drop-shadow-[0_2px_20px_rgba(255,255,255,0.08)]">
+            <h1 className="text-3xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-4 sm:mb-5 drop-shadow-[0_2px_20px_rgba(255,255,255,0.08)]">
               <span className="block">{content.heroHeading1}</span>
               <span className="block mt-1 bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">{content.heroHeading2}</span>
             </h1>
 
             {/* Sub-headline with italic elegance */}
-            <p className="text-lg sm:text-2xl font-serif italic text-amber-200/90 font-normal tracking-wide max-w-3xl mx-auto mb-4 leading-relaxed">
+            <p className="text-base sm:text-2xl font-serif italic text-amber-200/90 font-normal tracking-wide max-w-3xl mx-auto mb-3 sm:mb-4 leading-relaxed">
               {content.heroTagline || "Our Vision: Perfect Vision for All"}
             </p>
 
             {/* Decorative divider */}
-            <div className="flex items-center justify-center gap-2 mb-6">
+            <div className="flex items-center justify-center gap-2 mb-4 sm:mb-6">
               <span className="h-[1px] w-8 bg-amber-400/40" />
               <span className="text-amber-400/60 text-xs">✦</span>
               <span className="h-[1px] w-8 bg-amber-400/40" />
             </div>
 
             {/* Supporting text */}
-            <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
+            <p className="text-sm sm:text-lg text-slate-300/90 max-w-2xl mx-auto leading-relaxed mb-6 sm:mb-10 font-light">
               {content.heroSubtext || "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs."}
             </p>
 
             {/* Subtle Slideshow Navigation Indicators */}
-            <div className="mt-8 flex items-center justify-center gap-2">
+            <div className="mt-4 sm:mt-8 flex items-center justify-center gap-2">
               {HOME_HERO_IMAGES.map((_, idx) => (
                 <button
                   key={idx}
@@ -215,27 +215,27 @@ export default function Home() {
         {/* ========================================================
             SECTION 3 — OUR WORK
             ======================================================== */}
-        <section className="py-20 bg-stone-50 border-y border-stone-200">
+        <section className="py-12 sm:py-20 bg-stone-50 border-y border-stone-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-14">
               <div>
                 <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
                   {content.programmesBadge || "Field Programmes"}
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
+                <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
                   {content.programmesHeading || "Our Work"}
                 </h2>
               </div>
-              <p className="text-slate-600 max-w-md mt-4 md:mt-0 text-sm">
+              <p className="text-slate-600 max-w-md mt-2 md:mt-0 text-xs sm:text-sm">
                 {content.programmesSubtext || "Authentic, on-ground programmes designed to deliver tangible medical care, community wellness, and social solidarity."}
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
               
               {/* Eye Camps Card */}
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
-                <div className="relative h-64 overflow-hidden bg-slate-100">
+              <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
+                <div className="relative h-48 sm:h-64 overflow-hidden bg-slate-100">
                   <img
                     src="/camps/camp3/3rd camp/E3-8.jpeg"
                     alt="Doctor examining elderly beneficiary at Eye Camp"
@@ -245,16 +245,16 @@ export default function Home() {
                     Healthcare
                   </div>
                 </div>
-                <div className="p-7 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.progEyeTitle || "Eye Camps"}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">{content.progEyeTitle || "Eye Camps"}</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                       {content.progEyeDesc || "Accessible eye care, comprehensive screening, custom spectacles distribution, and medical doctor consultation for underserved communities."}
                     </p>
                   </div>
                   <Link
                     to="/eye-camps"
-                    className="inline-flex items-center text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
+                    className="inline-flex items-center text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
                   >
                     {content.progEyeLinkText || "Explore Eye Camps →"}
                   </Link>
@@ -262,8 +262,8 @@ export default function Home() {
               </div>
 
               {/* Sewa Rasoi Card */}
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
-                <div className="relative h-64 overflow-hidden bg-slate-100">
+              <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
+                <div className="relative h-48 sm:h-64 overflow-hidden bg-slate-100">
                   <img
                     src="/sewa_rasoi/sewa_rasoi_3.jpg"
                     alt="Sewa Rasoi Daily Food Distribution"
@@ -273,16 +273,16 @@ export default function Home() {
                     Community Kitchen
                   </div>
                 </div>
-                <div className="p-7 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.progSewaTitle || "Sewa Rasoi"}</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2">{content.progSewaTitle || "Sewa Rasoi"}</h3>
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6">
                       {content.progSewaDesc || "Daily community langar and nutritional support at Madhuban Chowk, serving hot, wholesome meals to hospital attendants, daily wagers, and needy families."}
                     </p>
                   </div>
                   <Link
                     to="/sewa-rasoi"
-                    className="inline-flex items-center text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
+                    className="inline-flex items-center text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
                   >
                     {content.progSewaLinkText || "Explore Sewa Rasoi →"}
                   </Link>
@@ -296,110 +296,110 @@ export default function Home() {
         {/* ========================================================
             SECTION 4 — IMPACT DASHBOARD (HIGH-TECH GLASS CARDS)
             ======================================================== */}
-        <section id="impact" className="py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white scroll-mt-20 relative overflow-hidden">
+        <section id="impact" className="py-14 sm:py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white scroll-mt-20 relative overflow-hidden">
           {/* Ambient Glow Orbs */}
           <div className="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-2xl mx-auto mb-16">
+            <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-16">
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-400 text-xs uppercase tracking-widest font-bold">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
                 {content.impactBadge || "VERIFIED RECORDS"}
               </span>
-              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-4">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-3 sm:mt-4">
                 {content.impactHeading || "Impact Dashboard"}
               </h2>
-              <p className="text-slate-400 text-sm mt-3">
+              <p className="text-slate-400 text-xs sm:text-sm mt-2 sm:mt-3">
                 Transparent data logged directly from ground registries and clinical camps.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-6xl mx-auto">
               
               {/* Card 1 - Eye Camps */}
-              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-emerald-500/30 hover:border-emerald-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-emerald-950/50 backdrop-blur-sm flex flex-col justify-between">
-                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
-                  <IconHospital className="w-5 h-5" />
+              <div className="group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-900/80 border border-emerald-500/30 hover:border-emerald-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-emerald-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-6 sm:right-8 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
+                  <IconHospital className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <span className="text-5xl font-black font-mono tracking-tight text-emerald-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-black font-mono tracking-tight text-emerald-400 block mb-1 sm:mb-2 group-hover:scale-105 transition-transform origin-left">
                     {content.stat2Number || "15+"}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">
                     {content.stat2Label || "Eye Camps"}
                   </h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     {content.stat2Desc || "Full-day clinical diagnostic screening camps"}
                   </p>
                 </div>
-                <Link to="/eye-camps" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1 hover:underline">
+                <Link to="/eye-camps" className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1 hover:underline">
                   <span>Verified Field Camps</span>
                   <span>→</span>
                 </Link>
               </div>
 
               {/* Card 2 - People Screened */}
-              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-amber-500/30 hover:border-amber-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-amber-950/50 backdrop-blur-sm flex flex-col justify-between">
-                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center shadow-md">
-                  <IconUsers className="w-5 h-5" />
+              <div className="group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-900/80 border border-amber-500/30 hover:border-amber-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-amber-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-6 sm:right-8 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-amber-600 text-white flex items-center justify-center shadow-md">
+                  <IconUsers className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <span className="text-5xl font-black font-mono tracking-tight text-amber-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-black font-mono tracking-tight text-amber-400 block mb-1 sm:mb-2 group-hover:scale-105 transition-transform origin-left">
                     {content.stat1Number || "6,950+"}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">
                     {content.stat1Label || "People Screened"}
                   </h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     {content.stat1Desc || "Direct beneficiaries examined across communities"}
                   </p>
                 </div>
-                <Link to="/eye-camps" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-amber-400 font-semibold flex items-center gap-1 hover:underline">
+                <Link to="/eye-camps" className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-slate-800/80 text-[11px] text-amber-400 font-semibold flex items-center gap-1 hover:underline">
                   <span>Individual OPD Logbooks</span>
                   <span>→</span>
                 </Link>
               </div>
 
               {/* Card 3 - Spectacles Distributed */}
-              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-sky-500/30 hover:border-sky-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-sky-950/50 backdrop-blur-sm flex flex-col justify-between">
-                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-md">
-                  <IconEye className="w-5 h-5" />
+              <div className="group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-900/80 border border-sky-500/30 hover:border-sky-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-sky-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-6 sm:right-8 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-md">
+                  <IconEye className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <span className="text-5xl font-black font-mono tracking-tight text-sky-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-black font-mono tracking-tight text-sky-400 block mb-1 sm:mb-2 group-hover:scale-105 transition-transform origin-left">
                     {content.stat3Number || "4,713+"}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">
                     {content.stat3Label || "Spectacles Distributed"}
                   </h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     {content.stat3Desc || "Free precision prescription corrective eyeglasses"}
                   </p>
                 </div>
-                <Link to="/eye-camps" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-sky-400 font-semibold flex items-center gap-1 hover:underline">
+                <Link to="/eye-camps" className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-slate-800/80 text-[11px] text-sky-400 font-semibold flex items-center gap-1 hover:underline">
                   <span>Custom Fitted On-Site</span>
                   <span>→</span>
                 </Link>
               </div>
 
               {/* Card 4 - Volunteers & Doctors */}
-              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-rose-500/30 hover:border-rose-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-rose-950/50 backdrop-blur-sm flex flex-col justify-between">
-                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center shadow-md">
-                  <IconHandHeart className="w-5 h-5" />
+              <div className="group relative p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-slate-900/80 border border-rose-500/30 hover:border-rose-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-rose-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-6 sm:right-8 transform -translate-y-1/2 w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <IconHandHeart className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
                 <div>
-                  <span className="text-5xl font-black font-mono tracking-tight text-rose-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                  <span className="text-3xl sm:text-4xl lg:text-5xl font-black font-mono tracking-tight text-rose-400 block mb-1 sm:mb-2 group-hover:scale-105 transition-transform origin-left">
                     {content.stat4Number || "169+"}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="text-base sm:text-lg font-bold text-white mb-1.5 sm:mb-2">
                     {content.stat4Label || "Volunteers & Doctors"}
                   </h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     {content.stat4Desc || "Dedicated ophthalmologists, specialists & field volunteers"}
                   </p>
                 </div>
-                <Link to="/team" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-rose-400 font-semibold flex items-center gap-1 hover:underline">
+                <Link to="/team" className="pt-3 sm:pt-4 mt-3 sm:mt-4 border-t border-slate-800/80 text-[11px] text-rose-400 font-semibold flex items-center gap-1 hover:underline">
                   <span>Equal Voluntary Service</span>
                   <span>→</span>
                 </Link>
@@ -412,26 +412,26 @@ export default function Home() {
         {/* ========================================================
             जन जागरूकता अभियान — HEALTH & EYE AWARENESS POSTERS
             ======================================================== */}
-        <section className="py-20 bg-stone-100 border-y border-stone-200">
+        <section className="py-12 sm:py-20 bg-stone-100 border-y border-stone-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
+            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-14">
               <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
                 Tandicia Association
               </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
+              <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
                 जन जागरूकता अभियान
               </h2>
-              <p className="text-slate-600 text-sm mt-2">
+              <p className="text-slate-600 text-xs sm:text-sm mt-1.5 sm:mt-2">
                 स्वस्थ समाज • जागरूक समाज • सशक्त समाज
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
               {AWARENESS_POSTERS.map((poster) => (
                 <div
                   key={poster.id}
                   onClick={() => setSelectedPoster(poster)}
-                  className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col group"
+                  className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col group"
                 >
                   <div className="relative aspect-4/3 overflow-hidden bg-slate-900">
                     <img
@@ -440,16 +440,16 @@ export default function Home() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-slate-950/15 group-hover:bg-transparent transition-colors" />
-                    <span className="absolute top-3 right-3 bg-slate-950/80 text-white text-xs px-2.5 py-1 rounded-full backdrop-blur-xs flex items-center gap-1 font-medium shadow-xs">
+                    <span className="absolute top-2.5 right-2.5 sm:top-3 sm:right-3 bg-slate-950/80 text-white text-[11px] sm:text-xs px-2.5 py-1 rounded-full backdrop-blur-xs flex items-center gap-1 font-medium shadow-xs">
                       🔍 बड़ा देखें
                     </span>
                   </div>
-                  <div className="p-5 flex items-center justify-between">
+                  <div className="p-4 sm:p-5 flex items-center justify-between">
                     <div>
-                      <span className="text-[11px] text-emerald-800 font-bold uppercase tracking-wider block">
+                      <span className="text-[10px] sm:text-[11px] text-emerald-800 font-bold uppercase tracking-wider block">
                         {poster.badge}
                       </span>
-                      <h4 className="text-base font-bold text-slate-900 mt-1 line-clamp-1">
+                      <h4 className="text-sm sm:text-base font-bold text-slate-900 mt-1 line-clamp-1">
                         {poster.title}
                       </h4>
                     </div>
@@ -463,13 +463,13 @@ export default function Home() {
         {/* ========================================================
             SECTION 5 — EYE CAMPS SPOTLIGHT
             ======================================================== */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10 sm:mb-16">
               
               {/* Rotating photograph on left */}
               <div className="lg:col-span-6">
-                <div className="relative rounded-3xl overflow-hidden shadow-xl border border-slate-100 aspect-4/3 group bg-slate-900">
+                <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-slate-100 aspect-4/3 group bg-slate-900">
                   {EYE_CAMP_FEATURE_SLIDES.map((slide, idx) => (
                     <div
                       key={idx}
@@ -482,8 +482,8 @@ export default function Home() {
                         alt={slide.alt}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-6">
-                        <p className="text-white text-sm font-medium drop-shadow-sm pr-20">
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex items-end p-4 sm:p-6">
+                        <p className="text-white text-xs sm:text-sm font-medium drop-shadow-sm pr-14 sm:pr-20">
                           {slide.caption}
                         </p>
                       </div>
@@ -491,7 +491,7 @@ export default function Home() {
                   ))}
 
                   {/* Slide Indicators / Dots */}
-                  <div className="absolute bottom-4 right-5 z-20 flex gap-1.5 bg-black/40 backdrop-blur-xs px-2.5 py-1.5 rounded-full">
+                  <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-5 z-20 flex gap-1.5 bg-black/40 backdrop-blur-xs px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-full">
                     {EYE_CAMP_FEATURE_SLIDES.map((_, idx) => (
                       <button
                         key={idx}
@@ -499,7 +499,7 @@ export default function Home() {
                         aria-label={`Go to slide ${idx + 1}`}
                         className={`h-1.5 rounded-full transition-all duration-300 ${
                           idx === campPhotoSlide
-                            ? "w-5 bg-white"
+                            ? "w-4 sm:w-5 bg-white"
                             : "w-1.5 bg-white/50 hover:bg-white/80"
                         }`}
                       />
@@ -510,14 +510,14 @@ export default function Home() {
                   <button
                     onClick={() => setCampPhotoSlide((prev) => (prev - 1 + EYE_CAMP_FEATURE_SLIDES.length) % EYE_CAMP_FEATURE_SLIDES.length)}
                     aria-label="Previous slide"
-                    className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center opacity-75 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity text-sm"
                   >
                     ‹
                   </button>
                   <button
                     onClick={() => setCampPhotoSlide((prev) => (prev + 1) % EYE_CAMP_FEATURE_SLIDES.length)}
                     aria-label="Next slide"
-                    className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-8 h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 z-20 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center opacity-75 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity text-sm"
                   >
                     ›
                   </button>
@@ -525,45 +525,45 @@ export default function Home() {
               </div>
 
               {/* Content on right */}
-              <div className="lg:col-span-6 space-y-6">
+              <div className="lg:col-span-6 space-y-4 sm:space-y-6">
                 <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
                   Dedicated Programme
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
+                <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
                   {content.eyeCampsHeading}
                 </h2>
-                <p className="text-slate-600 text-base leading-relaxed">
+                <p className="text-slate-600 text-xs sm:text-base leading-relaxed">
                   {content.eyeCampsSubtext}
                 </p>
 
                 {/* 4 Pillars */}
-                <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <span className="text-xs font-semibold text-sky-900 uppercase tracking-wide block mb-1">Pillar 1</span>
-                    <h4 className="text-base font-bold text-slate-900">Screening</h4>
-                    <p className="text-xs text-slate-500 mt-1">Comprehensive vision checks</p>
+                <div className="grid grid-cols-2 gap-2.5 sm:gap-4 pt-1 sm:pt-2">
+                  <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <span className="text-[10px] sm:text-xs font-semibold text-sky-900 uppercase tracking-wide block mb-0.5 sm:mb-1">Pillar 1</span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900">Screening</h4>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1">Comprehensive vision checks</p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <span className="text-xs font-semibold text-emerald-900 uppercase tracking-wide block mb-1">Pillar 2</span>
-                    <h4 className="text-base font-bold text-slate-900">Spectacles</h4>
-                    <p className="text-xs text-slate-500 mt-1">Prescription corrective eyewear</p>
+                  <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <span className="text-[10px] sm:text-xs font-semibold text-emerald-900 uppercase tracking-wide block mb-0.5 sm:mb-1">Pillar 2</span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900">Spectacles</h4>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1">Prescription eyewear</p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <span className="text-xs font-semibold text-amber-900 uppercase tracking-wide block mb-1">Pillar 3</span>
-                    <h4 className="text-base font-bold text-slate-900">Medical Consultation</h4>
-                    <p className="text-xs text-slate-500 mt-1">Qualified doctors & advice</p>
+                  <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <span className="text-[10px] sm:text-xs font-semibold text-amber-900 uppercase tracking-wide block mb-0.5 sm:mb-1">Pillar 3</span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900">Consultation</h4>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1">Qualified doctors & advice</p>
                   </div>
-                  <div className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80">
-                    <span className="text-xs font-semibold text-indigo-900 uppercase tracking-wide block mb-1">Pillar 4</span>
-                    <h4 className="text-base font-bold text-slate-900">Referrals</h4>
-                    <p className="text-xs text-slate-500 mt-1">Hospital tie-ups for surgery</p>
+                  <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <span className="text-[10px] sm:text-xs font-semibold text-indigo-900 uppercase tracking-wide block mb-0.5 sm:mb-1">Pillar 4</span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900">Referrals</h4>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1">Hospital tie-ups</p>
                   </div>
                 </div>
 
-                <div className="pt-2">
+                <div className="pt-1 sm:pt-2">
                   <Link
                     to="/eye-camps"
-                    className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-800 hover:text-emerald-950"
+                    className="inline-flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-950"
                   >
                     View All Eye Camps →
                   </Link>
@@ -573,11 +573,11 @@ export default function Home() {
             </div>
 
             {/* UPCOMING CAMP BANNER SPOTLIGHT */}
-            <div className="mb-10 rounded-3xl bg-gradient-to-r from-slate-950 via-emerald-950 to-slate-900 border-2 border-emerald-500/50 p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+            <div className="mb-8 sm:mb-10 rounded-2xl sm:rounded-3xl bg-gradient-to-r from-slate-950 via-emerald-950 to-slate-900 border-2 border-emerald-500/50 p-5 sm:p-8 text-white shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 items-center relative z-10">
                 <div className="lg:col-span-5">
-                  <div className="rounded-2xl overflow-hidden border border-emerald-400/30 shadow-lg bg-slate-900">
+                  <div className="rounded-xl sm:rounded-2xl overflow-hidden border border-emerald-400/30 shadow-lg bg-slate-900">
                     <img
                       src="/shakurpur-eye-camp-banner.jpg"
                       alt="Upcoming Shakurpur Eye Camp 11-Oct-2026"
@@ -585,33 +585,33 @@ export default function Home() {
                     />
                   </div>
                 </div>
-                <div className="lg:col-span-7 space-y-3">
-                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-extrabold uppercase tracking-wider">
+                <div className="lg:col-span-7 space-y-2.5 sm:space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                     <span>★ Upcoming Eye Camp • 11-Oct-2026</span>
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                  <h3 className="text-xl sm:text-3xl font-extrabold text-white leading-tight">
                     नि:शुल्क नेत्र जाँच शिविर — शकूरपुर कॉलोनी
                   </h3>
                   <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
                     ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली (110034) • रविवार, 11 अक्टूबर 2026 (सुबह 10:00 से दोपहर 2:00 बजे तक)
                   </p>
-                  <div className="flex flex-wrap gap-2 text-xs font-semibold pt-1">
-                    <span className="bg-emerald-900/60 text-emerald-300 border border-emerald-700/50 px-3 py-1 rounded-lg">✓ निःशुल्क नेत्र जाँच</span>
-                    <span className="bg-amber-900/60 text-amber-300 border border-amber-700/50 px-3 py-1 rounded-lg">✓ नज़र के चश्में भी मुफ्त</span>
-                    <span className="bg-sky-900/60 text-sky-300 border border-sky-700/50 px-3 py-1 rounded-lg">✓ सेवा भारती संयुक्त उपक्रम</span>
+                  <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold pt-1">
+                    <span className="bg-emerald-900/60 text-emerald-300 border border-emerald-700/50 px-2.5 py-1 rounded-lg">✓ निःशुल्क नेत्र जाँच</span>
+                    <span className="bg-amber-900/60 text-amber-300 border border-amber-700/50 px-2.5 py-1 rounded-lg">✓ नज़र के चश्में मुफ्त</span>
+                    <span className="bg-sky-900/60 text-sky-300 border border-sky-700/50 px-2.5 py-1 rounded-lg">✓ सेवा भारती उपक्रम</span>
                   </div>
-                  <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
                     <Link
                       to="/eye-camps"
-                      className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2"
+                      className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2"
                     >
                       <span>Camp Details & Timings</span>
                       <span>→</span>
                     </Link>
                     <Link
                       to="/contact?interest=Camp-Volunteer"
-                      className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs transition-all"
+                      className="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs transition-all"
                     >
                       Volunteer for This Camp
                     </Link>
@@ -814,49 +814,49 @@ export default function Home() {
         {/* ========================================================
             SECTION 8 — MEDIA
             ======================================================== */}
-        <section className="py-20 bg-white border-t border-slate-200">
+        <section className="py-12 sm:py-20 bg-white border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12">
               <div>
                 <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
                   {content.storiesBadge || "Moments & Coverage"}
                 </span>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
+                <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
                   {content.storiesHeading || "Stories from the Field"}
                 </h2>
               </div>
-              <div className="flex items-center gap-4 mt-4 md:mt-0">
-                <Link to="/media" className="text-sm font-semibold text-emerald-800 hover:underline">
+              <div className="flex items-center gap-4 mt-3 md:mt-0">
+                <Link to="/media" className="text-xs sm:text-sm font-semibold text-emerald-800 hover:underline">
                   Read Stories →
                 </Link>
-                <Link to="/media#gallery" className="text-sm font-semibold text-slate-600 hover:text-slate-900">
+                <Link to="/media#gallery" className="text-xs sm:text-sm font-semibold text-slate-600 hover:text-slate-900">
                   View Gallery →
                 </Link>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
               {/* Featured Large Story */}
-              <div className="lg:col-span-7 bg-slate-50 rounded-3xl overflow-hidden border border-slate-200 flex flex-col">
+              <div className="lg:col-span-7 bg-slate-50 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 flex flex-col">
                 <img
                   src="/story1.png"
                   alt="Beneficiary story"
-                  className="w-full h-80 object-cover"
+                  className="w-full h-52 sm:h-80 object-cover"
                 />
-                <div className="p-8 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-8 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs font-semibold text-emerald-800 uppercase tracking-wider block mb-2">
+                    <span className="text-[11px] sm:text-xs font-semibold text-emerald-800 uppercase tracking-wider block mb-1.5 sm:mb-2">
                       Featured Field Story
                     </span>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-3">
+                    <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-2 sm:mb-3">
                       {content.storyMainTitle || "Restoring Clear Sight to Smt. Ram Dulari"}
                     </h3>
-                    <p className="text-slate-600 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
                       {content.storyMainQuote || `"I could not thread a needle or recognize my grandchildren from across the verandah. Today, with the spectacles from Tandicia doctors, the entire world is clear again."`}
                     </p>
                   </div>
-                  <div className="pt-6">
-                    <Link to="/media" className="text-sm font-semibold text-emerald-800 hover:text-emerald-950">
+                  <div className="pt-4 sm:pt-6">
+                    <Link to="/media" className="text-xs sm:text-sm font-semibold text-emerald-800 hover:text-emerald-950">
                       Read Full Story →
                     </Link>
                   </div>
@@ -864,31 +864,31 @@ export default function Home() {
               </div>
 
               {/* 3 Smaller Story Cards */}
-              <div className="lg:col-span-5 flex flex-col gap-4">
-                <div className="p-5 rounded-2xl bg-white border border-slate-200 flex gap-4 items-center">
-                  <img src="/gallery/image4.png" alt="Volunteer session" className="w-24 h-24 object-cover rounded-xl" />
+              <div className="lg:col-span-5 flex flex-col gap-3 sm:gap-4">
+                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 flex gap-3.5 sm:gap-4 items-center">
+                  <img src="/gallery/image4.png" alt="Volunteer session" className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-xl shrink-0" />
                   <div>
-                    <span className="text-xs text-emerald-800 font-semibold">Eye Care Mission</span>
-                    <h4 className="text-base font-bold text-slate-900">{content.story2Title || "Sunday Free Vision Diagnostic"}</h4>
-                    <p className="text-xs text-slate-500 mt-1">{content.story2Desc || "Over a hundred residents examined by our voluntary team."}</p>
+                    <span className="text-[10px] sm:text-xs text-emerald-800 font-semibold">Eye Care Mission</span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 line-clamp-1">{content.story2Title || "Sunday Free Vision Diagnostic"}</h4>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1 line-clamp-2">{content.story2Desc || "Over a hundred residents examined by our voluntary team."}</p>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white border border-slate-200 flex gap-4 items-center">
-                  <img src="/camps/camp2/2nd camp/E2-5.jpeg" alt="Spectacles distribution" className="w-24 h-24 object-cover rounded-xl" />
+                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 flex gap-3.5 sm:gap-4 items-center">
+                  <img src="/camps/camp2/2nd camp/E2-5.jpeg" alt="Spectacles distribution" className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-xl shrink-0" />
                   <div>
-                    <span className="text-xs text-sky-800 font-semibold">Vision Assistance</span>
-                    <h4 className="text-base font-bold text-slate-900">{content.story3Title || "Free Spectacles Distribution"}</h4>
-                    <p className="text-xs text-slate-500 mt-1">{content.story3Desc || "Providing precision corrective eyewear to elderly residents."}</p>
+                    <span className="text-[10px] sm:text-xs text-sky-800 font-semibold">Vision Assistance</span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 line-clamp-1">{content.story3Title || "Free Spectacles Distribution"}</h4>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1 line-clamp-2">{content.story3Desc || "Providing precision corrective eyewear to elderly residents."}</p>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white border border-slate-200 flex gap-4 items-center">
-                  <img src="/gallery/image6.png" alt="Community gathering" className="w-24 h-24 object-cover rounded-xl" />
+                <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 flex gap-3.5 sm:gap-4 items-center">
+                  <img src="/gallery/image6.png" alt="Community gathering" className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-xl shrink-0" />
                   <div>
-                    <span className="text-xs text-sky-800 font-semibold">Community Circle</span>
-                    <h4 className="text-base font-bold text-slate-900">{content.story4Title || "Standing With Single Mothers"}</h4>
-                    <p className="text-xs text-slate-500 mt-1">{content.story4Desc || "Providing moral support, counseling, and guidance."}</p>
+                    <span className="text-[10px] sm:text-xs text-sky-800 font-semibold">Community Circle</span>
+                    <h4 className="text-sm sm:text-base font-bold text-slate-900 line-clamp-1">{content.story4Title || "Standing With Single Mothers"}</h4>
+                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 sm:mt-1 line-clamp-2">{content.story4Desc || "Providing moral support, counseling, and guidance."}</p>
                   </div>
                 </div>
               </div>
@@ -896,30 +896,28 @@ export default function Home() {
           </div>
         </section>
 
-
-
         {/* POSTER LIGHTBOX MODAL */}
         {selectedPoster && (
           <div 
-            className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
             onClick={() => setSelectedPoster(null)}
           >
             <div 
-              className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl p-4 sm:p-6 flex flex-col my-8"
+              className="relative max-w-4xl w-full bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl p-4 sm:p-6 flex flex-col my-4 sm:my-8"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between pb-3 border-b border-slate-200">
                 <div>
-                  <span className="text-xs text-emerald-800 font-bold uppercase tracking-wider">
+                  <span className="text-[11px] sm:text-xs text-emerald-800 font-bold uppercase tracking-wider">
                     {selectedPoster.badge}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                  <h3 className="text-base sm:text-xl font-bold text-slate-900">
                     {selectedPoster.title}
                   </h3>
                 </div>
                 <button
                   onClick={() => setSelectedPoster(null)}
-                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center cursor-pointer transition-colors shrink-0"
+                  className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center cursor-pointer transition-colors shrink-0"
                   aria-label="Close"
                 >
                   ✕
