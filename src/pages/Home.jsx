@@ -740,7 +740,7 @@ export default function Home() {
             ======================================================== */}
         <section className="py-20 bg-stone-50 border-t border-slate-200">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-10 items-center mb-12">
+            <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xs grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-7 rounded-2xl overflow-hidden shadow-md">
                 <img
                   src="/camps/camp1/1st Camp/E1-1.jpeg"
@@ -771,24 +771,6 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-            </div>
-
-            {/* Featured Team Members Preview */}
-            <div className="text-center mb-8">
-              <h3 className="text-xl font-bold text-slate-900">On-Ground Volunteers</h3>
-              <p className="text-xs text-slate-500 mt-1">Dedicated citizens serving with compassion and dignity</p>
-            </div>
-
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-              {teamMembers.slice(0, 6).map((member) => (
-                <div key={member.id} className="bg-white p-3.5 rounded-2xl border border-slate-200 text-center shadow-xs hover:shadow-md transition-all">
-                  <div className="w-20 h-20 mx-auto rounded-xl overflow-hidden mb-2.5 bg-slate-100 border border-slate-200">
-                    <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
-                  </div>
-                  <h4 className="text-xs font-bold text-slate-900 truncate">{member.name}</h4>
-                  <p className="text-[11px] font-medium text-emerald-800 truncate mt-0.5">Volunteer</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
