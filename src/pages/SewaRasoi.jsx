@@ -14,9 +14,7 @@ export default function SewaRasoi() {
     { src: "/sewa_rasoi/sewa_rasoi_3.jpg", title: "Community Meals", desc: "Reaching families and ensuring no one sleeps hungry." },
     { src: "/sewa_rasoi/sewa_rasoi_6.jpg", title: "Volunteer Action", desc: "Dedicated grassroots coordinators managing meal queues." },
     { src: "/sewa_rasoi/sewa_rasoi_7.jpg", title: "Hospital Relief", desc: "Providing nourishment outside major hospital gates." },
-    { src: "/sewa_rasoi/sewa_rasoi_8.jpg", title: "Dignity & Respect", desc: "Honoring every recipient as an honored guest." },
-    { src: "/sewa_rasoi/sewa_rasoi_9.jpg", title: "Nutritional Support", desc: "Balanced, healthy meals prepared with love and devotion." },
-    { src: "/sewa_rasoi/sewa_rasoi_10.jpg", title: "Spirit of Service", desc: "Living the timeless tradition of selfless community seva." }
+    { src: "/sewa_rasoi/sewa_rasoi_8.jpg", title: "Dignity & Respect", desc: "Honoring every recipient as an honored guest." }
   ];
 
   return (
@@ -25,7 +23,7 @@ export default function SewaRasoi() {
 
       <main>
         {/* ========================================================
-            HERO
+            1. HERO
             ======================================================== */}
         <section className="relative py-28 bg-slate-950 text-white overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -54,30 +52,7 @@ export default function SewaRasoi() {
         </section>
 
         {/* ========================================================
-            OUR PURPOSE — MORE THAN A MEAL
-            ======================================================== */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
-              The Guiding Philosophy
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2 mb-6">
-              {content.sewaPhilosophyTitle || "More Than a Meal"}
-            </h2>
-            <div className="w-16 h-1 bg-amber-600 mx-auto mb-8 rounded-full" />
-            <div className="space-y-5 text-slate-700 text-lg leading-relaxed text-left">
-              <p>
-                {content.sewaPhilosophyP1 || "Sewa Rasoi represents service, dignity, human connection, and community participation. It is not just about distributing calories; it is about reassuring people that in their toughest moments, they are not alone."}
-              </p>
-              <p>
-                {content.sewaPhilosophyP2 || "Many attendants who travel from far-off villages to city hospitals spend their last penny on medical treatments, skipping meals themselves. Sewa Rasoi reaches these quiet warriors with hot, wholesome nutrition served with unconditional respect."}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            IMPACT STRIP (Verified Figures)
+            2. DASHBOARD / IMPACT STRIP (Top right after Hero)
             ======================================================== */}
         <section className="bg-emerald-950 text-white py-12 border-y border-emerald-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -123,58 +98,9 @@ export default function SewaRasoi() {
         </section>
 
         {/* ========================================================
-            AUTHENTIC SEWA RASOI PHOTO GALLERY (From Google Drive)
+            3. ON-GROUND VIDEO HIGHLIGHTS (Right below Dashboard)
             ======================================================== */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
-                Direct From The Field
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                Sewa Rasoi Field Photographs
-              </h2>
-              <p className="text-slate-600 text-sm mt-3">
-                Authentic glimpses of meal preparation, hygienic packing, and respectful community distribution.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-              {sewaPhotos.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-stone-50 rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-lg transition-all duration-300 group flex flex-col"
-                >
-                  <div className="h-60 overflow-hidden bg-slate-900 relative">
-                    <img
-                      src={item.src}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <span className="absolute bottom-2.5 left-2.5 bg-slate-950/75 text-amber-300 text-[10px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
-                      Sewa Rasoi
-                    </span>
-                  </div>
-                  <div className="p-4 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h4 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
-                        {item.title}
-                      </h4>
-                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                        {item.desc}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            ON-GROUND VIDEO HIGHLIGHTS
-            ======================================================== */}
-        <section className="py-20 bg-slate-950 text-white border-t border-slate-900">
+        <section className="py-20 bg-slate-950 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-2xl mx-auto mb-14">
               <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold block">
@@ -265,11 +191,56 @@ export default function SewaRasoi() {
         </section>
 
         {/* ========================================================
-            PHOTO GALLERY
+            4. FIELD PHOTOGRAPHS (Below Videos)
             ======================================================== */}
+        <section className="py-20 bg-white border-t border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
+                Direct From The Field
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
+                Sewa Rasoi Field Photographs
+              </h2>
+              <p className="text-slate-600 text-sm mt-3">
+                Authentic glimpses of meal preparation, hygienic packing, and respectful community distribution.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {sewaPhotos.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-stone-50 rounded-2xl overflow-hidden border border-slate-200/90 shadow-xs hover:shadow-lg transition-all duration-300 group flex flex-col"
+                >
+                  <div className="h-60 overflow-hidden bg-slate-900 relative">
+                    <img
+                      src={item.src}
+                      alt={item.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute bottom-2.5 left-2.5 bg-slate-950/75 text-amber-300 text-[10px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                      Sewa Rasoi
+                    </span>
+                  </div>
+                  <div className="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                        {item.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 mt-1 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* ========================================================
-            JOIN US — SERVE WITH US
+            5. JOIN US — SERVE WITH US
             ======================================================== */}
         <section className="py-20 bg-emerald-950 text-white text-center">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
