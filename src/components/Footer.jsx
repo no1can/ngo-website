@@ -6,139 +6,59 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800">
-      {/* MAIN FOOTER */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           
-          {/* BRAND COLUMN */}
-          <div className="lg:col-span-2 space-y-4">
+          {/* BRAND INFO */}
+          <div className="space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center">
+              <div className="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shrink-0 shadow-xs">
                 <img src="/logo.png" alt="Tandicia Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <span className="text-xl font-bold text-white tracking-tight">{content.orgName || "Tandicia Association"}</span>
-                <p className="text-xs text-emerald-400 font-medium">{content.heroBadge || "Our Vision: Perfect Vision for All"}</p>
+                <span className="text-lg font-bold text-white tracking-tight block">
+                  {content.orgName || "Tandicia Association"}
+                </span>
+                <p className="text-xs text-emerald-400 font-medium">
+                  {content.heroBadge || "Our Vision: Perfect Vision for All"}
+                </p>
               </div>
             </div>
-
-            <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-sm text-slate-400 leading-relaxed max-w-md">
               {content.footerBio || "Connecting People. Serving Communities. Being There for Each Other. A community-driven social-impact initiative committed to accessible healthcare, dignity, and real compassion."}
             </p>
+          </div>
 
-            <div className="pt-2">
-              <span className="text-xs uppercase tracking-wider text-slate-400 block mb-2 font-medium">
-                Core Philosophy
-              </span>
-              <div className="flex flex-wrap gap-2 text-xs">
-                <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Compassion</span>
-                <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Dignity</span>
-                <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Transparency</span>
-                <span className="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300">Volunteerism</span>
-              </div>
+          {/* CONTACT & LOCATION */}
+          <div className="flex flex-col sm:flex-row md:justify-end items-start sm:items-center gap-6 sm:gap-10 text-sm">
+            <div>
+              <span className="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Email</span>
+              <a 
+                href={`mailto:${content.orgEmail || "connect@tandiciaassociation.com"}`} 
+                className="text-slate-300 hover:text-emerald-400 transition-colors font-medium"
+              >
+                {content.orgEmail || "connect@tandiciaassociation.com"}
+              </a>
             </div>
-          </div>
-
-          {/* OUR WORK COLUMN */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Our Work</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li>
-                <Link to="/eye-camps" className="hover:text-white transition-colors">
-                  Eye Care & Screening
-                </Link>
-              </li>
-              <li>
-                <Link to="/about#impact" className="hover:text-white transition-colors">
-                  Impact Dashboard
-                </Link>
-              </li>
-              <li>
-                <Link to="/nai-pehal" className="hover:text-white transition-colors">
-                  Nai Pehal Initiatives
-                </Link>
-              </li>
-              <li>
-                <Link to="/about" className="hover:text-white transition-colors">
-                  Vision & Mission
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* ORGANISATION COLUMN */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Organisation</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li>
-                <Link to="/about" className="hover:text-white transition-colors">
-                  About Tandicia
-                </Link>
-              </li>
-              <li>
-                <Link to="/team" className="hover:text-white transition-colors">
-                  The People Behind
-                </Link>
-              </li>
-              <li>
-                <Link to="/media" className="hover:text-white transition-colors">
-                  Media & Stories
-                </Link>
-              </li>
-              <li>
-                <Link to="/documents" className="hover:text-white transition-colors">
-                  Documents & Transparency
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* GET INVOLVED & CONTACT */}
-          <div className="space-y-3">
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider">Get Involved</h4>
-            <ul className="space-y-2 text-sm text-slate-400">
-              <li>
-                <Link to="/contact?interest=Volunteering" className="hover:text-white transition-colors">
-                  Join as Volunteer
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact?interest=Partnership" className="hover:text-white transition-colors">
-                  Partner With Us
-                </Link>
-              </li>
-              <li>
-                <Link to="/donate" className="hover:text-white transition-colors">
-                  Donate / Support
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="hover:text-white transition-colors">
-                  Contact Us
-                </Link>
-              </li>
-            </ul>
-
-            <div className="pt-2 text-xs text-slate-400">
-              <p>Email: <a href={`mailto:${content.orgEmail || "connect@tandiciaassociation.com"}`} className="text-slate-300 hover:underline">{content.orgEmail || "connect@tandiciaassociation.com"}</a></p>
-              <p className="mt-1">{content.orgAddress || "New Delhi, India"}</p>
+            <div>
+              <span className="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Registered Address</span>
+              <p className="text-slate-300 font-medium">
+                {content.orgAddress || "Abhyudaya, Sanjay Colony, Bhati Mines & New Delhi, India"}
+              </p>
             </div>
           </div>
 
         </div>
 
-        {/* BOTTOM BAR */}
-        <div className="mt-12 pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>{content.footerCopyright || `© ${new Date().getFullYear()} Tandicia Association. All verified records reserved.`}</p>
+        {/* BOTTOM COPYRIGHT BAR */}
+        <div className="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+          <p>{content.footerCopyright || `© ${new Date().getFullYear()} Tandicia Association. All rights reserved.`}</p>
           <div className="flex items-center gap-6">
-            <Link to="/documents" className="hover:text-slate-300 transition-colors">
-              Statutory Transparency
-            </Link>
-            <Link to="/about" className="hover:text-slate-300 transition-colors">
-              Our Values
-            </Link>
             <Link to="/contact" className="hover:text-slate-300 transition-colors">
-              Feedback & Grievance
+              Contact
+            </Link>
+            <Link to="/donate" className="hover:text-slate-300 transition-colors">
+              Donate
             </Link>
             <Link to="/admin" className="text-slate-400 hover:text-slate-200 transition-colors">
               Admin Portal 🔐
