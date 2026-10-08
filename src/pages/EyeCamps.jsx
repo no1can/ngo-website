@@ -9,9 +9,8 @@ const verifiedCamps = [
   {
     id: "camp-upcoming-shakurpur-2026",
     isUpcoming: true,
-    campNumber: "Upcoming Camp",
     tag: "UPCOMING",
-    title: "Upcoming Camp — Shakurpur Colony, New Delhi",
+    title: "Shakurpur Colony, New Delhi",
     name: "नि:शुल्क नेत्र जाँच शिविर — Shakurpur Colony (11-Oct-2026)",
     year: "2026",
     location: "ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली, दिल्ली-110034",
@@ -39,10 +38,9 @@ const verifiedCamps = [
   },
   {
     id: "camp-delhi-bhati-mines",
-    campNumber: "Camp 1",
-    tag: "CAMP 01",
-    title: "Camp 1 — Bhati Mines, New Delhi",
-    name: "Camp 1 — Bhati Mines Free Eye Screening Camp",
+    tag: "Eye Camp",
+    title: "Bhati Mines, New Delhi",
+    name: "Bhati Mines Free Eye Screening Camp",
     year: "2025",
     location: "Abhyudaya, A-116/A, Sanjay Colony, Bhati Mines, New Delhi - 110074",
     date: "29 August 2025",
@@ -77,10 +75,9 @@ const verifiedCamps = [
   },
   {
     id: "camp-delhi-kusumpur",
-    campNumber: "Camp 2",
-    tag: "CAMP 02",
-    title: "Camp 2 — Kusumpur Pahari, New Delhi",
-    name: "Camp 2 — Kusumpur Pahari Free Eye Screening & Spectacle Camp",
+    tag: "Eye Camp",
+    title: "Kusumpur Pahari, New Delhi",
+    name: "Kusumpur Pahari Free Eye Screening & Spectacle Camp",
     year: "2025",
     location: "Sherawali Mata Mandir, Block-C, Kusumpur Pahari, New Delhi",
     date: "14 September 2025",
@@ -116,10 +113,9 @@ const verifiedCamps = [
   },
   {
     id: "camp-faridabad-mewla",
-    campNumber: "Camp 3",
-    tag: "CAMP 03",
-    title: "Camp 3 — Mewla Maharajpur, Faridabad",
-    name: "Camp 3 — Mewla Maharajpur Free Eye Screening Camp",
+    tag: "Eye Camp",
+    title: "Mewla Maharajpur, Faridabad",
+    name: "Mewla Maharajpur Free Eye Screening Camp",
     year: "2025",
     location: "Deepak Bensla Baithak, Near Govt School, Mewla Maharajpur, Faridabad, Haryana",
     date: "12 October 2025",
@@ -158,10 +154,9 @@ const verifiedCamps = [
   },
   {
     id: "camp-delhi-gb-road",
-    campNumber: "Camp 4",
-    tag: "CAMP 04",
-    title: "Camp 4 — GB Road Outreach, Central Delhi",
-    name: "Camp 4 — GB Road Community Eye Care Outreach",
+    tag: "Eye Camp",
+    title: "GB Road Outreach, Central Delhi",
+    name: "GB Road Community Eye Care Outreach",
     year: "2025",
     location: "GB Road Community Area, Central Delhi",
     date: "2025",
@@ -466,10 +461,7 @@ export default function EyeCamps() {
 
             {/* Camp Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {filteredCamps.map((camp, index) => {
-                const campNum = camp.campNumber || `Camp ${index + 1}`;
-                const campTag = camp.tag || `CAMP 0${index + 1}`;
-
+              {filteredCamps.map((camp) => {
                 return (
                   <div
                     key={camp.id}
@@ -486,14 +478,18 @@ export default function EyeCamps() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/30" />
 
-                      {/* Camp Number Badge */}
+                      {/* Camp Badge */}
                       <div className="absolute top-4 left-4 flex items-center gap-2">
-                        <span className={`text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow-md tracking-wider flex items-center gap-1.5 ${
-                          camp.isUpcoming ? "bg-gradient-to-r from-amber-500 to-emerald-600" : "bg-emerald-600"
-                        }`}>
-                          {camp.isUpcoming && <span className="w-2 h-2 rounded-full bg-white animate-ping" />}
-                          {campTag}
-                        </span>
+                        {camp.isUpcoming ? (
+                          <span className="bg-gradient-to-r from-amber-500 to-emerald-600 text-white text-xs font-black px-3.5 py-1.5 rounded-full shadow-md tracking-wider flex items-center gap-1.5">
+                            <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+                            UPCOMING
+                          </span>
+                        ) : (
+                          <span className="bg-emerald-700/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-md">
+                            Eye Camp
+                          </span>
+                        )}
                         {camp.video && (
                           <span className="bg-slate-900/90 text-amber-300 text-[11px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md flex items-center gap-1">
                             <span>▶ Video</span>
@@ -539,7 +535,7 @@ export default function EyeCamps() {
                           onClick={() => setSelectedCamp(camp)}
                           className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-700 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
                         >
-                          <span>Explore {campNum} Details</span>
+                          <span>Explore Camp Details</span>
                           <span>→</span>
                         </button>
                       </div>
@@ -634,7 +630,7 @@ export default function EyeCamps() {
             {/* Header with Tag & Title */}
             <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="text-xs font-extrabold uppercase tracking-wider text-white bg-emerald-700 px-3 py-1 rounded-full">
-                {selectedCamp.tag || selectedCamp.campNumber || "Camp Event"}
+                {selectedCamp.isUpcoming ? "UPCOMING CAMP" : "FREE EYE CAMP"}
               </span>
               <span className="text-xs uppercase tracking-wider font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md">
                 Official Camp Record
@@ -686,12 +682,12 @@ export default function EyeCamps() {
               </p>
             </div>
 
-            {/* EVENTS CONDUCTED IN THIS CAMP */}
+            {/* ACTIVITIES CONDUCTED IN THIS CAMP */}
             <div className="mb-8">
               <div className="flex items-center gap-2 mb-4">
                 <span className="text-xl">📋</span>
                 <h3 className="text-lg font-bold text-slate-900">
-                  Events & Activities Conducted in {selectedCamp.campNumber || "This Camp"}
+                  Activities Conducted in This Camp
                 </h3>
               </div>
 
@@ -745,7 +741,7 @@ export default function EyeCamps() {
               <div className="mb-8">
                 <h3 className="text-base font-bold text-slate-900 mb-3 flex items-center gap-2">
                   <span>📸</span>
-                  <span>{selectedCamp.campNumber || "Camp"} Photograph Gallery ({selectedCamp.gallery.length})</span>
+                  <span>Photograph Gallery ({selectedCamp.gallery.length})</span>
                 </h3>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">

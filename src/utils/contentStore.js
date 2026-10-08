@@ -147,22 +147,22 @@ export const DEFAULT_CONTENT = {
   campsProcessTitle: "How Our Eye Camps Work",
   campsProcessSubtitle: "A standardized, medically rigorous 4-step protocol ensuring dignity and clinical accuracy for every patient.",
 
-  camp1Title: "Camp 1 — Bhati Mines, New Delhi",
+  camp1Title: "Bhati Mines, New Delhi",
   camp1DateLoc: "29 August 2025 • Abhyudaya, Sanjay Colony, Bhati Mines",
   camp1Desc: "Reaching daily wage earners, elder residents, and remote families in the Bhati Mines region with critical eye health diagnosis.",
   camp1Doctor: "Dr. Atul Garg, M.B.B.S., M.S. (Eye), Senior Eye Surgeon",
 
-  camp2Title: "Camp 2 — Kusumpur Pahari, New Delhi",
+  camp2Title: "Kusumpur Pahari, New Delhi",
   camp2DateLoc: "14 September 2025 • Sherawali Mata Mandir, Kusumpur Pahari",
   camp2Desc: "Delivering primary ophthalmic care and free vision correction directly to residents of Kusumpur Pahari with dignity and care.",
   camp2Doctor: "Dr. Atul Garg & Senior Clinical Optometrists",
 
-  camp3Title: "Camp 3 — Mewla Maharajpur, Faridabad",
+  camp3Title: "Mewla Maharajpur, Faridabad",
   camp3DateLoc: "12 October 2025 • Deepak Bensla Baithak, Mewla Maharajpur, Haryana",
   camp3Desc: "Extending Tandicia's eye care mission across state borders into rural Haryana communities with complete ophthalmic diagnosis.",
   camp3Doctor: "Certified Ophthalmologists & Specialist Optometrists",
 
-  camp4Title: "Camp 4 — Community Follow-up & Comprehensive Camp",
+  camp4Title: "Community Follow-up & Comprehensive Camp",
   camp4DateLoc: "Delhi NCR / Haryana • Verified Camp Operations",
   camp4Desc: "Comprehensive vision testing, second-stage spectacles dispensing, and post-camp follow-up consultations.",
   camp4Doctor: "Tandicia Medical Volunteer Team & Senior Optometrists",

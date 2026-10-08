@@ -427,9 +427,9 @@ export default function Home() {
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                   <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
-                    <img src="/camps/camp1/1st Camp/E1-4.jpeg" alt="Camp 1 Bhati Mines Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span className="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md">
-                      CAMP 01
+                    <img src="/camps/camp1/1st Camp/E1-4.jpeg" alt="Bhati Mines Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-700/90 text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
+                      Eye Camp
                     </span>
                     <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
                       29 Aug 2025
@@ -440,7 +440,7 @@ export default function Home() {
                     <span>Bhati Mines, Sanjay Colony, New Delhi</span>
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
-                    Camp 1 — Bhati Mines
+                    Bhati Mines Camp
                   </h4>
                   <p className="text-xs text-slate-600 mb-3 leading-relaxed">
                     Abhyudaya A-116/A. Comprehensive eye diagnostics, free prescription spectacles, and doctor consultations.
@@ -455,7 +455,7 @@ export default function Home() {
                   to="/eye-camps"
                   className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
                 >
-                  <span>Explore Camp 1 Events</span>
+                  <span>Explore Camp Details</span>
                   <span>→</span>
                 </Link>
               </div>
@@ -464,9 +464,9 @@ export default function Home() {
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                   <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
-                    <img src="/camps/camp2/2nd Camp/E2-3.jpeg" alt="Camp 2 Kusumpur Pahari Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span className="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md">
-                      CAMP 02
+                    <img src="/camps/camp2/2nd Camp/E2-3.jpeg" alt="Kusumpur Pahari Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-700/90 text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
+                      Eye Camp
                     </span>
                     <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
                       14 Sep 2025
@@ -477,7 +477,7 @@ export default function Home() {
                     <span>Kusumpur Pahari, Block-C, New Delhi</span>
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
-                    Camp 2 — Kusumpur Pahari
+                    Kusumpur Pahari Camp
                   </h4>
                   <p className="text-xs text-slate-600 mb-3 leading-relaxed">
                     Sherawali Mata Mandir. High-turnout camp with AR-9 Autorefractors, vision checkups, and free medicines.
@@ -492,7 +492,7 @@ export default function Home() {
                   to="/eye-camps"
                   className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
                 >
-                  <span>Explore Camp 2 Events</span>
+                  <span>Explore Camp Details</span>
                   <span>→</span>
                 </Link>
               </div>
@@ -501,9 +501,9 @@ export default function Home() {
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                   <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
-                    <img src="/camps/camp3/3rd camp/E3-3.jpeg" alt="Camp 3 Mewla Maharajpur Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span className="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md">
-                      CAMP 03
+                    <img src="/camps/camp3/3rd camp/E3-3.jpeg" alt="Mewla Maharajpur Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-700/90 text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
+                      Eye Camp
                     </span>
                     <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
                       12 Oct 2025
@@ -514,7 +514,7 @@ export default function Home() {
                     <span>Mewla Maharajpur, Faridabad, Haryana</span>
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
-                    Camp 3 — Mewla Maharajpur
+                    Mewla Maharajpur Camp
                   </h4>
                   <p className="text-xs text-slate-600 mb-3 leading-relaxed">
                     Deepak Bensla Baithak. Cross-border Haryana eye camp with retinoscopy, prescription eyeglasses, and news coverage.
@@ -529,7 +529,7 @@ export default function Home() {
                   to="/eye-camps"
                   className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
                 >
-                  <span>Explore Camp 3 Events</span>
+                  <span>Explore Camp Details</span>
                   <span>→</span>
                 </Link>
               </div>
