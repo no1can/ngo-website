@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getCustomPhotos } from "../utils/photoStore";
+import { useContent } from "../utils/contentStore";
 
 const verifiedCamps = [
   {
@@ -159,6 +160,7 @@ const verifiedCamps = [
 ];
 
 export default function EyeCamps() {
+  const content = useContent();
   const [filter, setFilter] = useState("All");
   const [selectedCamp, setSelectedCamp] = useState(null);
   const [customCampPhotos, setCustomCampPhotos] = useState(() => 
@@ -192,7 +194,44 @@ export default function EyeCamps() {
     gallery: [p.src]
   }));
 
-  const allCamps = [...dynamicCamps, ...verifiedCamps];
+  const dynamicVerifiedCamps = verifiedCamps.map((camp, idx) => {
+    if (idx === 0) {
+      return {
+        ...camp,
+        title: content.camp1Title || camp.title,
+        location: content.camp1DateLoc || camp.location,
+        objective: content.camp1Desc || camp.objective,
+        medicalTeam: content.camp1Doctor || camp.medicalTeam
+      };
+    } else if (idx === 1) {
+      return {
+        ...camp,
+        title: content.camp2Title || camp.title,
+        location: content.camp2DateLoc || camp.location,
+        objective: content.camp2Desc || camp.objective,
+        medicalTeam: content.camp2Doctor || camp.medicalTeam
+      };
+    } else if (idx === 2) {
+      return {
+        ...camp,
+        title: content.camp3Title || camp.title,
+        location: content.camp3DateLoc || camp.location,
+        objective: content.camp3Desc || camp.objective,
+        medicalTeam: content.camp3Doctor || camp.medicalTeam
+      };
+    } else if (idx === 3) {
+      return {
+        ...camp,
+        title: content.camp4Title || camp.title,
+        location: content.camp4DateLoc || camp.location,
+        objective: content.camp4Desc || camp.objective,
+        medicalTeam: content.camp4Doctor || camp.medicalTeam
+      };
+    }
+    return camp;
+  });
+
+  const allCamps = [...dynamicCamps, ...dynamicVerifiedCamps];
 
   const filteredCamps = filter === "All" 
     ? allCamps 
@@ -220,16 +259,16 @@ export default function EyeCamps() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 block">
-              Primary Healthcare Initiative
+              {content.campsPageBadge || "Primary Healthcare Initiative"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              Eye Camps
+              {content.campsPageTitle || "Eye Camps"}
             </h1>
             <p className="text-xl sm:text-2xl text-amber-200/90 font-serif mb-6">
-              Bringing Vision Closer to Those Who Need It
+              {content.eyeCampsHeading || "Bringing Vision Closer to Those Who Need It"}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Clear vision is not a luxury—it is fundamental to human dignity, safety, and self-reliance. We bring qualified doctors and free spectacles directly to grassroots communities.
+              {content.campsPageSubtitle || "Clear vision is not a luxury—it is fundamental to human dignity, safety, and self-reliance. We bring qualified doctors and free spectacles directly to grassroots communities."}
             </p>
           </div>
         </section>
@@ -242,7 +281,7 @@ export default function EyeCamps() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-amber-400 font-mono block">
-                  4+
+                  {content.stat2Number || "4+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Camps Conducted
@@ -250,7 +289,7 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono block">
-                  XX+
+                  {content.stat1Number || "1,200+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   People Screened
@@ -258,7 +297,7 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-sky-400 font-mono block">
-                  XX+
+                  {content.stat3Number || "450+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Spectacles Distributed
@@ -266,10 +305,10 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-amber-300 font-mono block">
-                  XX+
+                  {content.stat4Number || "50+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
-                  Referrals / Surgeries
+                  Volunteers & Doctors
                 </span>
               </div>
             </div>

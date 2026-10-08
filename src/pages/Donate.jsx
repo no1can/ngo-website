@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useContent } from "../utils/contentStore";
 
 export default function Donate() {
+  const content = useContent();
+
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
       <Navbar />
@@ -23,16 +26,16 @@ export default function Donate() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 block">
-              Transparent Contributions
+              {content.donateBadge || "Transparent Contributions"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              Support Our Work
+              {content.donateTitle || "Support Our Work"}
             </h1>
             <p className="text-xl sm:text-2xl text-amber-200/90 font-serif mb-6">
-              Invest in someone's vision and dignity, your way.
+              {content.donateTagline || "Invest in someone's vision and dignity, your way."}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Your contribution directly supports on-site eye diagnosis camps, free corrective spectacles, and wholesome meals via Sewa Rasoi.
+              {content.donateDesc || "Your contribution directly supports on-site eye diagnosis camps, free corrective spectacles, and community care."}
             </p>
           </div>
         </section>
@@ -83,19 +86,19 @@ export default function Donate() {
                 <div className="p-6 rounded-2xl bg-white border border-slate-200 space-y-3 text-sm">
                   <div className="flex justify-between border-b border-slate-100 pb-2">
                     <span className="text-slate-500">Account Name:</span>
-                    <strong className="text-slate-900 font-semibold">Tandicia Association</strong>
+                    <strong className="text-slate-900 font-semibold">{content.bankAccountName || "Tandicia Association"}</strong>
                   </div>
                   <div className="flex justify-between border-b border-slate-100 pb-2">
                     <span className="text-slate-500">Bank Name:</span>
-                    <strong className="text-slate-900 font-semibold">City Union Bank Ltd (CUB)</strong>
+                    <strong className="text-slate-900 font-semibold">{content.bankName || "City Union Bank Ltd (CUB)"}</strong>
                   </div>
                   <div className="flex justify-between border-b border-slate-100 pb-2">
                     <span className="text-slate-500">Account Number:</span>
-                    <strong className="text-slate-900 font-mono font-bold text-base">510909010308848</strong>
+                    <strong className="text-slate-900 font-mono font-bold text-base">{content.bankAccountNumber || "510909010308848"}</strong>
                   </div>
                   <div className="flex justify-between">
                     <span className="text-slate-500">IFSC Code:</span>
-                    <strong className="text-slate-900 font-mono font-bold text-base">CIUB0000102</strong>
+                    <strong className="text-slate-900 font-mono font-bold text-base">{content.bankIfsc || "CIUB0000102"}</strong>
                   </div>
                 </div>
 

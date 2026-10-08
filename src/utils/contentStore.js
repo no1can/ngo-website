@@ -1,11 +1,31 @@
 /**
  * contentStore.js — Central text & content management for Tandicia website
- * Enables live editing of website texts, headlines, taglines, and impact statistics
- * from the Admin Panel.
+ * Enables live editing of ALL website texts, headlines, taglines, paragraphs,
+ * camp descriptions, impact statistics, and contact info from the Admin Panel.
  */
+import { useState, useEffect } from "react";
 
 export const DEFAULT_CONTENT = {
-  // Hero Section
+  // ==========================================
+  // 1. ORGANISATION & GLOBAL BRANDING
+  // ==========================================
+  orgName: "Tandicia Association",
+  orgTagline: "Our Vision: Perfect Vision for All",
+  orgEmail: "connect@tandiciaassociation.com",
+  orgPhone: "+91 98716 74098",
+  orgAddress: "Abhyudaya, Sanjay Colony, Bhati Mines & New Delhi, India",
+  orgWorkingHours: "Monday – Saturday: 9:00 AM – 6:00 PM",
+  footerBio: "Connecting People. Serving Communities. Being There for Each Other. A community-driven social-impact initiative committed to accessible healthcare, dignity, and real compassion.",
+  footerCopyright: "© 2025 Tandicia Association. All verified records reserved.",
+  bankAccountName: "Tandicia Association",
+  bankName: "City Union Bank Ltd (CUB)",
+  bankAccountNumber: "510909010308848",
+  bankIfsc: "CIUB0000102",
+  bankUpi: "tandicia@upi",
+
+  // ==========================================
+  // 2. HOMEPAGE — HERO SECTION
+  // ==========================================
   heroBadge: "Our Vision: Perfect Vision for All",
   heroHeading1: "TANDICIA",
   heroHeading2: "ASSOCIATION",
@@ -14,7 +34,8 @@ export const DEFAULT_CONTENT = {
   heroCta1Text: "Explore Eye Camps",
   heroCta2Text: "Join Tandicia",
 
-  // Purpose / Vision Section
+  // HOMEPAGE — VISION & 3 PILLARS
+  purposeBadge: "Our Vision & Purpose",
   purposeHeading: "Our Vision: Perfect Vision for All",
   purposeSubtext: "Dedicated to eliminating preventable blindness and ensuring clear vision, dignity, and accessible eye healthcare for every family.",
   pillar1Title: "Free Vision Screening",
@@ -24,37 +45,168 @@ export const DEFAULT_CONTENT = {
   pillar3Title: "Specialist Medical Care",
   pillar3Desc: "Senior ophthalmologist consultations, cataract grading, and direct subsidised surgical referrals in partnership with leading eye institutes.",
 
-  // Impact Numbers
+  // HOMEPAGE — FIELD PROGRAMMES
+  programmesBadge: "Field Programmes",
+  programmesHeading: "Our Work on the Ground",
+  programmesSubtext: "Authentic, on-ground programmes designed to deliver tangible medical care, community wellness, and social solidarity.",
+  progEyeTitle: "Eye Camps",
+  progEyeDesc: "Accessible eye care, comprehensive screening, custom spectacles distribution, and medical doctor consultation for underserved communities.",
+  progEyeLinkText: "Explore Eye Camps →",
+  progNaiTitle: "Nai Pehal",
+  progNaiDesc: "New initiatives responding dynamically to emerging community needs: senior citizen care, single parent support, and grassroots solutions.",
+  progNaiLinkText: "Explore Nai Pehal →",
+
+  // HOMEPAGE — IMPACT NUMBERS
+  impactBadge: "Transparent Accountability",
+  impactHeading: "Our Impact So Far",
+  impactSubtext: "All numbers are tracked via verified on-ground camp logs and programme registers.",
   stat1Number: "1,200+",
   stat1Label: "People Reached",
   stat1Sub: "Beneficiaries served",
-
   stat2Number: "4+",
   stat2Label: "Eye Camps",
   stat2Sub: "Conducted on-site",
-
   stat3Number: "450+",
   stat3Label: "Spectacles Distributed",
   stat3Sub: "Free corrective eyewear",
-
   stat4Number: "50+",
   stat4Label: "Volunteers & Doctors",
   stat4Sub: "Dedicated team members",
 
-  // Eye Camps Spotlight Section
+  // HOMEPAGE — EYE CAMPS SPOTLIGHT
+  eyeCampsBadge: "Flagship Initiative",
   eyeCampsHeading: "Bringing Vision Closer to Those Who Need It",
   eyeCampsSubtext: "Delivering primary ophthalmic checkups, refraction, specialist consultations, and free prescription spectacles directly to underserved communities.",
+  eyeCampPoint1Title: "Mobile Diagnostics",
+  eyeCampPoint1Desc: "Computerized AR-9 autorefractors deployed right into neighbourhood community centres and baithaks.",
+  eyeCampPoint2Title: "Same-Day Spectacle Fitting",
+  eyeCampPoint2Desc: "Durable reading and distance prescription eyeglasses fitted directly on-site to beneficiaries.",
+  eyeCampPoint3Title: "Cataract & Surgery Referrals",
+  eyeCampPoint3Desc: "Direct OPD slip linkages with senior ophthalmic surgical centres for advanced treatment.",
 
-  // Final Call to Action
+  // HOMEPAGE — COMMUNITY STORIES
+  storiesBadge: "Human Stories",
+  storiesHeading: "Stories from the Field",
+  storiesSubtext: "Every camp leaves a lasting imprint. Here is what serving with dignity looks like in everyday life.",
+  storyMainTitle: "From Blurred World to Crystal Clarity",
+  storyMainQuote: "\"For three years, I thought losing my eyesight was simply part of growing old. When Tandicia doctors tested my eyes and handed me glasses without asking for a single rupee, I could see my grandson's face clearly again.\"",
+  storyMainAuthor: "— Smt. Ramvati Devi (68 yrs), Mewla Maharajpur Beneficiary",
+  story2Title: "Sunday Free Vision Diagnostic",
+  story2Desc: "Over a hundred residents examined by our voluntary team.",
+  story3Title: "Free Spectacles Distribution",
+  story3Desc: "Providing precision corrective eyewear to elderly residents.",
+  story4Title: "Standing With Single Mothers",
+  story4Desc: "Providing moral support, counseling, and guidance.",
+
+  // HOMEPAGE — WHY TANDICIA
+  whyBadge: "Core Philosophy",
+  whyHeading: "Why Tandicia?",
+  whySubtext: "We don't work for publicity or distant reports. We work shoulder-to-shoulder with the communities we serve.",
+  whyCard1Title: "Ground-Level Presence",
+  whyCard1Desc: "We operate in remote clusters, mining settlements, and rural colonies where public healthcare access is limited.",
+  whyCard2Title: "Dignity Above All",
+  whyCard2Desc: "Every beneficiary is received with deep respect, comfortable seating, clear explanations, and zero bureaucratic barriers.",
+  whyCard3Title: "100% Financial Accountability",
+  whyCard3Desc: "Every rupee donated is directly mapped to eye testing, prescription lenses, medical drops, and logistics.",
+
+  // HOMEPAGE — FINAL CTA
   ctaHeading: "Be There for Someone",
   ctaQuote: "\"You don't need to do everything. Sometimes, simply being there makes a difference.\"",
   ctaButton1Text: "Become a Volunteer",
   ctaButton2Text: "Support Our Work",
 
-  // Contact & Organisation Info
-  orgEmail: "connect@tandiciaassociation.com",
-  orgPhone: "+91 98716 74098",
-  orgAddress: "New Delhi, India"
+  // ==========================================
+  // 3. ABOUT PAGE
+  // ==========================================
+  aboutBadge: "Our Identity & Purpose",
+  aboutHeading: "About Tandicia",
+  aboutTagline: "Our Vision: Perfect Vision for All",
+  aboutSubtext: "Connecting People. Serving Communities. Being There for Each Other.",
+  aboutWhoHeading: "Who We Are",
+  aboutWhoP1: "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs.",
+  aboutWhoP2: "We believe that the most powerful social change does not happen from distant offices, but on the ground—where people meet as equals. Whether it is screening the eyes of an elder who cannot afford an examination, serving a hot meal with genuine dignity, or standing by a family navigating crisis, Tandicia exists to be there.",
+  aboutWhoQuote: "\"Our guiding light is simple: service rooted in respect, friendships that cross social boundaries, and a sense of shared belonging that leaves no one behind.\"",
+  aboutVisionSectionTitle: "Our Vision",
+  aboutVisionSectionQuote: "\"A world where no one is deprived of clear sight — Perfect Vision for All through compassionate, accessible healthcare.\"",
+  aboutVisionSectionDesc: "Every initiative we undertake is measured by one standard: does it elevate human dignity and strengthen social bonds?",
+  aboutObj1Title: "Accessible Eye Healthcare",
+  aboutObj1Desc: "Conducting free diagnostic eye testing and spectacles distribution camps across underserved colonies and villages.",
+  aboutObj2Title: "Grassroots Volunteering",
+  aboutObj2Desc: "Mobilizing youth, doctors, and professionals to directly volunteer their skills for social welfare.",
+  aboutObj3Title: "Senior & Elderly Dignity",
+  aboutObj3Desc: "Ensuring elder citizens receive respectful healthcare, vision clarity, and emotional solidarity.",
+  aboutObj4Title: "Transparent Impact",
+  aboutObj4Desc: "Maintaining 100% verified records, photographs, and public accountability for every single initiative.",
+
+  // ==========================================
+  // 4. EYE CAMPS PAGE
+  // ==========================================
+  campsPageBadge: "Flagship Healthcare Initiative",
+  campsPageTitle: "Free Eye Screening Camps",
+  campsPageSubtitle: "Our Vision: Perfect Vision for All — Professional ophthalmic care, computerized autorefraction, senior surgeon diagnosis, and free spectacles distribution directly to underserved communities.",
+  campsProcessTitle: "How Our Eye Camps Work",
+  campsProcessSubtitle: "A standardized, medically rigorous 4-step protocol ensuring dignity and clinical accuracy for every patient.",
+
+  camp1Title: "Camp 1 — Bhati Mines, New Delhi",
+  camp1DateLoc: "29 August 2025 • Abhyudaya, Sanjay Colony, Bhati Mines",
+  camp1Desc: "Reaching daily wage earners, elder residents, and remote families in the Bhati Mines region with critical eye health diagnosis.",
+  camp1Doctor: "Dr. Atul Garg, M.B.B.S., M.S. (Eye), Senior Eye Surgeon",
+
+  camp2Title: "Camp 2 — Kusumpur Pahari, New Delhi",
+  camp2DateLoc: "14 September 2025 • Sherawali Mata Mandir, Kusumpur Pahari",
+  camp2Desc: "Delivering primary ophthalmic care and free vision correction directly to residents of Kusumpur Pahari with dignity and care.",
+  camp2Doctor: "Dr. Atul Garg & Senior Clinical Optometrists",
+
+  camp3Title: "Camp 3 — Mewla Maharajpur, Faridabad",
+  camp3DateLoc: "12 October 2025 • Deepak Bensla Baithak, Mewla Maharajpur, Haryana",
+  camp3Desc: "Extending Tandicia's eye care mission across state borders into rural Haryana communities with complete ophthalmic diagnosis.",
+  camp3Doctor: "Certified Ophthalmologists & Specialist Optometrists",
+
+  camp4Title: "Camp 4 — Community Follow-up & Comprehensive Camp",
+  camp4DateLoc: "Delhi NCR / Haryana • Verified Camp Operations",
+  camp4Desc: "Comprehensive vision testing, second-stage spectacles dispensing, and post-camp follow-up consultations.",
+  camp4Doctor: "Tandicia Medical Volunteer Team & Senior Optometrists",
+
+  // ==========================================
+  // 5. NAI PEHAL PAGE
+  // ==========================================
+  naiBadge: "Community Initiatives",
+  naiTitle: "Nai Pehal",
+  naiSubtitle: "Grassroots responses to community needs — supporting senior citizens, single mothers, and families in times of vulnerability.",
+  naiInit1Title: "Senior Citizens Care",
+  naiInit1Desc: "Many elderly individuals face social isolation alongside age-related ailments. Tandicia connects volunteers with senior citizens for home visits, doctor accompaniments, routine medicine pickups, and shared conversations to restore their sense of family belonging.",
+  naiInit2Title: "Single Parents Support",
+  naiInit2Desc: "Raising children alone is fraught with financial, emotional, and social hurdles. Tandicia provides peer support groups, school supplies assistance, and volunteer tutoring networks so single mothers and fathers never feel alone in their struggle.",
+  naiInit3Title: "Community Mutual Aid",
+  naiInit3Desc: "Mobilizing swift assistance during localized distress—such as providing emergency winter blankets, seasonal health kits, or assisting families through sudden medical crises.",
+  naiInit4Title: "Health & Hygiene Awareness",
+  naiInit4Desc: "Conducting community workshops on diabetic eye care, clean drinking water practices, maternal nutrition, and seasonal epidemic prevention in partnership with medical volunteers.",
+
+  // ==========================================
+  // 6. IMPACT & TRANSPARENCY PAGE
+  // ==========================================
+  impactPageBadge: "Transparent Outcomes",
+  impactPageTitle: "Our Impact",
+  impactPageTagline: "Measuring the Difference We Make",
+  impactPageDesc: "We do not measure success in marketing slogans, but in real smiles, restored vision, and the quiet dignity restored to human lives.",
+  impactAccountabilityTitle: "Our Accountability Standard",
+  impactAccountabilityDesc: "We maintain strict physical registers, photographic logs, and medical doctor signatures for every single eye camp conducted.",
+
+  // ==========================================
+  // 7. CONTACT PAGE
+  // ==========================================
+  contactBadge: "Reach Out & Engage",
+  contactTitle: "Let's Connect",
+  contactTagline: "Every connection can become an opportunity to serve.",
+  contactDesc: "Whether you want to offer your time as a volunteer, collaborate on a community eye camp, or simply say hello, we look forward to hearing from you.",
+
+  // ==========================================
+  // 8. DONATE PAGE
+  // ==========================================
+  donateBadge: "Transparent Contributions",
+  donateTitle: "Support Our Work",
+  donateTagline: "Invest in someone's vision and dignity, your way.",
+  donateDesc: "Your contribution directly supports on-site eye diagnosis camps, free corrective spectacles, and community care."
 };
 
 const CONTENT_STORAGE_KEY = "tandicia_custom_content_v1";
@@ -96,4 +248,19 @@ export function resetContentToDefault() {
     console.error("Failed to reset content:", err);
     throw err;
   }
+}
+
+// React Hook for dynamic reactive content
+export function useContent() {
+  const [content, setContent] = useState(getContent());
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setContent(getContent());
+    };
+    window.addEventListener("tandicia_content_updated", handleUpdate);
+    return () => window.removeEventListener("tandicia_content_updated", handleUpdate);
+  }, []);
+
+  return content;
 }

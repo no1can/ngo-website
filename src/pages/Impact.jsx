@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useContent } from "../utils/contentStore";
 
 export default function Impact() {
+  const content = useContent();
+
   const verifiedStats = [
-    { label: "People Reached", value: "XX+", desc: "Direct beneficiaries of all field activities", color: "text-amber-400" },
-    { label: "Eye Camps", value: "4+", desc: "Full-day clinical diagnostic screening camps", color: "text-emerald-400" },
-    { label: "Spectacles Distributed", value: "XX+", desc: "Free prescription corrective eyeglasses", color: "text-sky-400" },
-    { label: "Meals Served", value: "XX+", desc: "Fresh, hot meals served via Sewa Rasoi", color: "text-amber-300" },
-    { label: "Active Volunteers", value: "XX+", desc: "Professionals, students & community members", color: "text-rose-400" },
-    { label: "Community Hubs", value: "XX+", desc: "Districts & village clusters served", color: "text-teal-400" }
+    { label: content.stat1Label || "People Reached", value: content.stat1Number || "1,200+", desc: "Direct beneficiaries of all field activities", color: "text-amber-400" },
+    { label: content.stat2Label || "Eye Camps", value: content.stat2Number || "4+", desc: "Full-day clinical diagnostic screening camps", color: "text-emerald-400" },
+    { label: content.stat3Label || "Spectacles Distributed", value: content.stat3Number || "450+", desc: "Free prescription corrective eyeglasses", color: "text-sky-400" },
+    { label: content.stat4Label || "Active Volunteers", value: content.stat4Number || "50+", desc: "Professionals, doctors & community members", color: "text-rose-400" }
   ];
 
   const programmes = [
@@ -80,16 +81,16 @@ export default function Impact() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 block">
-              Transparent Outcomes
+              {content.impactPageBadge || "Transparent Outcomes"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              Our Impact
+              {content.impactPageTitle || "Our Impact"}
             </h1>
             <p className="text-xl sm:text-2xl text-amber-200/90 font-serif mb-6">
-              Measuring the Difference We Make
+              {content.impactPageTagline || "Measuring the Difference We Make"}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              We do not measure success in marketing slogans, but in real smiles, restored vision, hot plates served, and the quiet dignity restored to human lives.
+              {content.impactPageDesc || "We do not measure success in marketing slogans, but in real smiles, restored vision, and the quiet dignity restored to human lives."}
             </p>
           </div>
         </section>

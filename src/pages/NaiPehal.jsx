@@ -2,8 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useContent } from "../utils/contentStore";
 
-const initiatives = [
+const baseInitiatives = [
   {
     id: "senior-citizens",
     title: "Senior Citizens Care",
@@ -55,7 +56,37 @@ const initiatives = [
 ];
 
 export default function NaiPehal() {
+  const content = useContent();
   const [expandedId, setExpandedId] = useState("senior-citizens");
+
+  const initiatives = baseInitiatives.map((item, idx) => {
+    if (idx === 0) {
+      return {
+        ...item,
+        title: content.naiInit1Title || item.title,
+        details: content.naiInit1Desc || item.details
+      };
+    } else if (idx === 1) {
+      return {
+        ...item,
+        title: content.naiInit2Title || item.title,
+        details: content.naiInit2Desc || item.details
+      };
+    } else if (idx === 2) {
+      return {
+        ...item,
+        title: content.naiInit3Title || item.title,
+        details: content.naiInit3Desc || item.details
+      };
+    } else if (idx === 3) {
+      return {
+        ...item,
+        title: content.naiInit4Title || item.title,
+        details: content.naiInit4Desc || item.details
+      };
+    }
+    return item;
+  });
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
@@ -77,13 +108,13 @@ export default function NaiPehal() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold mb-3 block">
-              Emerging Frontiers of Service
+              {content.naiBadge || "Emerging Frontiers of Service"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              Nai Pehal
+              {content.naiTitle || "Nai Pehal"}
             </h1>
             <p className="text-xl sm:text-2xl text-emerald-300 font-serif mb-6">
-              New Ideas. New Connections. New Possibilities.
+              {content.naiSubtitle || "New Ideas. New Connections. New Possibilities."}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
               Communities evolve, and so do their challenges. Nai Pehal is Tandicia's agile platform for incubating compassionate responses to emerging social realities.
@@ -100,7 +131,7 @@ export default function NaiPehal() {
               Core Guiding Principle
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
-              Our Vision: Perfect Vision for All
+              {content.heroBadge || "Our Vision: Perfect Vision for All"}
             </h2>
             <div className="w-20 h-1 bg-amber-600 mx-auto rounded-full" />
             <p className="text-xl text-slate-700 font-serif max-w-2xl mx-auto leading-relaxed pt-2">

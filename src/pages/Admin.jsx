@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getAllPhotos, getCustomPhotos, addPhoto, deletePhoto, clearAllCustomPhotos, DEFAULT_PHOTOS, replacePhoto, resetPhotoOverride, resetAllOverrides, getPhotoOverrides } from "../utils/photoStore";
 import { getContent, saveContent, resetContentToDefault } from "../utils/contentStore";
+import AdminTextEditor from "../components/AdminTextEditor";
 
 export default function Admin() {
   // Authentication State
@@ -24,6 +25,10 @@ export default function Admin() {
   // Website Text Content State
   const [siteContent, setSiteContent] = useState(getContent());
   const [isSavingContent, setIsSavingContent] = useState(false);
+  const [textContentCategory, setTextContentCategory] = useState("home");
+  const [textSearchQuery, setTextSearchQuery] = useState("");
+  const [customNewKey, setCustomNewKey] = useState("");
+  const [customNewValue, setCustomNewValue] = useState("");
 
   // Form State
   const [activeTab, setActiveTab] = useState("all"); // all, text, upload, manage, cloud
@@ -211,6 +216,47 @@ export default function Admin() {
       setSiteContent(defaults);
       showToast("Website texts reset to original defaults.", "info");
     }
+  };
+
+  const handleExportContentBackup = () => {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(siteContent, null, 2));
+    const dlAnchorElem = document.createElement("a");
+    dlAnchorElem.setAttribute("href", dataStr);
+    dlAnchorElem.setAttribute("download", `tandicia_content_backup_${new Date().toISOString().slice(0, 10)}.json`);
+    dlAnchorElem.click();
+    showToast("Downloaded website content backup JSON!");
+  };
+
+  const handleImportContentBackup = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      try {
+        const parsed = JSON.parse(event.target.result);
+        if (typeof parsed === "object") {
+          saveContent(parsed);
+          setSiteContent(parsed);
+          showToast("Website content restored from backup!");
+        }
+      } catch (err) {
+        showToast("Invalid JSON file.", "error");
+      }
+    };
+    reader.readAsText(file);
+  };
+
+  const handleAddCustomField = (e) => {
+    e.preventDefault();
+    if (!customNewKey.trim()) return;
+    const cleanKey = customNewKey.trim().replace(/\s+/g, "_");
+    setSiteContent(prev => ({
+      ...prev,
+      [cleanKey]: customNewValue
+    }));
+    setCustomNewKey("");
+    setCustomNewValue("");
+    showToast(`Added field "${cleanKey}". Click Save to persist.`);
   };
 
   // If not authenticated, show sleek lock screen
@@ -565,529 +611,15 @@ export default function Admin() {
             TAB: EDIT WEBSITE TEXT & CONTENT
             ======================================================== */}
         {activeTab === "text" && (
-          <div className="space-y-8">
-            {/* Action Bar */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 sticky top-4 z-20 backdrop-blur-md bg-white/95">
-              <div>
-                <h2 className="text-xl font-bold text-slate-900 flex items-center gap-2">
-                  <span>✍️ Website Text & Content Editor</span>
-                  <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 font-semibold font-mono">Live Sync</span>
-                </h2>
-                <p className="text-xs text-slate-500 mt-1">
-                  Change any headings, taglines, quotes, or impact statistics. Click Save and changes will reflect across the website!
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3">
-                <button
-                  type="button"
-                  onClick={handleResetAllContent}
-                  className="px-4 py-2.5 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-rose-50 hover:text-rose-700 hover:border-rose-200 transition-colors cursor-pointer"
-                >
-                  ↩ Reset to Defaults
-                </button>
-                <button
-                  type="button"
-                  onClick={handleSaveAllContent}
-                  disabled={isSavingContent}
-                  className="px-6 py-2.5 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-xs transition-all shadow-md hover:shadow-emerald-900/30 flex items-center gap-2 cursor-pointer disabled:opacity-50"
-                >
-                  {isSavingContent ? (
-                    <>
-                      <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      <span>Saving...</span>
-                    </>
-                  ) : (
-                    <>
-                      <span>💾 Save All Text Changes</span>
-                    </>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            <form onSubmit={handleSaveAllContent} className="space-y-8">
-              {/* SECTION 1: HERO & TAGLINE */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 pb-4 mb-6 border-b border-slate-100">
-                  <span className="text-xl">🌟</span>
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900">Hero Section & Taglines</h3>
-                    <p className="text-xs text-slate-400">The main banner text visitors see first on the homepage</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Top Badge / Vision Tagline
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.heroBadge || ""}
-                      onChange={(e) => handleContentFieldChange("heroBadge", e.target.value)}
-                      placeholder="e.g. Our Vision: Perfect Vision for All"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-medium"
-                    />
-                    <p className="text-[11px] text-slate-400 mt-1">Displayed in the small green badge at top of Hero</p>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Heading Line 1
-                      </label>
-                      <input
-                        type="text"
-                        value={siteContent.heroHeading1 || ""}
-                        onChange={(e) => handleContentFieldChange("heroHeading1", e.target.value)}
-                        placeholder="TANDICIA"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-bold"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Heading Line 2
-                      </label>
-                      <input
-                        type="text"
-                        value={siteContent.heroHeading2 || ""}
-                        onChange={(e) => handleContentFieldChange("heroHeading2", e.target.value)}
-                        placeholder="ASSOCIATION"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-bold"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Main Sub-Headline (Italic Golden Text)
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.heroTagline || ""}
-                      onChange={(e) => handleContentFieldChange("heroTagline", e.target.value)}
-                      placeholder="e.g. Connecting People. Serving Communities. Being There for Each Other."
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                    />
-                  </div>
-
-                  <div className="md:col-span-2">
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Supporting Paragraph Text
-                    </label>
-                    <textarea
-                      rows={2}
-                      value={siteContent.heroSubtext || ""}
-                      onChange={(e) => handleContentFieldChange("heroSubtext", e.target.value)}
-                      placeholder="Description of the organization mission..."
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Primary Button Text
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.heroCta1Text || ""}
-                      onChange={(e) => handleContentFieldChange("heroCta1Text", e.target.value)}
-                      placeholder="Explore Our Work"
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Secondary Button Text
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.heroCta2Text || ""}
-                      onChange={(e) => handleContentFieldChange("heroCta2Text", e.target.value)}
-                      placeholder="Join Tandicia"
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 2: OUR VISION (PERFECT VISION FOR ALL) */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 pb-4 mb-6 border-b border-slate-100">
-                  <span className="text-xl">🎯</span>
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900">Our Vision — Perfect Vision for All</h3>
-                    <p className="text-xs text-slate-400">Section 2 blocks describing Tandicia's eye healthcare mission</p>
-                  </div>
-                </div>
-
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Section Heading
-                      </label>
-                      <input
-                        type="text"
-                        value={siteContent.purposeHeading || ""}
-                        onChange={(e) => handleContentFieldChange("purposeHeading", e.target.value)}
-                        placeholder="Our Vision: Perfect Vision for All"
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-semibold"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                        Vision Subtitle / Description
-                      </label>
-                      <input
-                        type="text"
-                        value={siteContent.purposeSubtext || ""}
-                        onChange={(e) => handleContentFieldChange("purposeSubtext", e.target.value)}
-                        placeholder="Dedicated to eliminating preventable blindness..."
-                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="p-4 rounded-2xl bg-sky-50/50 border border-sky-100 space-y-2">
-                      <div className="flex items-center gap-2 font-bold text-sky-950 text-sm">
-                        <span>👁️</span>
-                        <input
-                          type="text"
-                          value={siteContent.pillar1Title || ""}
-                          onChange={(e) => handleContentFieldChange("pillar1Title", e.target.value)}
-                          placeholder="Free Vision Screening"
-                          className="w-full font-bold text-sm bg-transparent border-b border-sky-300 pb-1 focus:outline-hidden"
-                        />
-                      </div>
-                      <textarea
-                        rows={4}
-                        value={siteContent.pillar1Desc || ""}
-                        onChange={(e) => handleContentFieldChange("pillar1Desc", e.target.value)}
-                        className="w-full p-3 rounded-xl border border-sky-200 bg-white text-xs leading-relaxed focus:outline-hidden focus:ring-2 focus:ring-sky-700/20"
-                      />
-                    </div>
-
-                    <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-2">
-                      <div className="flex items-center gap-2 font-bold text-emerald-950 text-sm">
-                        <span>👓</span>
-                        <input
-                          type="text"
-                          value={siteContent.pillar2Title || ""}
-                          onChange={(e) => handleContentFieldChange("pillar2Title", e.target.value)}
-                          placeholder="Prescription Spectacles"
-                          className="w-full font-bold text-sm bg-transparent border-b border-emerald-300 pb-1 focus:outline-hidden"
-                        />
-                      </div>
-                      <textarea
-                        rows={4}
-                        value={siteContent.pillar2Desc || ""}
-                        onChange={(e) => handleContentFieldChange("pillar2Desc", e.target.value)}
-                        className="w-full p-3 rounded-xl border border-emerald-200 bg-white text-xs leading-relaxed focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20"
-                      />
-                    </div>
-
-                    <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-100 space-y-2">
-                      <div className="flex items-center gap-2 font-bold text-amber-950 text-sm">
-                        <span>🩺</span>
-                        <input
-                          type="text"
-                          value={siteContent.pillar3Title || ""}
-                          onChange={(e) => handleContentFieldChange("pillar3Title", e.target.value)}
-                          placeholder="Specialist Medical Care"
-                          className="w-full font-bold text-sm bg-transparent border-b border-amber-300 pb-1 focus:outline-hidden"
-                        />
-                      </div>
-                      <textarea
-                        rows={4}
-                        value={siteContent.pillar3Desc || ""}
-                        onChange={(e) => handleContentFieldChange("pillar3Desc", e.target.value)}
-                        className="w-full p-3 rounded-xl border border-amber-200 bg-white text-xs leading-relaxed focus:outline-hidden focus:ring-2 focus:ring-amber-700/20"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 3: IMPACT STATS */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 pb-4 mb-6 border-b border-slate-100">
-                  <span className="text-xl">📊</span>
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900">Impact Statistics & Numbers</h3>
-                    <p className="text-xs text-slate-400">The 4 verified metrics displayed on the homepage impact bar</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {/* Stat 1 */}
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-                    <span className="text-xs font-bold text-amber-600 uppercase tracking-wider block">Stat #1</span>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Number / Metric</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat1Number || ""}
-                        onChange={(e) => handleContentFieldChange("stat1Number", e.target.value)}
-                        placeholder="e.g. 1,200+"
-                        className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono font-bold text-lg text-slate-900 bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Label</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat1Label || ""}
-                        onChange={(e) => handleContentFieldChange("stat1Label", e.target.value)}
-                        placeholder="People Reached"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Subtitle</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat1Sub || ""}
-                        onChange={(e) => handleContentFieldChange("stat1Sub", e.target.value)}
-                        placeholder="Beneficiaries served"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-600 bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Stat 2 */}
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-                    <span className="text-xs font-bold text-emerald-600 uppercase tracking-wider block">Stat #2</span>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Number / Metric</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat2Number || ""}
-                        onChange={(e) => handleContentFieldChange("stat2Number", e.target.value)}
-                        placeholder="e.g. 4+"
-                        className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono font-bold text-lg text-slate-900 bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Label</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat2Label || ""}
-                        onChange={(e) => handleContentFieldChange("stat2Label", e.target.value)}
-                        placeholder="Eye Camps"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Subtitle</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat2Sub || ""}
-                        onChange={(e) => handleContentFieldChange("stat2Sub", e.target.value)}
-                        placeholder="Conducted on-site"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-600 bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Stat 3 */}
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-                    <span className="text-xs font-bold text-sky-600 uppercase tracking-wider block">Stat #3</span>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Number / Metric</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat3Number || ""}
-                        onChange={(e) => handleContentFieldChange("stat3Number", e.target.value)}
-                        placeholder="e.g. 450+"
-                        className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono font-bold text-lg text-slate-900 bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Label</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat3Label || ""}
-                        onChange={(e) => handleContentFieldChange("stat3Label", e.target.value)}
-                        placeholder="Spectacles Distributed"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Subtitle</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat3Sub || ""}
-                        onChange={(e) => handleContentFieldChange("stat3Sub", e.target.value)}
-                        placeholder="Free corrective eyewear"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-600 bg-white"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Stat 4 */}
-                  <div className="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-3">
-                    <span className="text-xs font-bold text-amber-500 uppercase tracking-wider block">Stat #4</span>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Number / Metric</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat4Number || ""}
-                        onChange={(e) => handleContentFieldChange("stat4Number", e.target.value)}
-                        placeholder="e.g. 50+"
-                        className="w-full px-3 py-2 rounded-lg border border-slate-300 font-mono font-bold text-lg text-slate-900 bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Label</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat4Label || ""}
-                        onChange={(e) => handleContentFieldChange("stat4Label", e.target.value)}
-                        placeholder="Volunteers & Supporters"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs font-semibold bg-white"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-slate-500 mb-1">Subtitle</label>
-                      <input
-                        type="text"
-                        value={siteContent.stat4Sub || ""}
-                        onChange={(e) => handleContentFieldChange("stat4Sub", e.target.value)}
-                        placeholder="Dedicated community members"
-                        className="w-full px-3 py-1.5 rounded-lg border border-slate-300 text-xs text-slate-600 bg-white"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 4: EYE CAMPS & SPOTLIGHT */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 pb-4 mb-6 border-b border-slate-100">
-                  <span className="text-xl">👁️</span>
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900">Eye Camps Spotlight Headings</h3>
-                    <p className="text-xs text-slate-400">Headings on Section 5 of the homepage</p>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Spotlight Heading
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.eyeCampsHeading || ""}
-                      onChange={(e) => handleContentFieldChange("eyeCampsHeading", e.target.value)}
-                      placeholder="Bringing Vision Closer to Those Who Need It"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-semibold"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Spotlight Description
-                    </label>
-                    <textarea
-                      rows={2}
-                      value={siteContent.eyeCampsSubtext || ""}
-                      onChange={(e) => handleContentFieldChange("eyeCampsSubtext", e.target.value)}
-                      placeholder="Description explaining the healthcare mission..."
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION 5: FINAL CTA & QUOTE */}
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
-                <div className="flex items-center gap-2 pb-4 mb-6 border-b border-slate-100">
-                  <span className="text-xl">🤝</span>
-                  <div>
-                    <h3 className="text-base font-bold text-slate-900">Final Call to Action (CTA) & Quote</h3>
-                    <p className="text-xs text-slate-400">The bottom banner inviting volunteers and supporters</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      CTA Heading
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.ctaHeading || ""}
-                      onChange={(e) => handleContentFieldChange("ctaHeading", e.target.value)}
-                      placeholder="Be There for Someone"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-semibold"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Inspirational Quote
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.ctaQuote || ""}
-                      onChange={(e) => handleContentFieldChange("ctaQuote", e.target.value)}
-                      placeholder={`"You don't need to do everything. Sometimes, simply being there makes a difference."`}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-serif italic"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Button 1 (Volunteer) Text
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.ctaButton1Text || ""}
-                      onChange={(e) => handleContentFieldChange("ctaButton1Text", e.target.value)}
-                      placeholder="Become a Volunteer"
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Button 2 (Support) Text
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.ctaButton2Text || ""}
-                      onChange={(e) => handleContentFieldChange("ctaButton2Text", e.target.value)}
-                      placeholder="Support Our Work"
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* Save Button Bottom Bar */}
-              <div className="flex justify-end gap-3 pt-4">
-                <button
-                  type="button"
-                  onClick={handleResetAllContent}
-                  className="px-5 py-3 rounded-xl border border-slate-200 text-xs font-semibold text-slate-600 hover:bg-rose-50 hover:text-rose-700 transition-colors cursor-pointer"
-                >
-                  ↩ Reset to Original Defaults
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSavingContent}
-                  className="px-8 py-3 rounded-xl bg-emerald-700 hover:bg-emerald-600 text-white font-bold text-sm transition-all shadow-md hover:shadow-emerald-900/30 flex items-center gap-2 cursor-pointer disabled:opacity-50"
-                >
-                  {isSavingContent ? "Saving Changes..." : "💾 Save All Text Changes"}
-                </button>
-              </div>
-            </form>
-          </div>
+          <AdminTextEditor
+            siteContent={siteContent}
+            setSiteContent={setSiteContent}
+            handleContentFieldChange={handleContentFieldChange}
+            handleSaveAllContent={handleSaveAllContent}
+            handleResetAllContent={handleResetAllContent}
+            isSavingContent={isSavingContent}
+            showToast={showToast}
+          />
         )}
 
         {/* ========================================================

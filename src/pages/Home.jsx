@@ -163,14 +163,14 @@ export default function Home() {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-14">
               <div>
                 <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
-                  Field Programmes
+                  {content.programmesBadge || "Field Programmes"}
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                  Our Work
+                  {content.programmesHeading || "Our Work"}
                 </h2>
               </div>
               <p className="text-slate-600 max-w-md mt-4 md:mt-0 text-sm">
-                Authentic, on-ground programmes designed to deliver tangible medical care, nutritional dignity, and social solidarity.
+                {content.programmesSubtext || "Authentic, on-ground programmes designed to deliver tangible medical care, community wellness, and social solidarity."}
               </p>
             </div>
 
@@ -190,16 +190,16 @@ export default function Home() {
                 </div>
                 <div className="p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Eye Camps</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.progEyeTitle || "Eye Camps"}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      Accessible eye care, comprehensive screening, custom spectacles distribution, and medical doctor consultation for underserved communities.
+                      {content.progEyeDesc || "Accessible eye care, comprehensive screening, custom spectacles distribution, and medical doctor consultation for underserved communities."}
                     </p>
                   </div>
                   <Link
                     to="/eye-camps"
                     className="inline-flex items-center text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
                   >
-                    Explore Eye Camps →
+                    {content.progEyeLinkText || "Explore Eye Camps →"}
                   </Link>
                 </div>
               </div>
@@ -218,16 +218,16 @@ export default function Home() {
                 </div>
                 <div className="p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Nai Pehal</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.progNaiTitle || "Nai Pehal"}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      New initiatives responding dynamically to emerging community needs: senior citizen care, single parent support, and grassroots solutions.
+                      {content.progNaiDesc || "New initiatives responding dynamically to emerging community needs: senior citizen care, single parent support, and grassroots solutions."}
                     </p>
                   </div>
                   <Link
                     to="/nai-pehal"
                     className="inline-flex items-center text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
                   >
-                    Explore Nai Pehal →
+                    {content.progNaiLinkText || "Explore Nai Pehal →"}
                   </Link>
                 </div>
               </div>
@@ -572,10 +572,10 @@ export default function Home() {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
               <div>
                 <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
-                  Moments & Coverage
+                  {content.storiesBadge || "Moments & Coverage"}
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                  Tandicia in Action
+                  {content.storiesHeading || "Stories from the Field"}
                 </h2>
               </div>
               <div className="flex items-center gap-4 mt-4 md:mt-0">
@@ -602,10 +602,10 @@ export default function Home() {
                       Featured Field Story
                     </span>
                     <h3 className="text-2xl font-bold text-slate-900 mb-3">
-                      Restoring Clear Sight to Smt. Ram Dulari
+                      {content.storyMainTitle || "Restoring Clear Sight to Smt. Ram Dulari"}
                     </h3>
                     <p className="text-slate-600 text-sm leading-relaxed">
-                      "I could not thread a needle or recognize my grandchildren from across the verandah. Today, with the spectacles from Tandicia doctors, the entire world is clear again."
+                      {content.storyMainQuote || `"I could not thread a needle or recognize my grandchildren from across the verandah. Today, with the spectacles from Tandicia doctors, the entire world is clear again."`}
                     </p>
                   </div>
                   <div className="pt-6">
@@ -622,8 +622,8 @@ export default function Home() {
                   <img src="/gallery/image4.png" alt="Volunteer session" className="w-24 h-24 object-cover rounded-xl" />
                   <div>
                     <span className="text-xs text-emerald-800 font-semibold">Eye Care Mission</span>
-                    <h4 className="text-base font-bold text-slate-900">Sunday Free Vision Diagnostic</h4>
-                    <p className="text-xs text-slate-500 mt-1">Over a hundred residents examined by our voluntary team.</p>
+                    <h4 className="text-base font-bold text-slate-900">{content.story2Title || "Sunday Free Vision Diagnostic"}</h4>
+                    <p className="text-xs text-slate-500 mt-1">{content.story2Desc || "Over a hundred residents examined by our voluntary team."}</p>
                   </div>
                 </div>
 
@@ -631,8 +631,8 @@ export default function Home() {
                   <img src="/camps/camp2/2nd camp/E2-5.jpeg" alt="Spectacles distribution" className="w-24 h-24 object-cover rounded-xl" />
                   <div>
                     <span className="text-xs text-sky-800 font-semibold">Vision Assistance</span>
-                    <h4 className="text-base font-bold text-slate-900">Free Spectacles Distribution</h4>
-                    <p className="text-xs text-slate-500 mt-1">Providing precision corrective eyewear to elderly residents.</p>
+                    <h4 className="text-base font-bold text-slate-900">{content.story3Title || "Free Spectacles Distribution"}</h4>
+                    <p className="text-xs text-slate-500 mt-1">{content.story3Desc || "Providing precision corrective eyewear to elderly residents."}</p>
                   </div>
                 </div>
 
@@ -640,8 +640,8 @@ export default function Home() {
                   <img src="/gallery/image6.png" alt="Community gathering" className="w-24 h-24 object-cover rounded-xl" />
                   <div>
                     <span className="text-xs text-sky-800 font-semibold">Community Circle</span>
-                    <h4 className="text-base font-bold text-slate-900">Standing With Single Mothers</h4>
-                    <p className="text-xs text-slate-500 mt-1">Providing moral support, counseling, and guidance.</p>
+                    <h4 className="text-base font-bold text-slate-900">{content.story4Title || "Standing With Single Mothers"}</h4>
+                    <p className="text-xs text-slate-500 mt-1">{content.story4Desc || "Providing moral support, counseling, and guidance."}</p>
                   </div>
                 </div>
               </div>

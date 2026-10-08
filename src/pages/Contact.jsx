@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useContent } from "../utils/contentStore";
 
 export default function Contact() {
+  const content = useContent();
   const location = useLocation();
 
   const [pathway, setPathway] = useState("Volunteer");
@@ -59,16 +61,16 @@ export default function Contact() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 block">
-              Reach Out & Engage
+              {content.contactBadge || "Reach Out & Engage"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              Let's Connect
+              {content.contactTitle || "Let's Connect"}
             </h1>
             <p className="text-xl sm:text-2xl text-amber-200/90 font-serif mb-6">
-              Every connection can become an opportunity to serve.
+              {content.contactTagline || "Every connection can become an opportunity to serve."}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Whether you want to offer your time as a volunteer, collaborate on a community eye camp, or simply say hello, we look forward to hearing from you.
+              {content.contactDesc || "Whether you want to offer your time as a volunteer, collaborate on a community eye camp, or simply say hello, we look forward to hearing from you."}
             </p>
           </div>
         </section>
@@ -283,7 +285,7 @@ export default function Contact() {
                       <span className="text-xl">📍</span>
                       <div>
                         <strong className="block text-slate-900">Registered Office:</strong>
-                        <span>Tandicia Association, Lucknow, Uttar Pradesh, India</span>
+                        <span>{content.orgAddress || "Tandicia Association, New Delhi, India"}</span>
                       </div>
                     </div>
 
@@ -291,8 +293,8 @@ export default function Contact() {
                       <span className="text-xl">✉️</span>
                       <div>
                         <strong className="block text-slate-900">Email:</strong>
-                        <a href="mailto:contact@tandiciaassociation.com" className="text-sky-900 hover:underline">
-                          contact@tandiciaassociation.com
+                        <a href={`mailto:${content.orgEmail || "connect@tandiciaassociation.com"}`} className="text-sky-900 hover:underline">
+                          {content.orgEmail || "connect@tandiciaassociation.com"}
                         </a>
                       </div>
                     </div>

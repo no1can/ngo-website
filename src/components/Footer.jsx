@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useContent } from "../utils/contentStore";
 
 export default function Footer() {
+  const content = useContent();
+
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800">
       {/* MAIN FOOTER */}
@@ -14,13 +17,13 @@ export default function Footer() {
                 <img src="/logo.png" alt="Tandicia Logo" className="w-full h-full object-contain" />
               </div>
               <div>
-                <span className="text-xl font-bold text-white tracking-tight">Tandicia Association</span>
-                <p className="text-xs text-emerald-400 font-medium">Our Vision: Perfect Vision for All</p>
+                <span className="text-xl font-bold text-white tracking-tight">{content.orgName || "Tandicia Association"}</span>
+                <p className="text-xs text-emerald-400 font-medium">{content.heroBadge || "Our Vision: Perfect Vision for All"}</p>
               </div>
             </div>
 
             <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
-              Connecting People. Serving Communities. Being There for Each Other. A community-driven social-impact initiative committed to accessible healthcare, dignity, and real compassion.
+              {content.footerBio || "Connecting People. Serving Communities. Being There for Each Other. A community-driven social-impact initiative committed to accessible healthcare, dignity, and real compassion."}
             </p>
 
             <div className="pt-2">
@@ -117,8 +120,8 @@ export default function Footer() {
             </ul>
 
             <div className="pt-2 text-xs text-slate-400">
-              <p>Email: <a href="mailto:contact@tandiciaassociation.com" className="text-slate-300 hover:underline">contact@tandiciaassociation.com</a></p>
-              <p className="mt-1">Lucknow, Uttar Pradesh, India</p>
+              <p>Email: <a href={`mailto:${content.orgEmail || "connect@tandiciaassociation.com"}`} className="text-slate-300 hover:underline">{content.orgEmail || "connect@tandiciaassociation.com"}</a></p>
+              <p className="mt-1">{content.orgAddress || "New Delhi, India"}</p>
             </div>
           </div>
 
@@ -126,7 +129,7 @@ export default function Footer() {
 
         {/* BOTTOM BAR */}
         <div className="mt-12 pt-6 border-t border-slate-800/80 flex flex-col md:flex-row items-center justify-between text-xs text-slate-400 gap-4">
-          <p>© {new Date().getFullYear()} Tandicia Association. All verified records reserved.</p>
+          <p>{content.footerCopyright || `© ${new Date().getFullYear()} Tandicia Association. All verified records reserved.`}</p>
           <div className="flex items-center gap-6">
             <Link to="/documents" className="hover:text-slate-300 transition-colors">
               Statutory Transparency

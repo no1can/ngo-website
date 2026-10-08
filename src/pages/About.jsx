@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useContent } from "../utils/contentStore";
 
 export default function About() {
+  const content = useContent();
+
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
       <Navbar />
@@ -23,16 +26,16 @@ export default function About() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 block">
-              Our Identity & Purpose
+              {content.aboutBadge || "Our Identity & Purpose"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              About Tandicia
+              {content.aboutHeading || "About Tandicia"}
             </h1>
             <p className="text-2xl sm:text-3xl text-amber-200/90 font-serif mb-6">
-              Our Vision: Perfect Vision for All
+              {content.aboutTagline || "Our Vision: Perfect Vision for All"}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Connecting People. Serving Communities. Being There for Each Other.
+              {content.aboutSubtext || "Connecting People. Serving Communities. Being There for Each Other."}
             </p>
           </div>
         </section>
@@ -47,20 +50,20 @@ export default function About() {
                 Grassroots Commitment
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                Who We Are
+                {content.aboutWhoHeading || "Who We Are"}
               </h2>
               <div className="w-16 h-1 bg-amber-600 mx-auto mt-4 rounded-full" />
             </div>
 
             <div className="space-y-6 text-slate-700 text-lg leading-relaxed">
               <p>
-                <strong>Tandicia Association</strong> is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs.
+                {content.aboutWhoP1 || "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs."}
               </p>
               <p>
-                We believe that the most powerful social change does not happen from distant offices, but on the ground—where people meet as equals. Whether it is screening the eyes of an elder who cannot afford an examination, serving a hot meal with genuine dignity, or standing by a family navigating crisis, Tandicia exists to be there.
+                {content.aboutWhoP2 || "We believe that the most powerful social change does not happen from distant offices, but on the ground—where people meet as equals. Whether it is screening the eyes of an elder who cannot afford an examination, serving a hot meal with genuine dignity, or standing by a family navigating crisis, Tandicia exists to be there."}
               </p>
               <p className="italic text-slate-600 border-l-4 border-emerald-700 pl-4 py-1">
-                "Our guiding light is simple: service rooted in respect, friendships that cross social boundaries, and a sense of shared belonging that leaves no one behind."
+                {content.aboutWhoQuote || `"Our guiding light is simple: service rooted in respect, friendships that cross social boundaries, and a sense of shared belonging that leaves no one behind."`}
               </p>
             </div>
           </div>
@@ -81,13 +84,13 @@ export default function About() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
             <span className="text-xs uppercase tracking-widest text-amber-300 font-semibold block">
-              Our Vision
+              {content.aboutVisionSectionTitle || "Our Vision"}
             </span>
             <blockquote className="text-2xl sm:text-4xl font-serif leading-relaxed text-white font-medium">
-              "A world where no one is deprived of clear sight — Perfect Vision for All through compassionate, accessible healthcare."
+              {content.aboutVisionSectionQuote || `"A world where no one is deprived of clear sight — Perfect Vision for All through compassionate, accessible healthcare."`}
             </blockquote>
             <p className="text-sm text-slate-300 max-w-xl mx-auto">
-              Every initiative we undertake is measured by one standard: does it elevate human dignity and strengthen social bonds?
+              {content.aboutVisionSectionDesc || "Every initiative we undertake is measured by one standard: does it elevate human dignity and strengthen social bonds?"}
             </p>
           </div>
         </section>
