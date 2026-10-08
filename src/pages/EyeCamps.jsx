@@ -264,13 +264,9 @@ export default function EyeCamps() {
 
   const allCamps = [...dynamicVerifiedCamps, ...dynamicCamps];
 
-  const filteredCamps = filter === "All" 
-    ? allCamps 
-    : filter === "Upcoming"
+  const filteredCamps = filter === "Upcoming"
     ? allCamps.filter(c => c.isUpcoming)
-    : filter === "Earlier"
-    ? allCamps.filter(c => parseInt(c.year) < 2025)
-    : allCamps.filter(c => c.year === filter);
+    : allCamps;
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
@@ -365,7 +361,7 @@ export default function EyeCamps() {
 
               {/* Filters */}
               <div className="flex flex-wrap items-center gap-2 mt-4 md:mt-0">
-                {["All", "Upcoming", "2026", "2025", "Earlier"].map((f) => (
+                {["All", "Upcoming"].map((f) => (
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
@@ -505,12 +501,6 @@ export default function EyeCamps() {
                         )}
                       </div>
 
-                      <div className={`absolute top-4 right-4 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md ${
-                        camp.isUpcoming ? "bg-amber-400 text-slate-950 font-bold" : "bg-slate-950/80 text-white"
-                      }`}>
-                        {camp.year}
-                      </div>
-
                       {/* Date on image bottom */}
                       <div className="absolute bottom-3 left-4 right-4 flex items-center justify-between text-xs text-slate-200">
                         <span className="font-semibold flex items-center gap-1.5">
@@ -535,42 +525,9 @@ export default function EyeCamps() {
                           {camp.title || camp.name}
                         </h3>
 
-                        <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-2">
+                        <p className="text-xs text-slate-600 leading-relaxed mb-4 line-clamp-3">
                           {camp.supportSummary}
                         </p>
-
-                        {/* Events / Highlights in this Camp */}
-                        <div className="mb-4 pt-3 border-t border-slate-100">
-                          <span className="text-[11px] uppercase tracking-wider font-bold text-slate-400 block mb-2">
-                            Events & Highlights:
-                          </span>
-                          <div className="space-y-1.5">
-                            {camp.eventsList ? (
-                              camp.eventsList.slice(0, 3).map((evt, idx) => (
-                                <div key={idx} className="flex items-start gap-2 text-xs text-slate-700">
-                                  <span className="text-emerald-600 font-bold">✓</span>
-                                  <span className="line-clamp-1 font-medium">{evt.name}</span>
-                                </div>
-                              ))
-                            ) : (
-                              <>
-                                <div className="flex items-start gap-2 text-xs text-slate-700">
-                                  <span className="text-emerald-600 font-bold">✓</span>
-                                  <span>Eye Screening & Refraction</span>
-                                </div>
-                                <div className="flex items-start gap-2 text-xs text-slate-700">
-                                  <span className="text-emerald-600 font-bold">✓</span>
-                                  <span>Free Prescription Glasses</span>
-                                </div>
-                              </>
-                            )}
-                            {camp.eventsList && camp.eventsList.length > 3 && (
-                              <p className="text-[11px] text-sky-800 font-semibold pl-4">
-                                + {camp.eventsList.length - 3} more events inside
-                              </p>
-                            )}
-                          </div>
-                        </div>
                       </div>
 
                       {/* Card Button */}
@@ -582,7 +539,7 @@ export default function EyeCamps() {
                           onClick={() => setSelectedCamp(camp)}
                           className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-700 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
                         >
-                          <span>Explore {campNum} Events</span>
+                          <span>Explore {campNum} Details</span>
                           <span>→</span>
                         </button>
                       </div>
@@ -679,8 +636,8 @@ export default function EyeCamps() {
               <span className="text-xs font-extrabold uppercase tracking-wider text-white bg-emerald-700 px-3 py-1 rounded-full">
                 {selectedCamp.tag || selectedCamp.campNumber || "Camp Event"}
               </span>
-              <span className="text-xs uppercase tracking-wider font-semibold text-sky-800 bg-sky-50 px-2.5 py-1 rounded-md">
-                {selectedCamp.year} Official Camp Record
+              <span className="text-xs uppercase tracking-wider font-semibold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-md">
+                Official Camp Record
               </span>
             </div>
 
