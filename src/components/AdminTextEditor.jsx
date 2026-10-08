@@ -241,7 +241,6 @@ export default function AdminTextEditor({
           title: "🌟 About Hero Banner",
           desc: "The header of the /about page",
           fields: [
-            { key: "aboutBadge", label: "Hero Badge", type: "text" },
             { key: "aboutHeading", label: "Page Heading", type: "text" },
             { key: "aboutTagline", label: "Page Tagline", type: "text" },
             { key: "aboutSubtext", label: "Page Subtext / Intro", type: "textarea" }
@@ -264,20 +263,6 @@ export default function AdminTextEditor({
             { key: "aboutVisionSectionTitle", label: "Section Title", type: "text" },
             { key: "aboutVisionSectionQuote", label: "Vision Quote", type: "textarea" },
             { key: "aboutVisionSectionDesc", label: "Supporting Principle", type: "textarea" }
-          ]
-        },
-        {
-          title: "💎 Core Objectives",
-          desc: "Strategic focus areas on the About page",
-          fields: [
-            { key: "aboutObj1Title", label: "Objective 1 Title", type: "text" },
-            { key: "aboutObj1Desc", label: "Objective 1 Description", type: "textarea" },
-            { key: "aboutObj2Title", label: "Objective 2 Title", type: "text" },
-            { key: "aboutObj2Desc", label: "Objective 2 Description", type: "textarea" },
-            { key: "aboutObj3Title", label: "Objective 3 Title", type: "text" },
-            { key: "aboutObj3Desc", label: "Objective 3 Description", type: "textarea" },
-            { key: "aboutObj4Title", label: "Objective 4 Title", type: "text" },
-            { key: "aboutObj4Desc", label: "Objective 4 Description", type: "textarea" }
           ]
         }
       ]

@@ -25,9 +25,11 @@ export default function Contact() {
     const interestParam = params.get("interest");
     if (interestParam) {
       setFormData(prev => ({ ...prev, interest: interestParam }));
-      if (interestParam.toLowerCase().includes("volunteer")) setPathway("Volunteer");
-      else if (interestParam.toLowerCase().includes("partner")) setPathway("Partner");
-      else setPathway("Support");
+      if (interestParam.toLowerCase().includes("support") || interestParam.toLowerCase().includes("donat")) {
+        setPathway("Support");
+      } else {
+        setPathway("Volunteer");
+      }
     }
   }, [location.search]);
 
@@ -76,11 +78,11 @@ export default function Contact() {
         </section>
 
         {/* ========================================================
-            THREE OPTIONS (Volunteer, Partner, Support)
+            ENGAGEMENT OPTIONS (Volunteer, Support)
             ======================================================== */}
         <section className="py-16 bg-white border-b border-slate-200">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               
               {/* Option 1: Volunteer */}
               <button
@@ -99,24 +101,7 @@ export default function Contact() {
                 </p>
               </button>
 
-              {/* Option 2: Partner */}
-              <button
-                type="button"
-                onClick={() => handlePathwaySelect("Partner", "Partnership")}
-                className={`p-6 rounded-3xl border text-left transition-all cursor-pointer ${
-                  pathway === "Partner"
-                    ? "bg-sky-50/80 border-sky-800 shadow-md ring-2 ring-sky-800/20"
-                    : "bg-stone-50 border-slate-200 hover:border-slate-300"
-                }`}
-              >
-                <span className="text-3xl mb-3 block">🏢</span>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Partner</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  I want to collaborate with Tandicia as a clinic, hospital, corporate, or institution.
-                </p>
-              </button>
-
-              {/* Option 3: Support */}
+              {/* Option 2: Support */}
               <button
                 type="button"
                 onClick={() => handlePathwaySelect("Support", "Supporting Tandicia")}
@@ -240,7 +225,6 @@ export default function Contact() {
                           <option value="Eye Camps">Eye Camps</option>
                           <option value="Sewa Rasoi">Sewa Rasoi</option>
                           <option value="Nai Pehal">Nai Pehal</option>
-                          <option value="Partnership">Partnership</option>
                           <option value="Supporting Tandicia">Supporting Tandicia</option>
                           <option value="Other">Other</option>
                         </select>
