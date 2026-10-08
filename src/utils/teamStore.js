@@ -6,7 +6,7 @@
 import { useState, useEffect } from "react";
 import { teamMembers as DEFAULT_MEMBERS } from "../data/teamData";
 
-const TEAM_STORAGE_KEY = "tandicia_custom_team_v1";
+const TEAM_STORAGE_KEY = "tandicia_custom_team_v2";
 
 // Get all active team members (merges/overrides default list with localStorage edits)
 export function getTeamMembers() {

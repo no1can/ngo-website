@@ -171,6 +171,15 @@ export const teamMembers = [
     bio: "Guiding patients and coordinating Sewa Rasoi community meals."
   },
   {
+    id: 40,
+    name: "Tanvee Manocha",
+    volunteerId: "025A",
+    role: "Community Volunteer",
+    category: "Volunteer",
+    image: "/team_members/tanvee_manocha.jpg",
+    bio: "Dedicated volunteer supporting community welfare drives and outreach."
+  },
+  {
     id: 21,
     name: "Kavita Bijlani",
     volunteerId: "025",
