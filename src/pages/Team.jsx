@@ -11,7 +11,6 @@ export default function Team() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const patron = teamMembers.find(m => m.category === "Patron");
   const doctors = teamMembers.filter(m => m.category === "Medical");
 
   const filteredMembers = teamMembers.filter(member => {
@@ -53,49 +52,6 @@ export default function Team() {
             </p>
           </div>
         </section>
-
-        {/* ========================================================
-            PATRON & SPIRITUAL INSPIRATION
-            ======================================================== */}
-        {patron && (
-          <section className="py-20 bg-white border-b border-slate-200">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="text-center max-w-2xl mx-auto mb-12">
-                <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
-                  Spiritual Guidance
-                </span>
-                <h2 className="text-3xl font-bold tracking-tight text-slate-900 mt-2">
-                  Patron & Inspiration
-                </h2>
-                <div className="w-16 h-1 bg-amber-600 mx-auto mt-3 rounded-full" />
-              </div>
-
-              <div className="rounded-3xl border border-amber-200/80 bg-gradient-to-br from-amber-50/60 via-white to-stone-50 p-8 sm:p-12 shadow-sm flex flex-col sm:flex-row gap-8 items-center text-center sm:text-left">
-                <div className="w-44 h-44 rounded-2xl overflow-hidden shadow-md border-2 border-amber-200 shrink-0 bg-amber-100">
-                  <img
-                    src={patron.image}
-                    alt={patron.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <div className="space-y-3">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
-                    {patron.name}
-                  </h3>
-                  <p className="text-sm font-semibold text-emerald-800">
-                    {patron.role}
-                  </p>
-                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                    {patron.bio}
-                  </p>
-                  <p className="text-xs text-amber-800 font-medium italic pt-2">
-                    "सेवा • सर्विस • इंसानियत — मित्रवत समर्पण ही सच्चा धर्म है।"
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
 
         {/* ========================================================
             MEDICAL PROFESSIONALS & DOCTORS

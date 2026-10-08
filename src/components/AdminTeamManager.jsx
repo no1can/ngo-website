@@ -225,7 +225,7 @@ export default function AdminTeamManager({ showToast }) {
         </div>
 
         <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
-          {["All", "Patron", "Medical", "Core", "Volunteer"].map((cat) => (
+          {["All", "Medical", "Core", "Volunteer"].map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}

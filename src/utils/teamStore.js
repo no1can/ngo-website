@@ -12,15 +12,15 @@ const TEAM_STORAGE_KEY = "tandicia_custom_team_v1";
 export function getTeamMembers() {
   try {
     const raw = localStorage.getItem(TEAM_STORAGE_KEY);
-    if (!raw) return [...DEFAULT_MEMBERS];
+    if (!raw) return DEFAULT_MEMBERS.filter(m => m.category !== "Patron" && m.name !== "Guru Ji");
     const parsed = JSON.parse(raw);
     if (Array.isArray(parsed) && parsed.length > 0) {
-      return parsed;
+      return parsed.filter(m => m.category !== "Patron" && m.name !== "Guru Ji");
     }
-    return [...DEFAULT_MEMBERS];
+    return DEFAULT_MEMBERS.filter(m => m.category !== "Patron" && m.name !== "Guru Ji");
   } catch (err) {
     console.warn("Error reading team from storage:", err);
-    return [...DEFAULT_MEMBERS];
+    return DEFAULT_MEMBERS.filter(m => m.category !== "Patron" && m.name !== "Guru Ji");
   }
 }
 

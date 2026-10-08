@@ -1,14 +1,5 @@
 export const teamMembers = [
   {
-    id: 1,
-    name: "Guru Ji",
-    volunteerId: "001",
-    role: "Patron & Spiritual Inspiration",
-    category: "Patron",
-    image: "/team_members/volunteer_1.jpg",
-    bio: "Guiding light and spiritual inspiration behind Tandicia's dedicated mission of Perfect Vision for All."
-  },
-  {
     id: 2,
     name: "Dr. Prabhat Manocha",
     volunteerId: "003",
