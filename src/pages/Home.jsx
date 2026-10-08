@@ -13,10 +13,44 @@ const HOME_HERO_IMAGES = [
   { url: "/camps/shradnand_marg/shradnand_4.jpg", alt: "Shraddhanand Marg Vision Camp" },
 ];
 
+const AWARENESS_POSTERS = [
+  {
+    id: "diabetic-retinopathy",
+    title: "मधुमेह से आँखों की रक्षा",
+    badge: "Diabetic Retinopathy",
+    image: "/awareness/diabetic_retinopathy.jpg",
+  },
+  {
+    id: "glaucoma",
+    title: "ग्लूकोमा के लक्षण पहचानें और तुरंत कराएं इलाज",
+    badge: "Glaucoma Awareness",
+    image: "/awareness/glaucoma_awareness.jpg",
+  },
+  {
+    id: "blood-sugar",
+    title: "हाई ब्लड शुगर को पहचानें, नियंत्रित करें",
+    badge: "Blood Sugar Control",
+    image: "/awareness/blood_sugar_awareness.jpg",
+  },
+  {
+    id: "diabetes-10-causes",
+    title: "डायबिटीज होने के 10 कारण पहचान लें",
+    badge: "Diabetes Prevention",
+    image: "/awareness/diabetes_10_causes.jpg",
+  },
+  {
+    id: "diabetes-vertical",
+    title: "डायबिटीज होने के 10 कारण (विस्तृत पोस्टर)",
+    badge: "Health Awareness",
+    image: "/awareness/diabetes_vertical.jpg",
+  },
+];
+
 export default function Home() {
   const content = useContent();
   const teamMembers = useTeamMembers();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedPoster, setSelectedPoster] = useState(null);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -201,6 +235,57 @@ export default function Home() {
                 </div>
               </div>
 
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
+            जन जागरूकता अभियान — HEALTH & EYE AWARENESS POSTERS
+            ======================================================== */}
+        <section className="py-20 bg-stone-100 border-y border-stone-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
+                Tandicia Association
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
+                जन जागरूकता अभियान
+              </h2>
+              <p className="text-slate-600 text-sm mt-2">
+                स्वस्थ समाज • जागरूक समाज • सशक्त समाज
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {AWARENESS_POSTERS.map((poster) => (
+                <div
+                  key={poster.id}
+                  onClick={() => setSelectedPoster(poster)}
+                  className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col group"
+                >
+                  <div className="relative aspect-4/3 overflow-hidden bg-slate-900">
+                    <img
+                      src={poster.image}
+                      alt={poster.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/15 group-hover:bg-transparent transition-colors" />
+                    <span className="absolute top-3 right-3 bg-slate-950/80 text-white text-xs px-2.5 py-1 rounded-full backdrop-blur-xs flex items-center gap-1 font-medium shadow-xs">
+                      🔍 बड़ा देखें
+                    </span>
+                  </div>
+                  <div className="p-5 flex items-center justify-between">
+                    <div>
+                      <span className="text-[11px] text-emerald-800 font-bold uppercase tracking-wider block">
+                        {poster.badge}
+                      </span>
+                      <h4 className="text-base font-bold text-slate-900 mt-1 line-clamp-1">
+                        {poster.title}
+                      </h4>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -798,6 +883,43 @@ export default function Home() {
           </div>
         </section>
 
+        {/* POSTER LIGHTBOX MODAL */}
+        {selectedPoster && (
+          <div 
+            className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto"
+            onClick={() => setSelectedPoster(null)}
+          >
+            <div 
+              className="relative max-w-4xl w-full bg-white rounded-3xl overflow-hidden shadow-2xl p-4 sm:p-6 flex flex-col my-8"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+                <div>
+                  <span className="text-xs text-emerald-800 font-bold uppercase tracking-wider">
+                    {selectedPoster.badge}
+                  </span>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900">
+                    {selectedPoster.title}
+                  </h3>
+                </div>
+                <button
+                  onClick={() => setSelectedPoster(null)}
+                  className="w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold flex items-center justify-center cursor-pointer transition-colors shrink-0"
+                  aria-label="Close"
+                >
+                  ✕
+                </button>
+              </div>
+              <div className="pt-4 flex items-center justify-center overflow-auto max-h-[80vh]">
+                <img
+                  src={selectedPoster.image}
+                  alt={selectedPoster.title}
+                  className="max-h-[75vh] w-auto object-contain rounded-xl shadow-md"
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </main>
 
       <Footer />
