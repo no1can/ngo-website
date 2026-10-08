@@ -62,20 +62,6 @@ export default function Home() {
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-white">
             
-            {/* Tagline Badge */}
-            <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-emerald-900/40 border border-emerald-400/30 backdrop-blur-xl mb-8">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-lg shadow-emerald-400/50" />
-              <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-emerald-200/90 uppercase">
-                {content.heroBadge}
-              </span>
-            </div>
-
-            {/* Decorative line above heading */}
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <span className="h-[1px] w-12 bg-gradient-to-r from-transparent to-amber-400/60" />
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400/70" />
-              <span className="h-[1px] w-12 bg-gradient-to-l from-transparent to-amber-400/60" />
-            </div>
 
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-5 drop-shadow-[0_2px_20px_rgba(255,255,255,0.08)]">
