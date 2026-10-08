@@ -30,7 +30,7 @@ export const DEFAULT_CONTENT = {
   heroHeading1: "TANDICIA",
   heroHeading2: "ASSOCIATION",
   heroTagline: "Our Vision: Perfect Vision for All — Serving Communities with Dignity & Care",
-  heroSubtext: "A community-driven initiative bringing dedicated eye doctors, professionals, and volunteers together to eradicate preventable vision impairment.",
+  heroSubtext: "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs.",
   heroCta1Text: "Explore Eye Camps",
   heroCta2Text: "Join Tandicia",
 
@@ -268,12 +268,12 @@ export const DEFAULT_CONTENT = {
   faqPageSubtitle: "Clear, straightforward answers about Tandicia's eye camps, volunteers, and operations."
 };
 
-const CONTENT_STORAGE_KEY = "tandicia_custom_content_v1";
+const CONTENT_STORAGE_KEY = "tandicia_custom_content_v2";
 
 // Get current content (merging defaults with any admin edits)
 export function getContent() {
   try {
-    const raw = localStorage.getItem(CONTENT_STORAGE_KEY);
+    const raw = localStorage.getItem(CONTENT_STORAGE_KEY) || localStorage.getItem("tandicia_custom_content_v1");
     if (!raw) return { ...DEFAULT_CONTENT };
     const saved = JSON.parse(raw);
     // Upgrade legacy placeholder numbers to newly verified numbers
@@ -295,6 +295,9 @@ export function getContent() {
     }
     if (saved.aboutSubtext === "Connecting People. Serving Communities. Being There for Each Other.") {
       saved.aboutSubtext = DEFAULT_CONTENT.aboutSubtext;
+    }
+    if (saved.heroSubtext && (saved.heroSubtext.includes("preventable vision impairment") || saved.heroSubtext.includes("dedicated eye doctors"))) {
+      saved.heroSubtext = DEFAULT_CONTENT.heroSubtext;
     }
     return { ...DEFAULT_CONTENT, ...saved };
   } catch (err) {

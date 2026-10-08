@@ -5,9 +5,25 @@ import Footer from "../components/Footer";
 import { useTeamMembers } from "../utils/teamStore";
 import { useContent } from "../utils/contentStore";
 
+const HOME_HERO_IMAGES = [
+  { url: "/camps/camp2/2nd Camp/E2-3.jpeg", alt: "Tandicia Volunteers and Community Activity" },
+  { url: "/camps/gao_thora/gao_thora_1.jpg", alt: "Gao Thora Eye Camp Consultation" },
+  { url: "/sewa_rasoi/sewa_rasoi_3.jpg", alt: "Sewa Rasoi Food Service" },
+  { url: "/camps/camp3/3rd camp/E3-12.jpeg", alt: "Tandicia Community Camp Gathering" },
+  { url: "/camps/shradnand_marg/shradnand_4.jpg", alt: "Shraddhanand Marg Vision Camp" },
+];
+
 export default function Home() {
   const content = useContent();
   const teamMembers = useTeamMembers();
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HOME_HERO_IMAGES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
@@ -18,16 +34,30 @@ export default function Home() {
             HERO SECTION
             ======================================================== */}
         <section className="relative min-h-[88vh] flex items-center justify-center overflow-hidden bg-slate-950">
-          {/* Authentic Tandicia Background Photo */}
+          {/* Animated Background Image Slideshow with Smooth Crossfade & Subtle Zoom */}
           <div className="absolute inset-0 z-0">
-            <img
-              src="/camps/camp2/2nd Camp/E2-3.jpeg"
-              alt="Tandicia Volunteers and Community Activity"
-              className="w-full h-full object-cover object-center filter brightness-[0.35] contrast-[1.08] saturate-[0.9]"
-            />
+            {HOME_HERO_IMAGES.map((img, idx) => {
+              const isActive = idx === currentSlide;
+              return (
+                <div
+                  key={img.url}
+                  className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                    isActive ? "opacity-100 z-1" : "opacity-0 z-0 pointer-events-none"
+                  }`}
+                >
+                  <img
+                    src={img.url}
+                    alt={img.alt}
+                    className={`w-full h-full object-cover object-center filter brightness-[0.34] contrast-[1.1] saturate-[0.95] transition-transform duration-[7000ms] ease-out ${
+                      isActive ? "scale-110" : "scale-100"
+                    }`}
+                  />
+                </div>
+              );
+            })}
             {/* Warm cinematic gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/50 to-slate-950/20" />
-            <div className="absolute inset-0 bg-gradient-to-b from-emerald-950/20 via-transparent to-transparent" />
+            <div className="absolute inset-0 z-2 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30 pointer-events-none" />
+            <div className="absolute inset-0 z-2 bg-gradient-to-b from-emerald-950/25 via-transparent to-transparent pointer-events-none" />
           </div>
 
           <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center text-white">
@@ -67,7 +97,7 @@ export default function Home() {
 
             {/* Supporting text */}
             <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
-              {content.heroSubtext}
+              {content.heroSubtext || "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs."}
             </p>
 
             {/* Global CTAs */}
@@ -85,10 +115,26 @@ export default function Home() {
                 {content.heroCta2Text || "Join Tandicia"}
               </Link>
             </div>
+
+            {/* Subtle Slideshow Navigation Indicators */}
+            <div className="mt-8 flex items-center justify-center gap-2">
+              {HOME_HERO_IMAGES.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  aria-label={`Go to slide ${idx + 1}`}
+                  className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
+                    idx === currentSlide
+                      ? "w-8 bg-amber-400 shadow-sm shadow-amber-400/50"
+                      : "w-2 bg-white/40 hover:bg-white/70"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           {/* Bottom fade */}
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-stone-50 to-transparent z-10" />
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-stone-50 to-transparent z-10 pointer-events-none" />
         </section>
 
         {/* ========================================================
