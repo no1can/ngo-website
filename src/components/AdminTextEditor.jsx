@@ -285,15 +285,6 @@ export default function AdminTextEditor({
             { key: "aboutWhoP2", label: "Paragraph 2 (Ground-level philosophy)", type: "textarea" },
             { key: "aboutWhoQuote", label: "Guiding Quote", type: "textarea" }
           ]
-        },
-        {
-          title: "🎯 Vision Statement Block",
-          desc: "The prominent dark banner on About page",
-          fields: [
-            { key: "aboutVisionSectionTitle", label: "Section Title", type: "text" },
-            { key: "aboutVisionSectionQuote", label: "Vision Quote", type: "textarea" },
-            { key: "aboutVisionSectionDesc", label: "Supporting Principle", type: "textarea" }
-          ]
         }
       ]
     },

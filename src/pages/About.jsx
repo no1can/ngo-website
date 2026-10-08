@@ -298,34 +298,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* ========================================================
-            4. SECTION — VISION BANNER WITH DIGNITY EMBED
-            ======================================================== */}
-        <section className="relative py-28 bg-emerald-950 text-white overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/gallery/image7.png"
-              alt="Community solidarity in action"
-              className="w-full h-full object-cover filter brightness-[0.25]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-slate-950/85 to-emerald-950/95" />
-          </div>
-
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs uppercase tracking-widest font-bold">
-              <IconSparkles className="w-4 h-4 text-amber-300" />
-              {content.aboutVisionSectionTitle || "Our Vision"}
-            </span>
-
-            <blockquote className="text-3xl sm:text-5xl font-serif leading-tight text-white font-normal drop-shadow-md">
-              {content.aboutVisionSectionQuote || `"A world where no one is deprived of clear sight — Perfect Vision for All through compassionate, accessible healthcare."`}
-            </blockquote>
-
-            <p className="text-base sm:text-lg text-emerald-100/90 max-w-2xl mx-auto font-light leading-relaxed">
-              {content.aboutVisionSectionDesc || "Every initiative we undertake is measured by one standard: does it elevate human dignity and strengthen social bonds?"}
-            </p>
-          </div>
-        </section>
 
         {/* ========================================================
             5. SECTION — OUR JOURNEY (ELEVATED VISUAL ROADMAP)
