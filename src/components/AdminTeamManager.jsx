@@ -175,43 +175,37 @@ export default function AdminTeamManager({ showToast }) {
         </div>
       </div>
 
-      {/* Category Stats Strip */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      {/* Stats Strip */}
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white p-4 rounded-2xl border border-slate-200 text-center shadow-xs">
           <span className="text-2xl font-bold text-slate-900 font-mono block">
             {members.length}
           </span>
-          <span className="text-xs font-semibold text-slate-500">Total Members</span>
-        </div>
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 text-center shadow-xs">
-          <span className="text-2xl font-bold text-sky-700 font-mono block">
-            {members.filter(m => m.category === "Medical").length}
-          </span>
-          <span className="text-xs font-semibold text-slate-500">Medical Doctors</span>
-        </div>
-        <div className="bg-white p-4 rounded-2xl border border-slate-200 text-center shadow-xs">
-          <span className="text-2xl font-bold text-amber-700 font-mono block">
-            {members.filter(m => m.category === "Core").length}
-          </span>
-          <span className="text-xs font-semibold text-slate-500">Core Field Leaders</span>
+          <span className="text-xs font-semibold text-slate-500">Total Volunteers</span>
         </div>
         <div className="bg-white p-4 rounded-2xl border border-slate-200 text-center shadow-xs">
           <span className="text-2xl font-bold text-emerald-700 font-mono block">
-            {members.filter(m => m.category === "Volunteer").length}
+            100%
           </span>
-          <span className="text-xs font-semibold text-slate-500">Community Volunteers</span>
+          <span className="text-xs font-semibold text-slate-500">Dedicated Service</span>
+        </div>
+        <div className="bg-white p-4 rounded-2xl border border-slate-200 text-center shadow-xs">
+          <span className="text-2xl font-bold text-sky-700 font-mono block">
+            Equal
+          </span>
+          <span className="text-xs font-semibold text-slate-500">Community Solidarity</span>
         </div>
       </div>
 
-      {/* Search & Category Filter */}
-      <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs flex flex-col sm:flex-row gap-4 items-center justify-between">
-        <div className="relative w-full sm:max-w-md">
+      {/* Search Input */}
+      <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-xs flex items-center justify-between">
+        <div className="relative w-full max-w-md">
           <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search member by name, role, or ID (e.g. 'Manocha', '003')..."
+            placeholder="Search volunteer by name..."
             className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-xs font-medium"
           />
           {searchQuery && (
@@ -223,21 +217,8 @@ export default function AdminTeamManager({ showToast }) {
             </button>
           )}
         </div>
-
-        <div className="flex flex-wrap gap-1.5 w-full sm:w-auto">
-          {["All", "Medical", "Core", "Volunteer"].map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
-                selectedCategory === cat
-                  ? "bg-slate-900 text-white"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+        <div className="text-xs text-slate-500 font-medium">
+          Showing {filteredMembers.length} volunteers
         </div>
       </div>
 
@@ -258,15 +239,8 @@ export default function AdminTeamManager({ showToast }) {
                   />
                 </div>
                 <div className="text-right">
-                  <span className="font-mono text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-full inline-block mb-1">
-                    ID: {member.volunteerId}
-                  </span>
-                  <span className={`block text-[10px] font-bold uppercase tracking-wider ${
-                    member.category === "Patron" ? "text-amber-700" :
-                    member.category === "Medical" ? "text-sky-700" :
-                    member.category === "Core" ? "text-amber-600" : "text-emerald-700"
-                  }`}>
-                    {member.category}
+                  <span className="text-[11px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full inline-block">
+                    Volunteer
                   </span>
                 </div>
               </div>
