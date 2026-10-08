@@ -189,30 +189,30 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Nai Pehal Card */}
+              {/* Sewa Rasoi Card */}
               <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
                 <div className="relative h-64 overflow-hidden bg-slate-100">
                   <img
-                    src="/story2.png"
-                    alt="Community engagement under Nai Pehal"
+                    src="/sewa_rasoi/sewa_rasoi_3.jpg"
+                    alt="Sewa Rasoi Daily Food Distribution"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute top-4 left-4 bg-amber-900/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-xs">
-                    New Initiatives
+                  <div className="absolute top-4 left-4 bg-emerald-900/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-xs">
+                    Community Kitchen
                   </div>
                 </div>
                 <div className="p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.progNaiTitle || "Nai Pehal"}</h3>
+                    <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.progSewaTitle || "Sewa Rasoi"}</h3>
                     <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      {content.progNaiDesc || "New initiatives responding dynamically to emerging community needs: senior citizen care, single parent support, and grassroots solutions."}
+                      {content.progSewaDesc || "Daily community langar and nutritional support at Madhuban Chowk, serving hot, wholesome meals to hospital attendants, daily wagers, and needy families."}
                     </p>
                   </div>
                   <Link
-                    to="/nai-pehal"
+                    to="/sewa-rasoi"
                     className="inline-flex items-center text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
                   >
-                    {content.progNaiLinkText || "Explore Nai Pehal →"}
+                    {content.progSewaLinkText || "Explore Sewa Rasoi →"}
                   </Link>
                 </div>
               </div>
@@ -581,74 +581,6 @@ export default function Home() {
           </div>
         </section>
 
-
-
-        {/* ========================================================
-            SECTION 7 — NAI PEHAL
-            ======================================================== */}
-        <section className="py-20 bg-stone-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
-                Emerging Community Initiatives
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                Nai Pehal
-              </h2>
-              <p className="text-slate-600 text-base mt-2">
-                New ideas. New connections. New possibilities.
-              </p>
-              <div className="inline-block mt-4 px-4 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300/80 text-emerald-900 font-semibold text-sm">
-                Our Vision: Perfect Vision for All
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              {/* Senior Citizens */}
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all">
-                <img src="/story5.png" alt="Senior Citizens Care" className="w-full h-56 object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Senior Citizens</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Social companionship, medical accompaniment, and dignity programmes for elder community members who live on their own.
-                  </p>
-                </div>
-              </div>
-
-              {/* Single Parents */}
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all">
-                <img src="/donate.png" alt="Single Parents and Family Support" className="w-full h-56 object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Single Parents</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Support circles, child educational assistance, and peer solidarity for courageous parents raising families single-handedly.
-                  </p>
-                </div>
-              </div>
-
-              {/* Community Initiatives */}
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all">
-                <img src="/camps/camp_team_selfie.jpg" alt="Tandicia Volunteers and Community Initiatives" className="w-full h-56 object-cover" />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">Community Initiatives</h3>
-                  <p className="text-sm text-slate-600 leading-relaxed">
-                    Neighbourhood mutual aid, clean water drives, awareness campaigns, and grassroots youth volunteer programmes.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <Link
-                to="/nai-pehal"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-all"
-              >
-                <span>Explore Nai Pehal</span>
-                <span>→</span>
-              </Link>
-            </div>
-          </div>
-        </section>
 
         {/* ========================================================
             SECTION 8 — MEDIA
