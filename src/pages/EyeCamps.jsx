@@ -855,67 +855,6 @@ export default function EyeCamps() {
               )}
             </div>
 
-            {/* Camp Objective & Summary */}
-            <div className="mb-8 p-5 rounded-2xl bg-stone-50 border border-slate-200 space-y-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">Camp Mission & Objective:</h4>
-              <p className="text-sm text-slate-700 leading-relaxed">
-                {selectedCamp.objective}
-              </p>
-            </div>
-
-            {/* ACTIVITIES CONDUCTED IN THIS CAMP */}
-            <div className="mb-8">
-              <div className="flex items-center gap-2 mb-4">
-                <span className="text-xl">📋</span>
-                <h3 className="text-lg font-bold text-slate-900">
-                  Activities Conducted in This Camp
-                </h3>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {selectedCamp.eventsList ? (
-                  selectedCamp.eventsList.map((evt, idx) => (
-                    <div
-                      key={idx}
-                      className="p-4 rounded-2xl bg-white border border-slate-200 shadow-xs flex items-start gap-3"
-                    >
-                      <div className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold flex items-center justify-center shrink-0 mt-0.5">
-                        {idx + 1}
-                      </div>
-                      <div>
-                        <h4 className="text-sm font-bold text-slate-900">{evt.name}</h4>
-                        <p className="text-xs text-slate-600 mt-1 leading-relaxed">{evt.desc}</p>
-                      </div>
-                    </div>
-                  ))
-                ) : (
-                  <div className="p-4 rounded-2xl bg-white border border-slate-200 text-xs text-slate-600">
-                    Full screening, prescription eyewear, and consultation events conducted.
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Medical & Volunteer Team */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-              <div className="p-4 rounded-2xl bg-sky-50/60 border border-sky-100">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-sky-900 mb-1">
-                  👨‍⚕️ Medical Specialists
-                </h4>
-                <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                  {selectedCamp.medicalTeam}
-                </p>
-              </div>
-
-              <div className="p-4 rounded-2xl bg-emerald-50/60 border border-emerald-100">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-emerald-900 mb-1">
-                  🤝 Volunteers & Field Coordination
-                </h4>
-                <p className="text-xs text-slate-700 leading-relaxed font-medium">
-                  {selectedCamp.volunteers}
-                </p>
-              </div>
-            </div>
 
             {/* PHOTO GALLERY OF THIS CAMP */}
             {selectedCamp.gallery && selectedCamp.gallery.length > 0 && (
