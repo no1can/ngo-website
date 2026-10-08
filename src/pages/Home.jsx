@@ -409,37 +409,115 @@ export default function Home() {
 
             {/* 3 Featured Camp Cards with Real Photos & Verified Banners */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
-              <div className="rounded-2xl border border-slate-200 p-5 bg-stone-50/50 hover:bg-white hover:shadow-md transition-all">
-                <img src="/camps/camp1/1st Camp/E1-6.jpeg" alt="Kusumpur Pahari Camp Banner" className="w-full h-44 object-cover rounded-xl mb-4" />
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-                  <span className="font-semibold text-emerald-800">Sanjay Colony, New Delhi</span>
-                  <span>29 Aug 2025</span>
+              {/* Camp 1 */}
+              <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                <div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
+                    <img src="/camps/camp1/1st Camp/E1-4.jpeg" alt="Camp 1 Bhati Mines Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md">
+                      CAMP 01
+                    </span>
+                    <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                      29 Aug 2025
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold mb-1">
+                    <span>📍</span>
+                    <span>Bhati Mines, Sanjay Colony, New Delhi</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
+                    Camp 1 — Bhati Mines
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Abhyudaya A-116/A. Comprehensive eye diagnostics, free prescription spectacles, and doctor consultations.
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ Eye Screening</span>
+                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Free Spectacles</span>
+                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Dr. Atul Garg</span>
+                  </div>
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-1">Bhati Mines Camp</h4>
-                <p className="text-xs text-slate-600 mb-3">Sherawali Mata Mandir, Block C. Free eye check-up and spectacles distribution.</p>
-                <span className="text-xs font-semibold text-sky-900">Official Camp Record</span>
+                <Link
+                  to="/eye-camps"
+                  className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
+                >
+                  <span>Explore Camp 1 Events</span>
+                  <span>→</span>
+                </Link>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 p-5 bg-stone-50/50 hover:bg-white hover:shadow-md transition-all">
-                <img src="/camps/camp2/2nd Camp/E2-14.jpeg" alt="Bhati Mines Camp Volunteers" className="w-full h-44 object-cover rounded-xl mb-4" />
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-                  <span className="font-semibold text-emerald-800">Kusumpur Pahari, New Delhi</span>
-                  <span>14 Sep 2025</span>
+              {/* Camp 2 */}
+              <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                <div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
+                    <img src="/camps/camp2/2nd Camp/E2-3.jpeg" alt="Camp 2 Kusumpur Pahari Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md">
+                      CAMP 02
+                    </span>
+                    <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                      14 Sep 2025
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold mb-1">
+                    <span>📍</span>
+                    <span>Kusumpur Pahari, Block-C, New Delhi</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
+                    Camp 2 — Kusumpur Pahari
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Sherawali Mata Mandir. High-turnout camp with AR-9 Autorefractors, vision checkups, and free medicines.
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ AR-9 Refraction</span>
+                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Free Eyewear</span>
+                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Cataract Referrals</span>
+                  </div>
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-1">Kusumpur Pahari Camp</h4>
-                <p className="text-xs text-slate-600 mb-3">Abhyudaya A-116/A. Full screening team, free medicines, and eye consultations.</p>
-                <span className="text-xs font-semibold text-sky-900">Official Camp Record</span>
+                <Link
+                  to="/eye-camps"
+                  className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
+                >
+                  <span>Explore Camp 2 Events</span>
+                  <span>→</span>
+                </Link>
               </div>
 
-              <div className="rounded-2xl border border-slate-200 p-5 bg-stone-50/50 hover:bg-white hover:shadow-md transition-all">
-                <img src="/camps/camp3/3rd camp/E3-3.jpeg" alt="Clinical eye diagnostic screening" className="w-full h-44 object-cover rounded-xl mb-4" />
-                <div className="flex items-center justify-between text-xs text-slate-500 mb-2">
-                  <span className="font-semibold text-emerald-800">Faridabad, Haryana</span>
-                  <span>12 Oct 2025</span>
+              {/* Camp 3 */}
+              <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
+                <div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
+                    <img src="/camps/camp3/3rd camp/E3-3.jpeg" alt="Camp 3 Mewla Maharajpur Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-600 text-white text-[11px] font-extrabold px-3 py-1 rounded-full shadow-md">
+                      CAMP 03
+                    </span>
+                    <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                      12 Oct 2025
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold mb-1">
+                    <span>📍</span>
+                    <span>Mewla Maharajpur, Faridabad, Haryana</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
+                    Camp 3 — Mewla Maharajpur
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Deepak Bensla Baithak. Cross-border Haryana eye camp with retinoscopy, prescription eyeglasses, and news coverage.
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ Retinoscopy</span>
+                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Frame Dispensing</span>
+                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Media Coverage</span>
+                  </div>
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-1">Mewla Maharajpur Camp</h4>
-                <p className="text-xs text-slate-600 mb-3">Diagnostic examination by qualified doctors with Centre for Eyes.</p>
-                <span className="text-xs font-semibold text-sky-900">Verified Clinical Partner</span>
+                <Link
+                  to="/eye-camps"
+                  className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
+                >
+                  <span>Explore Camp 3 Events</span>
+                  <span>→</span>
+                </Link>
               </div>
             </div>
           </div>
