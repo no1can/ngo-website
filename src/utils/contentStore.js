@@ -121,7 +121,7 @@ export const DEFAULT_CONTENT = {
   aboutBadge: "Our Identity & Purpose",
   aboutHeading: "About Tandicia",
   aboutTagline: "Our Vision: Perfect Vision for All",
-  aboutSubtext: "Connecting People. Serving Communities. Being There for Each Other.",
+  aboutSubtext: "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs.",
   aboutWhoHeading: "Who We Are",
   aboutWhoP1: "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs.",
   aboutWhoP2: "We believe that the most powerful social change does not happen from distant offices, but on the ground—where people meet as equals. Whether it is screening the eyes of an elder who cannot afford an examination, serving a hot meal with genuine dignity, or standing by a family navigating crisis, Tandicia exists to be there.",
@@ -292,6 +292,9 @@ export function getContent() {
     if (saved.stat4Number === "50+") {
       saved.stat4Number = DEFAULT_CONTENT.stat4Number;
       saved.stat4Label = DEFAULT_CONTENT.stat4Label;
+    }
+    if (saved.aboutSubtext === "Connecting People. Serving Communities. Being There for Each Other.") {
+      saved.aboutSubtext = DEFAULT_CONTENT.aboutSubtext;
     }
     return { ...DEFAULT_CONTENT, ...saved };
   } catch (err) {

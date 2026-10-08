@@ -83,7 +83,7 @@ export default function About() {
 
             {/* Subtext */}
             <p className="text-base sm:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-light">
-              {content.aboutSubtext || "Connecting People. Serving Communities. Being There for Each Other."}
+              {content.aboutSubtext || "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs."}
             </p>
           </div>
         </section>
