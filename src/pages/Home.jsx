@@ -120,22 +120,6 @@ export default function Home() {
               {content.heroSubtext || "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs."}
             </p>
 
-            {/* Global CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
-                to="/eye-camps"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-base transition-all shadow-lg hover:shadow-emerald-900/40 hover:-translate-y-0.5"
-              >
-                {content.heroCta1Text || "Explore Our Work"}
-              </Link>
-              <Link
-                to="/contact?interest=Volunteering"
-                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-md font-semibold text-base transition-all hover:-translate-y-0.5"
-              >
-                {content.heroCta2Text || "Join Tandicia"}
-              </Link>
-            </div>
-
             {/* Subtle Slideshow Navigation Indicators */}
             <div className="mt-8 flex items-center justify-center gap-2">
               {HOME_HERO_IMAGES.map((_, idx) => (
@@ -157,6 +141,67 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-stone-50 to-transparent z-10 pointer-events-none" />
         </section>
 
+        {/* ========================================================
+            2. SECTION — OUR IMPACT SO FAR (Directly Below Hero)
+            ======================================================== */}
+        <section id="impact" className="py-20 bg-slate-950 text-white relative overflow-hidden border-t border-slate-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold">
+                Transparent Accountability
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
+                Our Impact So Far
+              </h2>
+              <p className="text-slate-400 text-sm mt-3">
+                All numbers are tracked via verified on-ground camp logs and programme registers.
+              </p>
+            </div>
+
+            {/* 4 Verified Stat Blocks */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                <span className="text-3xl sm:text-5xl font-extrabold text-emerald-400 block mb-2 font-mono">
+                  {content.stat2Number || "15+"}
+                </span>
+                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
+                  {content.stat2Label || "Eye Camps"}
+                </span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat2Sub || "Conducted on-site"}</span>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                <span className="text-3xl sm:text-5xl font-extrabold text-amber-400 block mb-2 font-mono">
+                  {content.stat1Number || "6,950+"}
+                </span>
+                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
+                  {content.stat1Label || "People Screened"}
+                </span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat1Sub || "Beneficiaries examined & verified"}</span>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                <span className="text-3xl sm:text-5xl font-extrabold text-sky-400 block mb-2 font-mono">
+                  {content.stat3Number || "4,713+"}
+                </span>
+                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
+                  {content.stat3Label || "Spectacles Distributed"}
+                </span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat3Sub || "Free precision prescription eyeglasses"}</span>
+              </div>
+
+              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
+                <span className="text-3xl sm:text-5xl font-extrabold text-rose-400 block mb-2 font-mono">
+                  {content.stat4Number || "169+"}
+                </span>
+                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
+                  {content.stat4Label || "Volunteers & Doctors"}
+                </span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat4Sub || "Dedicated medical & field team"}</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ========================================================
             SECTION 3 — OUR WORK
@@ -286,78 +331,6 @@ export default function Home() {
                   </div>
                 </div>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ========================================================
-            SECTION 4 — IMPACT
-            ======================================================== */}
-        <section className="py-20 bg-slate-950 text-white relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold">
-                Transparent Accountability
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
-                Our Impact So Far
-              </h2>
-              <p className="text-slate-400 text-sm mt-3">
-                All numbers are tracked via verified on-ground camp logs and programme registers.
-              </p>
-            </div>
-
-            {/* 4 Verified Stat Blocks */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-                <span className="text-3xl sm:text-5xl font-extrabold text-emerald-400 block mb-2 font-mono">
-                  {content.stat2Number || "15+"}
-                </span>
-                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat2Label || "Eye Camps"}
-                </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat2Sub || "Full-day clinical screening camps"}</span>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-                <span className="text-3xl sm:text-5xl font-extrabold text-amber-400 block mb-2 font-mono">
-                  {content.stat1Number || "6,950+"}
-                </span>
-                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat1Label || "People Screened"}
-                </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat1Sub || "Beneficiaries examined & verified"}</span>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-                <span className="text-3xl sm:text-5xl font-extrabold text-sky-400 block mb-2 font-mono">
-                  {content.stat3Number || "4,713+"}
-                </span>
-                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat3Label || "Spectacles Distributed"}
-                </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat3Sub || "Free precision prescription eyewear"}</span>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-                <span className="text-3xl sm:text-5xl font-extrabold text-rose-400 block mb-2 font-mono">
-                  {content.stat4Number || "169+"}
-                </span>
-                <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat4Label || "Volunteers & Doctors"}
-                </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat4Sub || "Dedicated medical & field team"}</span>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <Link
-                to="/about#impact"
-                className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-sm transition-all shadow-md"
-              >
-                <span>View Our Impact</span>
-                <span>→</span>
-              </Link>
             </div>
           </div>
         </section>
