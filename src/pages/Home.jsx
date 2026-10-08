@@ -467,32 +467,32 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Camp 1 */}
+              {/* Camp 3 - Mewla Maharajpur */}
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                   <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
-                    <img src="/camps/camp1/1st Camp/E1-4.jpeg" alt="Bhati Mines Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src="/camps/camp3/3rd camp/E3-3.jpeg" alt="Mewla Maharajpur Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <span className="absolute top-3 left-3 bg-emerald-700/90 text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
                       Eye Camp
                     </span>
                     <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
-                      29 Aug 2025
+                      12 Oct 2025
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold mb-1">
                     <span>📍</span>
-                    <span>Bhati Mines, Sanjay Colony, New Delhi</span>
+                    <span>Mewla Maharajpur, Faridabad, Haryana</span>
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
-                    Bhati Mines Camp
+                    Mewla Maharajpur Camp
                   </h4>
                   <p className="text-xs text-slate-600 mb-3 leading-relaxed">
-                    Abhyudaya A-116/A. Comprehensive eye diagnostics, free prescription spectacles, and doctor consultations.
+                    Deepak Bensla Baithak. Cross-border Haryana eye camp with retinoscopy, prescription eyeglasses, and news coverage.
                   </p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
-                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ Eye Screening</span>
-                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Free Spectacles</span>
-                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Dr. Atul Garg</span>
+                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ Retinoscopy</span>
+                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Frame Dispensing</span>
+                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Media Coverage</span>
                   </div>
                 </div>
                 <Link
@@ -504,7 +504,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Camp 2 */}
+              {/* Camp 2 - Kusumpur Pahari */}
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                   <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
@@ -541,32 +541,32 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Camp 3 */}
+              {/* Camp 1 - Bhati Mines */}
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>
                   <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
-                    <img src="/camps/camp3/3rd camp/E3-3.jpeg" alt="Mewla Maharajpur Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src="/camps/camp1/1st Camp/E1-4.jpeg" alt="Bhati Mines Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <span className="absolute top-3 left-3 bg-emerald-700/90 text-white text-[11px] font-semibold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
                       Eye Camp
                     </span>
                     <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
-                      12 Oct 2025
+                      29 Aug 2025
                     </span>
                   </div>
                   <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold mb-1">
                     <span>📍</span>
-                    <span>Mewla Maharajpur, Faridabad, Haryana</span>
+                    <span>Bhati Mines, Sanjay Colony, New Delhi</span>
                   </div>
                   <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
-                    Mewla Maharajpur Camp
+                    Bhati Mines Camp
                   </h4>
                   <p className="text-xs text-slate-600 mb-3 leading-relaxed">
-                    Deepak Bensla Baithak. Cross-border Haryana eye camp with retinoscopy, prescription eyeglasses, and news coverage.
+                    Abhyudaya A-116/A. Comprehensive eye diagnostics, free prescription spectacles, and doctor consultations.
                   </p>
                   <div className="flex flex-wrap gap-1.5 mb-4">
-                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ Retinoscopy</span>
-                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Frame Dispensing</span>
-                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Media Coverage</span>
+                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ Eye Screening</span>
+                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Free Spectacles</span>
+                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Dr. Atul Garg</span>
                   </div>
                 </div>
                 <Link
