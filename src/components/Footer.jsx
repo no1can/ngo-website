@@ -3,34 +3,6 @@ import { Link } from "react-router-dom";
 export default function Footer() {
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800">
-      {/* MICRO CTA STRIP */}
-      <div className="bg-gradient-to-r from-sky-950 via-slate-900 to-emerald-950 border-b border-slate-800 py-10 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="space-y-1 text-center md:text-left">
-            <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold">
-              Be There for Someone
-            </span>
-            <p className="text-xl md:text-2xl font-serif text-white tracking-tight">
-              "You don't need to do everything. Sometimes, simply being there makes a difference."
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              to="/contact?interest=Volunteering"
-              className="bg-white text-slate-950 hover:bg-slate-100 font-semibold px-5 py-2.5 rounded-full text-sm transition-all shadow-sm"
-            >
-              Become a Volunteer
-            </Link>
-            <Link
-              to="/donate"
-              className="bg-emerald-700 hover:bg-emerald-600 text-white font-semibold px-5 py-2.5 rounded-full text-sm transition-all shadow-sm"
-            >
-              Support Our Work
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* MAIN FOOTER */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">

@@ -174,7 +174,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               
               {/* Eye Camps Card */}
               <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
@@ -200,34 +200,6 @@ export default function Home() {
                     className="inline-flex items-center text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
                   >
                     Explore Eye Camps →
-                  </Link>
-                </div>
-              </div>
-
-              {/* Sewa Rasoi Card */}
-              <div className="bg-white rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
-                <div className="relative h-64 overflow-hidden bg-slate-100">
-                  <img
-                    src="/image.png"
-                    alt="Volunteers serving warm meals at Sewa Rasoi"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-4 left-4 bg-emerald-900/90 text-white text-xs font-semibold px-3 py-1 rounded-full backdrop-blur-xs">
-                    Nutrition & Dignity
-                  </div>
-                </div>
-                <div className="p-7 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-2">Sewa Rasoi</h3>
-                    <p className="text-slate-600 text-sm leading-relaxed mb-6">
-                      Serving freshly prepared, nutritious food with utmost dignity, compassion, and community participation.
-                    </p>
-                  </div>
-                  <Link
-                    to="/sewa-rasoi"
-                    className="inline-flex items-center text-sm font-semibold text-emerald-800 hover:text-emerald-950 group-hover:translate-x-1 transition-all"
-                  >
-                    Discover Sewa Rasoi →
                   </Link>
                 </div>
               </div>
@@ -523,43 +495,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ========================================================
-            SECTION 6 — SEWA RASOI
-            ======================================================== */}
-        <section className="relative py-28 bg-slate-950 text-white overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <img
-              src="/image copy.png"
-              alt="Volunteers serving food at Sewa Rasoi"
-              className="w-full h-full object-cover filter brightness-[0.38] contrast-[1.05]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent" />
-          </div>
 
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="max-w-2xl">
-              <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold block mb-3">
-                Nutrition & Care
-              </span>
-              <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-                Sewa Rasoi
-              </h2>
-              <p className="text-xl sm:text-2xl text-emerald-300 font-serif mb-6">
-                Food with dignity. Service with compassion.
-              </p>
-              <p className="text-slate-300 text-base leading-relaxed mb-8">
-                Hunger cannot be addressed with pity; it must be met with dignity. Sewa Rasoi brings together volunteers to cook and serve hot, wholesome meals to patients, attendants, and hardworking community members.
-              </p>
-              <Link
-                to="/sewa-rasoi"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-sm transition-all shadow-md"
-              >
-                <span>Discover Sewa Rasoi</span>
-                <span>→</span>
-              </Link>
-            </div>
-          </div>
-        </section>
 
         {/* ========================================================
             SECTION 7 — NAI PEHAL
@@ -692,11 +628,11 @@ export default function Home() {
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white border border-slate-200 flex gap-4 items-center">
-                  <img src="/gallery/image5.png" alt="Sewa Rasoi meal" className="w-24 h-24 object-cover rounded-xl" />
+                  <img src="/camps/camp2/2nd camp/E2-5.jpeg" alt="Spectacles distribution" className="w-24 h-24 object-cover rounded-xl" />
                   <div>
-                    <span className="text-xs text-amber-800 font-semibold">Sewa Rasoi</span>
-                    <h4 className="text-base font-bold text-slate-900">Serving Hot Meals With Care</h4>
-                    <p className="text-xs text-slate-500 mt-1">Pure nutritious meals prepared by volunteer hands.</p>
+                    <span className="text-xs text-sky-800 font-semibold">Vision Assistance</span>
+                    <h4 className="text-base font-bold text-slate-900">Free Spectacles Distribution</h4>
+                    <p className="text-xs text-slate-500 mt-1">Providing precision corrective eyewear to elderly residents.</p>
                   </div>
                 </div>
 
