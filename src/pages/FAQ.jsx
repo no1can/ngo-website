@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Navbar from "../components/Navbar";
+import { useContent } from "../utils/contentStore";
 
 const faqs = [
   {
@@ -65,6 +66,7 @@ function FaqItem({ item, index, isOpen, onClick, isInView }) {
 }
 
 export default function FAQ() {
+  const content = useContent();
   const [open, setOpen] = useState(null);
   const heroRef = useRef(null);
   const heroInView = useInView(heroRef, { once: true });
@@ -83,7 +85,7 @@ export default function FAQ() {
             transition={{ duration: 0.5 }}
             className="inline-block text-sm text-green-800 font-medium mb-4"
           >
-            FAQ
+            {content.faqBadge || "FAQ"}
           </motion.span>
 
           <motion.h1
@@ -92,9 +94,9 @@ export default function FAQ() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-5xl md:text-7xl font-serif leading-tight mb-6"
           >
-            Got questions?
+            {content.faqTitle || "Got questions?"}
             <br />
-            <span className="text-gray-400">We've got answers.</span>
+            <span className="text-gray-400">{content.faqSubtitle || "We've got answers."}</span>
           </motion.h1>
         </div>
       </section>

@@ -2,9 +2,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { teamMembers } from "../data/teamData";
+import { useTeamMembers } from "../utils/teamStore";
+import { useContent } from "../utils/contentStore";
 
 export default function Team() {
+  const content = useContent();
+  const teamMembers = useTeamMembers();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -39,16 +42,16 @@ export default function Team() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 block">
-              The Dedicated Faces of Tandicia
+              {content.teamPageBadge || "The Dedicated Faces of Tandicia"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              The People Behind Tandicia
+              {content.teamPageTitle || "The People Behind Tandicia"}
             </h1>
             <p className="text-xl sm:text-2xl text-amber-200/90 font-serif mb-6">
-              People who give their time, expertise and heart to serve the community.
+              {content.teamPageTagline || "People who give their time, expertise and heart to serve the community."}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Tandicia is powered by doctors, professionals, youth, and compassionate citizens who step forward with verified dedication.
+              {content.teamPageDesc || "Tandicia is powered by doctors, professionals, youth, and compassionate citizens who step forward with verified dedication."}
             </p>
           </div>
         </section>

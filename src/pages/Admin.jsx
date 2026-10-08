@@ -4,7 +4,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { getAllPhotos, getCustomPhotos, addPhoto, deletePhoto, clearAllCustomPhotos, DEFAULT_PHOTOS, replacePhoto, resetPhotoOverride, resetAllOverrides, getPhotoOverrides } from "../utils/photoStore";
 import { getContent, saveContent, resetContentToDefault } from "../utils/contentStore";
+import { getTeamMembers } from "../utils/teamStore";
 import AdminTextEditor from "../components/AdminTextEditor";
+import AdminTeamManager from "../components/AdminTeamManager";
 
 export default function Admin() {
   // Authentication State
@@ -17,6 +19,7 @@ export default function Admin() {
   // Photos State
   const [photos, setPhotos] = useState(getAllPhotos());
   const [customPhotos, setCustomPhotos] = useState(getCustomPhotos());
+  const [teamCount, setTeamCount] = useState(() => getTeamMembers().length);
 
   const [editingPhoto, setEditingPhoto] = useState(null); // photo being replaced
   const [replacePreview, setReplacePreview] = useState(null);
@@ -31,7 +34,7 @@ export default function Admin() {
   const [customNewValue, setCustomNewValue] = useState("");
 
   // Form State
-  const [activeTab, setActiveTab] = useState("all"); // all, text, upload, manage, cloud
+  const [activeTab, setActiveTab] = useState("all"); // all, text, team, upload, manage, cloud
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Eye Camps");
   const [location, setLocation] = useState("");
@@ -47,18 +50,21 @@ export default function Admin() {
   const [toastMessage, setToastMessage] = useState("");
   const [toastType, setToastType] = useState("success");
 
-  // Sync photos & content when custom event fires
+  // Sync photos, content & team members when custom event fires
   useEffect(() => {
     const refreshData = () => {
       setPhotos(getAllPhotos());
       setCustomPhotos(getCustomPhotos());
       setSiteContent(getContent());
+      setTeamCount(getTeamMembers().length);
     };
     window.addEventListener("tandicia_photos_updated", refreshData);
     window.addEventListener("tandicia_content_updated", refreshData);
+    window.addEventListener("tandicia_team_updated", refreshData);
     return () => {
       window.removeEventListener("tandicia_photos_updated", refreshData);
       window.removeEventListener("tandicia_content_updated", refreshData);
+      window.removeEventListener("tandicia_team_updated", refreshData);
     };
   }, []);
 
@@ -373,12 +379,18 @@ export default function Admin() {
         )}
 
         {/* Stats Strip */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 mb-8">
           <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
             <span className="text-2xl sm:text-3xl font-extrabold text-slate-900 block font-mono">
               {photos.length}
             </span>
             <span className="text-xs font-medium text-slate-500">Total Photos Live</span>
+          </div>
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
+            <span className="text-2xl sm:text-3xl font-extrabold text-emerald-700 block font-mono">
+              {teamCount}
+            </span>
+            <span className="text-xs font-medium text-slate-500">Team Members</span>
           </div>
           <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
             <span className="text-2xl sm:text-3xl font-extrabold text-emerald-700 block font-mono">
@@ -392,8 +404,8 @@ export default function Admin() {
             </span>
             <span className="text-xs font-medium text-slate-500">Photos Replaced</span>
           </div>
-          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs">
-            <span className="text-2xl sm:text-3xl font-extrabold text-amber-700 block font-mono">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-xs col-span-2 sm:col-span-1">
+            <span className="text-2xl sm:text-3xl font-extrabold text-teal-700 block font-mono">
               Real-time
             </span>
             <span className="text-xs font-medium text-slate-500">Sync Status</span>
@@ -401,21 +413,21 @@ export default function Admin() {
         </div>
 
         {/* Navigation Tabs */}
-        <div className="flex border-b border-slate-200 mb-8 space-x-2">
+        <div className="flex border-b border-slate-200 mb-8 space-x-2 overflow-x-auto pb-1">
           <button
             onClick={() => setActiveTab("all")}
-            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
               activeTab === "all"
                 ? "border-emerald-700 text-emerald-800"
                 : "border-transparent text-slate-500 hover:text-slate-900"
             }`}
           >
-            <span>📷 All Website Photos</span>
+            <span>📷 All Photos</span>
           </button>
 
           <button
             onClick={() => setActiveTab("text")}
-            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
               activeTab === "text"
                 ? "border-emerald-700 text-emerald-800"
                 : "border-transparent text-slate-500 hover:text-slate-900"
@@ -425,19 +437,30 @@ export default function Admin() {
           </button>
 
           <button
+            onClick={() => setActiveTab("team")}
+            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
+              activeTab === "team"
+                ? "border-emerald-700 text-emerald-800"
+                : "border-transparent text-slate-500 hover:text-slate-900"
+            }`}
+          >
+            <span>👥 Team Members ({teamCount})</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab("upload")}
-            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
               activeTab === "upload"
                 ? "border-emerald-700 text-emerald-800"
                 : "border-transparent text-slate-500 hover:text-slate-900"
             }`}
           >
-            <span>➕ Upload New Photo</span>
+            <span>➕ Upload Photo</span>
           </button>
 
           <button
             onClick={() => setActiveTab("manage")}
-            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
               activeTab === "manage"
                 ? "border-emerald-700 text-emerald-800"
                 : "border-transparent text-slate-500 hover:text-slate-900"
@@ -448,13 +471,13 @@ export default function Admin() {
 
           <button
             onClick={() => setActiveTab("cloud")}
-            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 ${
+            className={`pb-4 px-4 text-sm font-bold border-b-2 transition-colors cursor-pointer flex items-center gap-2 whitespace-nowrap ${
               activeTab === "cloud"
                 ? "border-emerald-700 text-emerald-800"
                 : "border-transparent text-slate-500 hover:text-slate-900"
             }`}
           >
-            <span>☁️ Cloud Sync & Storage</span>
+            <span>☁️ Cloud Sync</span>
           </button>
         </div>
 
@@ -620,6 +643,13 @@ export default function Admin() {
             isSavingContent={isSavingContent}
             showToast={showToast}
           />
+        )}
+
+        {/* ========================================================
+            TAB: TEAM MEMBERS MANAGER
+            ======================================================== */}
+        {activeTab === "team" && (
+          <AdminTeamManager showToast={showToast} />
         )}
 
         {/* ========================================================

@@ -298,6 +298,50 @@ export default function AdminTextEditor({
           ]
         }
       ]
+    },
+    {
+      id: "team",
+      label: "👥 Team Page Text",
+      description: "Hero banner, headings, intro and Patron section text",
+      groups: [
+        {
+          title: "🌟 Team Page Header",
+          desc: "Header on /team",
+          fields: [
+            { key: "teamPageBadge", label: "Header Badge", type: "text" },
+            { key: "teamPageTitle", label: "Header Title", type: "text" },
+            { key: "teamPageTagline", label: "Header Subtitle / Tagline", type: "text" },
+            { key: "teamPageDesc", label: "Header Description", type: "textarea" },
+            { key: "teamPatronHeading", label: "Patron Section Title", type: "text" },
+            { key: "teamPatronSub", label: "Patron Section Subtitle", type: "text" }
+          ]
+        }
+      ]
+    },
+    {
+      id: "docs",
+      label: "📜 Documents & FAQ Text",
+      description: "Transparency documents page and FAQ page texts",
+      groups: [
+        {
+          title: "📑 Documents Page Header",
+          desc: "Header on /documents",
+          fields: [
+            { key: "docsPageBadge", label: "Documents Badge", type: "text" },
+            { key: "docsPageTitle", label: "Documents Title", type: "text" },
+            { key: "docsPageSubtitle", label: "Documents Description", type: "textarea" }
+          ]
+        },
+        {
+          title: "❓ FAQ Page Header",
+          desc: "Header on /faq",
+          fields: [
+            { key: "faqPageBadge", label: "FAQ Badge", type: "text" },
+            { key: "faqPageTitle", label: "FAQ Title", type: "text" },
+            { key: "faqPageSubtitle", label: "FAQ Description", type: "textarea" }
+          ]
+        }
+      ]
     }
   ], []);
 

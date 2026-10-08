@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { useContent } from "../utils/contentStore";
 
 const docCategories = [
   {
@@ -28,7 +29,7 @@ const docCategories = [
     docs: [
       { name: "Annual Field Activity Review", year: "2025–26", type: "Annual Report", size: "Verified", note: "Consolidated field metrics" },
       { name: "Comprehensive Eye Care Programme Report", year: "2025", type: "Programme Report", size: "Verified", note: "Detailed screening outcomes" },
-      { name: "Sewa Rasoi Nutritional Impact Log", year: "2025", type: "Impact Log", size: "Verified", note: "Community kitchen distribution logs" }
+      { name: "Community Health & Welfare Impact Log", year: "2025", type: "Impact Log", size: "Verified", note: "Community welfare and health distribution logs" }
     ]
   },
   {
@@ -43,6 +44,7 @@ const docCategories = [
 ];
 
 export default function Documents() {
+  const content = useContent();
   const [activeModalDoc, setActiveModalDoc] = useState(null);
 
   return (
@@ -65,16 +67,16 @@ export default function Documents() {
 
           <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold mb-3 block">
-              Governance & Integrity
+              {content.docsBadge || "Governance & Integrity"}
             </span>
             <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-4">
-              Documents & Transparency
+              {content.docsTitle || "Documents & Transparency"}
             </h1>
             <p className="text-xl sm:text-2xl text-amber-200/90 font-serif mb-6">
-              Building Trust Through Openness and Accountability
+              {content.docsTagline || "Building Trust Through Openness and Accountability"}
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Public service demands unconditional honesty. We publish verified registration records, regulatory certificates, and programme summaries for all community stakeholders.
+              {content.docsDesc || "Public service demands unconditional honesty. We publish verified registration records, regulatory certificates, and programme summaries for all community stakeholders."}
             </p>
           </div>
         </section>

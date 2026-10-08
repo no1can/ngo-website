@@ -206,7 +206,27 @@ export const DEFAULT_CONTENT = {
   donateBadge: "Transparent Contributions",
   donateTitle: "Support Our Work",
   donateTagline: "Invest in someone's vision and dignity, your way.",
-  donateDesc: "Your contribution directly supports on-site eye diagnosis camps, free corrective spectacles, and community care."
+  donateDesc: "Your contribution directly supports on-site eye diagnosis camps, free corrective spectacles, and community care.",
+
+  // ==========================================
+  // 9. TEAM PAGE
+  // ==========================================
+  teamPageBadge: "The Dedicated Faces of Tandicia",
+  teamPageTitle: "The People Behind Tandicia",
+  teamPageTagline: "People who give their time, expertise and heart to serve the community.",
+  teamPageDesc: "Tandicia is powered by doctors, professionals, youth, and compassionate citizens who step forward with verified dedication.",
+  teamPatronHeading: "Patron & Inspiration",
+  teamPatronSub: "Spiritual guidance and visionary inspiration for our mission.",
+
+  // ==========================================
+  // 10. DOCUMENTS & FAQ
+  // ==========================================
+  docsPageBadge: "Statutory Disclosures",
+  docsPageTitle: "Documents & Governance",
+  docsPageSubtitle: "Public transparency, official legal filings, compliance certificates, and audited activity registries.",
+  faqPageBadge: "Got Questions?",
+  faqPageTitle: "Frequently Asked Questions",
+  faqPageSubtitle: "Clear, straightforward answers about Tandicia's eye camps, volunteers, and operations."
 };
 
 const CONTENT_STORAGE_KEY = "tandicia_custom_content_v1";

@@ -2,19 +2,13 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { teamMembers } from "../data/teamData";
-import { getContent } from "../utils/contentStore";
+import { useTeamMembers } from "../utils/teamStore";
+import { useContent } from "../utils/contentStore";
 
 export default function Home() {
-  const [content, setContent] = useState(getContent());
+  const content = useContent();
+  const teamMembers = useTeamMembers();
 
-  useEffect(() => {
-    const handleUpdate = () => {
-      setContent(getContent());
-    };
-    window.addEventListener("tandicia_content_updated", handleUpdate);
-    return () => window.removeEventListener("tandicia_content_updated", handleUpdate);
-  }, []);
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
       <Navbar />
@@ -680,7 +674,7 @@ export default function Home() {
                     to="/team"
                     className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-slate-900 hover:bg-slate-800 text-white font-semibold text-sm transition-all"
                   >
-                    <span>Meet All 39 Volunteers</span>
+                    <span>Meet All {teamMembers.length} Volunteers</span>
                     <span>→</span>
                   </Link>
                 </div>

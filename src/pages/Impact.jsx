@@ -15,26 +15,26 @@ export default function Impact() {
 
   const programmes = [
     {
-      title: "Eye Camps & Vision Care",
-      activity: "Comprehensive diagnostic eye refraction, cataract screening & spectacle provision",
-      reached: "XX+ Patients examined & verified",
-      outcome: "Immediate restoration of clear vision, reading ability, and work safety for daily earners.",
+      title: content.impactProg1Title || "Eye Camps & Vision Care",
+      activity: content.impactProg1Desc || "Comprehensive diagnostic eye refraction, cataract screening & spectacle provision",
+      reached: content.impactProg1Reached || "1,200+ Patients examined & verified",
+      outcome: content.impactProg1Outcome || "Immediate restoration of clear vision, reading ability, and work safety for daily earners.",
       image: "/camps/camp3/3rd camp/E3-8.jpeg",
       tag: "Healthcare Impact"
     },
     {
-      title: "Sewa Rasoi Nutritional Relief",
-      activity: "Fresh, hygienic, warm meals prepared and distributed to attendants and workers",
-      reached: "XX+ Wholesome meals distributed",
-      outcome: "Alleviated food insecurity for families camping outside government medical facilities.",
+      title: content.impactProg2Title || "Community Health & Welfare",
+      activity: content.impactProg2Desc || "Essential care, medical follow-ups, and community assistance for local families",
+      reached: content.impactProg2Reached || "Hundreds of families supported",
+      outcome: content.impactProg2Outcome || "Immediate relief and dignified care for vulnerable individuals and elder patients.",
       image: "/image.png",
-      tag: "Nutrition & Dignity"
+      tag: "Dignity & Care"
     },
     {
-      title: "Nai Pehal Community Mutual Aid",
-      activity: "Direct companionship, elder support, and single-parent educational assistance",
-      reached: "XX+ Households supported",
-      outcome: "Reduced elder loneliness and provided vital social safety nets in difficult moments.",
+      title: content.impactProg3Title || "Nai Pehal Community Mutual Aid",
+      activity: content.impactProg3Desc || "Direct companionship, elder support, and single-parent educational assistance",
+      reached: content.impactProg3Reached || "Grassroots households supported",
+      outcome: content.impactProg3Outcome || "Reduced elder loneliness and provided vital social safety nets in difficult moments.",
       image: "/story2.png",
       tag: "Social Solidarity"
     }
