@@ -275,16 +275,6 @@ export default function AdminTextEditor({
             { key: "aboutTagline", label: "Page Tagline", type: "text" },
             { key: "aboutSubtext", label: "Page Subtext / Intro", type: "textarea" }
           ]
-        },
-        {
-          title: "👥 Who We Are & Guiding Light",
-          desc: "The detailed backstory and founding principles",
-          fields: [
-            { key: "aboutWhoHeading", label: "Section Heading", type: "text" },
-            { key: "aboutWhoP1", label: "Paragraph 1 (Organisational Background)", type: "textarea" },
-            { key: "aboutWhoP2", label: "Paragraph 2 (Ground-level philosophy)", type: "textarea" },
-            { key: "aboutWhoQuote", label: "Guiding Quote", type: "textarea" }
-          ]
         }
       ]
     },
