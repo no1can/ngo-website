@@ -201,6 +201,26 @@ export default function AdminTextEditor({
           ]
         },
         {
+          title: "📍 Gao Thora, Gautam Budh Nagar",
+          desc: "Camp on 14 June 2026 at Gao Thora near Jewar",
+          fields: [
+            { key: "campGtTitle", label: "Camp Title", type: "text" },
+            { key: "campGtDateLoc", label: "Date & Location", type: "text" },
+            { key: "campGtDesc", label: "Objective & Description", type: "textarea" },
+            { key: "campGtDoctor", label: "Medical Team / Senior Surgeon", type: "text" }
+          ]
+        },
+        {
+          title: "📍 Shraddhanand Marg, Delhi",
+          desc: "Camp on 9 November 2025 at Shraddhanand Marg",
+          fields: [
+            { key: "campSnTitle", label: "Camp Title", type: "text" },
+            { key: "campSnDateLoc", label: "Date & Location", type: "text" },
+            { key: "campSnDesc", label: "Objective & Description", type: "textarea" },
+            { key: "campSnDoctor", label: "Medical Team / Senior Surgeon", type: "text" }
+          ]
+        },
+        {
           title: "📍 Bhati Mines, New Delhi",
           desc: "Abhyudaya, Sanjay Colony, Bhati Mines camp details",
           fields: [

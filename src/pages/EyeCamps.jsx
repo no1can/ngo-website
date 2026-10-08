@@ -74,6 +74,43 @@ const verifiedCamps = [
     ]
   },
   {
+    id: "camp-up-gao-thora",
+    tag: "Eye Camp",
+    title: "Gao Thora, Gautam Budh Nagar",
+    name: "Gao Thora Free Eye Screening & Spectacle Camp",
+    year: "2026",
+    location: "Gao Thora, Near Jewar, Gautam Budh Nagar, Uttar Pradesh",
+    date: "14 June 2026",
+    peopleServed: "Verified On-Site Records",
+    supportSummary: "नि:शुल्क नेत्र जांच शिविर — Comprehensive rural vision diagnostic checkups, doctor consultation, free spectacles & eye drops",
+    image: "/camps/gao_thora/gao_thora_1.jpg",
+    video: "/camps/gao_thora/gao_thora_video_1.mp4",
+    objective: "Delivering primary ophthalmic care, computerized autorefraction, senior surgeon diagnosis, and free spectacles distribution directly to villagers, farmers, and elders in Gao Thora near Jewar.",
+    medicalTeam: "Dr. Atul Garg & Specialist Clinical Optometry Team",
+    volunteers: "Tandicia Association Core Field Volunteers & Gao Thora Village Youth",
+    eventsList: [
+      { name: "Computerized Autorefraction", desc: "Digital eye testing and visual acuity assessment using trial lenses." },
+      { name: "Senior Surgeon Consultation", desc: "Specialist consultation for cataract grading, ocular pressure, and retina health." },
+      { name: "Prescription Spectacles Fitting", desc: "Custom reading and distance corrective eyeglasses fitted and distributed." },
+      { name: "Free Eye Drops & Medication", desc: "Dispensing prophylactic medications and lubricating drops." },
+      { name: "Cataract Surgery Referrals", desc: "Linkages and hospital counseling for villagers needing cataract surgery." }
+    ],
+    servicesProvided: "Visual acuity assessment, computerized refraction, prescription spectacles dispensing, free eye drops.",
+    spectaclesDistributed: "Custom prescription corrective glasses provided free of cost.",
+    referrals: "Hospital linkages for advanced cataract cases.",
+    mediaCoverage: "Documented in live Tandicia field register with verified photography & video records.",
+    gallery: [
+      "/camps/gao_thora/gao_thora_1.jpg",
+      "/camps/gao_thora/gao_thora_2.jpg",
+      "/camps/gao_thora/gao_thora_3.jpg",
+      "/camps/gao_thora/gao_thora_4.jpg",
+      "/camps/gao_thora/gao_thora_5.jpg",
+      "/camps/gao_thora/gao_thora_6.jpg",
+      "/camps/gao_thora/gao_thora_7.jpg",
+      "/camps/gao_thora/gao_thora_10.jpg"
+    ]
+  },
+  {
     id: "camp-delhi-bhati-mines",
     tag: "Eye Camp",
     title: "Bhati Mines, New Delhi",
@@ -190,34 +227,40 @@ const verifiedCamps = [
     ]
   },
   {
-    id: "camp-delhi-gb-road",
+    id: "camp-delhi-shradnand",
     tag: "Eye Camp",
-    title: "GB Road Outreach, Central Delhi",
-    name: "GB Road Community Eye Care Outreach",
+    title: "Shraddhanand Marg, Delhi",
+    name: "Shraddhanand Marg Community Eye Camp",
     year: "2025",
-    location: "GB Road Community Area, Central Delhi",
-    date: "2025",
+    location: "Shraddhanand Marg, Central Delhi, Delhi - 110006",
+    date: "9 November 2025",
     peopleServed: "Verified On-Site Records",
-    supportSummary: "Targeted primary vision screening and eye care for vulnerable urban workers",
-    image: "/camps/camp2/2nd Camp/E2-14.jpeg",
+    supportSummary: "नि:शुल्क नेत्र जांच शिविर — Urban community eye screening, doctor diagnosis, and free corrective eyewear",
+    image: "/camps/shradnand_marg/shradnand_1.jpg",
     video: null,
-    objective: "Bringing primary eye care access to underserved urban workers and vulnerable communities near GB Road.",
-    medicalTeam: "Volunteer Eye Specialists & Compassionate Support Staff",
+    objective: "Specialized urban outreach eye camp providing diagnostic vision checkups, doctor consultations, refraction corrections, and spectacles for local residents and marginalized workers around Shraddhanand Marg.",
+    medicalTeam: "Certified Ophthalmologists & Specialist Optometrists",
     volunteers: "Tandicia Specialized Field Mobilization Volunteers",
     eventsList: [
-      { name: "Dignified Community Reception", desc: "Safe, respectful space for marginalized women and workers to seek healthcare." },
-      { name: "Confidential Vision Checkup", desc: "Full optical diagnosis and eye strain evaluations." },
-      { name: "Protective & Corrective Glasses", desc: "Free eyewear provided to support livelihood and literacy." },
-      { name: "Ocular Health Education", desc: "Hygiene and eye protection awareness sessions." },
-      { name: "Direct Hospital Linkages", desc: "Referral network with partner hospitals for follow-up care." }
+      { name: "Dignified Community Reception", desc: "Safe, respectful space for marginalized community members to seek healthcare." },
+      { name: "Diagnostic Vision Testing", desc: "Digital trial lens refraction and ocular health checkup." },
+      { name: "Senior Doctor Consultation", desc: "Clinical diagnosis for common ocular ailments and vision impairment." },
+      { name: "Protective & Corrective Glasses", desc: "Free eyewear fitted and provided to support livelihood and literacy." },
+      { name: "Direct Hospital Linkages", desc: "Referral network with partner hospitals for follow-up cataract care." }
     ],
     servicesProvided: "Eye screening, vision testing, spectacle distribution, hygiene counseling.",
-    spectaclesDistributed: "Free corrective eyewear.",
+    spectaclesDistributed: "Custom prescription corrective glasses provided free of cost.",
     referrals: "Partner hospital referrals for follow-up treatments.",
-    mediaCoverage: "Documented in live Tandicia field register.",
+    mediaCoverage: "Documented in live Tandicia field register with verified photography.",
     gallery: [
-      "/camps/camp2/2nd Camp/E2-14.jpeg",
-      "/camps/camp1/1st Camp/E1-6.jpeg"
+      "/camps/shradnand_marg/shradnand_1.jpg",
+      "/camps/shradnand_marg/shradnand_2.jpg",
+      "/camps/shradnand_marg/shradnand_3.jpg",
+      "/camps/shradnand_marg/shradnand_4.jpg",
+      "/camps/shradnand_marg/shradnand_5.jpg",
+      "/camps/shradnand_marg/shradnand_6.jpg",
+      "/camps/shradnand_marg/shradnand_7.jpg",
+      "/camps/shradnand_marg/shradnand_8.jpg"
     ]
   }
 ];
@@ -266,6 +309,14 @@ export default function EyeCamps() {
         objective: content.campBvDesc || camp.objective,
         medicalTeam: content.campBvDoctor || camp.medicalTeam
       };
+    } else if (camp.id === "camp-up-gao-thora") {
+      return {
+        ...camp,
+        title: content.campGtTitle || camp.title,
+        location: content.campGtDateLoc || camp.location,
+        objective: content.campGtDesc || camp.objective,
+        medicalTeam: content.campGtDoctor || camp.medicalTeam
+      };
     } else if (camp.id === "camp-delhi-bhati-mines") {
       return {
         ...camp,
@@ -290,13 +341,13 @@ export default function EyeCamps() {
         objective: content.camp3Desc || camp.objective,
         medicalTeam: content.camp3Doctor || camp.medicalTeam
       };
-    } else if (camp.id === "camp-delhi-gb-road") {
+    } else if (camp.id === "camp-delhi-shradnand" || camp.id === "camp-delhi-gb-road") {
       return {
         ...camp,
-        title: content.camp4Title || camp.title,
-        location: content.camp4DateLoc || camp.location,
-        objective: content.camp4Desc || camp.objective,
-        medicalTeam: content.camp4Doctor || camp.medicalTeam
+        title: content.campSnTitle || camp.title,
+        location: content.campSnDateLoc || camp.location,
+        objective: content.campSnDesc || camp.objective,
+        medicalTeam: content.campSnDoctor || camp.medicalTeam
       };
     }
     return camp;

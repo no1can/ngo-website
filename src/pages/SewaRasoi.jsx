@@ -220,6 +220,99 @@ export default function SewaRasoi() {
         </section>
 
         {/* ========================================================
+            ON-GROUND VIDEO HIGHLIGHTS
+            ======================================================== */}
+        <section className="py-20 bg-slate-950 text-white border-t border-slate-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="text-xs uppercase tracking-widest text-amber-400 font-semibold block">
+                Live From The Field
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
+                On-Ground Video Highlights
+              </h2>
+              <p className="text-slate-400 text-sm mt-3">
+                Unscripted footage of our volunteers preparing warm food and serving with love and respect.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {/* Video 1 */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/sewa_rasoi/sewa_rasoi_video_1.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider block mb-1">
+                    Kitchen Seva
+                  </span>
+                  <h4 className="text-lg font-bold text-white">Meal Preparation & Devotion</h4>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                    Volunteers preparing fresh, pure meals from dawn to ensure high nutritional standards.
+                  </p>
+                </div>
+              </div>
+
+              {/* Video 2 */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/sewa_rasoi/sewa_rasoi_video_2.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-emerald-400 font-semibold uppercase tracking-wider block mb-1">
+                    Food Distribution
+                  </span>
+                  <h4 className="text-lg font-bold text-white">Serving with Warmth & Dignity</h4>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                    Handing warm food plates directly to hospital attendants and workers in need.
+                  </p>
+                </div>
+              </div>
+
+              {/* Video 3 */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/sewa_rasoi/sewa_rasoi_video_3.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-sky-400 font-semibold uppercase tracking-wider block mb-1">
+                    Community Solidarity
+                  </span>
+                  <h4 className="text-lg font-bold text-white">Grassroots Food Outreach</h4>
+                  <p className="text-xs text-slate-400 mt-2 leading-relaxed">
+                    Spreading compassion and ensuring no one in our reach sleeps on an empty stomach.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
             PHOTO GALLERY
             ======================================================== */}
         <section className="py-20 bg-stone-50 border-t border-slate-200">

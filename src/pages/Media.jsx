@@ -165,7 +165,7 @@ export default function Media() {
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {/* Video 1 - Budh Vihar Camp */}
               <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
                 <div className="relative aspect-video bg-black overflow-hidden">
@@ -181,34 +181,74 @@ export default function Media() {
                   </video>
                 </div>
                 <div className="p-6">
-                  <span className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">New Camp Footage • 20 Sep 2026</span>
+                  <span className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">Eye Camp • 20 Sep 2026</span>
                   <h4 className="text-lg font-bold mt-1 text-white">Budh Vihar Free Eye Screening Camp</h4>
                   <p className="text-xs text-slate-400 mt-2">On-ground operations, screening queues, and doctor consultations at Budh Vihar, New Delhi.</p>
                 </div>
               </div>
 
-              {/* Video 2 - Budh Vihar Diagnosis */}
+              {/* Video 2 - Gao Thora Camp */}
               <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
                 <div className="relative aspect-video bg-black overflow-hidden">
                   <video
                     controls
                     playsInline
                     preload="metadata"
-                    poster="/camps/budh_vihar/budh_vihar_2.jpg"
+                    poster="/camps/gao_thora/gao_thora_1.jpg"
                     className="w-full h-full object-cover"
                   >
-                    <source src="/camps/budh_vihar/budh_vihar_video_2.mp4" type="video/mp4" />
+                    <source src="/camps/gao_thora/gao_thora_video_1.mp4" type="video/mp4" />
                     Your browser does not support video playback.
                   </video>
                 </div>
                 <div className="p-6">
-                  <span className="text-xs text-sky-400 font-semibold uppercase tracking-wider">Diagnostic Video Record</span>
-                  <h4 className="text-lg font-bold mt-1 text-white">Doctor Examination & Ophthalmic Care</h4>
-                  <p className="text-xs text-slate-400 mt-2">Senior ophthalmologist conducting retinal checks and prescription glasses fittings.</p>
+                  <span className="text-xs text-sky-400 font-semibold uppercase tracking-wider">Eye Camp • 14 Jun 2026</span>
+                  <h4 className="text-lg font-bold mt-1 text-white">Gao Thora Rural Eye Screening Drive</h4>
+                  <p className="text-xs text-slate-400 mt-2">Diagnostic eye testing, trial refraction, and doctor consultations for villagers in Gao Thora near Jewar.</p>
                 </div>
               </div>
 
-              {/* Video 3 - Bhati Mines Camp */}
+              {/* Video 3 - Sewa Rasoi Hot Meals */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/sewa_rasoi/sewa_rasoi_video_1.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider">Sewa Rasoi • Community Kitchen</span>
+                  <h4 className="text-lg font-bold mt-1 text-white">Sewa Rasoi Wholesome Meal Service</h4>
+                  <p className="text-xs text-slate-400 mt-2">Serving hot, nutritious meals with love and dignity to community members and hospital attendants.</p>
+                </div>
+              </div>
+
+              {/* Video 4 - Sewa Rasoi Distribution */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/sewa_rasoi/sewa_rasoi_video_2.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-orange-400 font-semibold uppercase tracking-wider">Sewa Rasoi • On-Ground Relief</span>
+                  <h4 className="text-lg font-bold mt-1 text-white">Grassroots Food Distribution</h4>
+                  <p className="text-xs text-slate-400 mt-2">Volunteers packing and handing fresh meals to families in need with utmost care and respect.</p>
+                </div>
+              </div>
+
+              {/* Video 5 - Bhati Mines Camp */}
               <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
                 <div className="relative aspect-video bg-black overflow-hidden">
                   <video
@@ -223,13 +263,13 @@ export default function Media() {
                   </video>
                 </div>
                 <div className="p-6">
-                  <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider">Field Document</span>
+                  <span className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">Field Document • 29 Aug 2025</span>
                   <h4 className="text-lg font-bold mt-1 text-white">Bhati Mines Rural Eye Screening</h4>
                   <p className="text-xs text-slate-400 mt-2">Serving remote families, quarry laborers, and village elders at Abhyudaya, Sanjay Colony.</p>
                 </div>
               </div>
 
-              {/* Video 4 - Kusumpur Pahari */}
+              {/* Video 6 - Kusumpur Pahari */}
               <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
                 <div className="relative aspect-video bg-black overflow-hidden">
                   <video
@@ -244,7 +284,7 @@ export default function Media() {
                   </video>
                 </div>
                 <div className="p-6">
-                  <span className="text-xs text-rose-400 font-semibold uppercase tracking-wider">Field Document</span>
+                  <span className="text-xs text-rose-400 font-semibold uppercase tracking-wider">Field Document • 14 Sep 2025</span>
                   <h4 className="text-lg font-bold mt-1 text-white">Kusumpur Pahari Diagnostic Drive</h4>
                   <p className="text-xs text-slate-400 mt-2">Computerized autorefractor screening and high-volume spectacles distribution.</p>
                 </div>

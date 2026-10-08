@@ -161,6 +161,16 @@ export const DEFAULT_CONTENT = {
   campBvDesc: "Comprehensive community eye screening, computerized autorefraction, prescription eyewear, and senior doctor consultations.",
   campBvDoctor: "Dr. Atul Garg & Senior Clinical Optometrists Team",
 
+  campGtTitle: "Gao Thora, Gautam Budh Nagar",
+  campGtDateLoc: "14 June 2026 • Gao Thora, Near Jewar, Gautam Budh Nagar, UP",
+  campGtDesc: "Free vision diagnostic checkups, refraction correction, senior surgeon consultation, and prescription eyeglasses distribution for rural elders and families.",
+  campGtDoctor: "Senior Ophthalmologist & Medical Optometry Team",
+
+  campSnTitle: "Shraddhanand Marg, Delhi",
+  campSnDateLoc: "9 November 2025 • Shraddhanand Marg, Central Delhi",
+  campSnDesc: "Comprehensive vision testing, refraction screening, doctor diagnosis, and free spectacles distribution in central Delhi community clusters.",
+  campSnDoctor: "Ophthalmology Specialists & Clinical Optometrists",
+
   camp1Title: "Bhati Mines, New Delhi",
   camp1DateLoc: "29 August 2025 • Abhyudaya, Sanjay Colony, Bhati Mines",
   camp1Desc: "Reaching daily wage earners, elder residents, and remote families in the Bhati Mines region with critical eye health diagnosis.",
