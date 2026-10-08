@@ -45,10 +45,10 @@ export default function SewaRasoi() {
             ======================================================== */}
         <section className="bg-emerald-950 text-white py-12 border-y border-emerald-900">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center max-w-4xl mx-auto">
               <div>
                 <span className="text-3xl sm:text-5xl font-extrabold text-amber-400 font-mono block">
-                  {content.sewaMealsCount || "2,500+"}
+                  {content.sewaMealsCount || "87,300+"}
                 </span>
                 <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
                   Meals Served
@@ -57,7 +57,7 @@ export default function SewaRasoi() {
               </div>
               <div>
                 <span className="text-3xl sm:text-5xl font-extrabold text-white font-mono block">
-                  {content.sewaVolunteersCount || "45+"}
+                  {content.sewaVolunteersCount || "37+"}
                 </span>
                 <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
                   Volunteers Involved
@@ -66,21 +66,12 @@ export default function SewaRasoi() {
               </div>
               <div>
                 <span className="text-3xl sm:text-5xl font-extrabold text-amber-300 font-mono block">
-                  {content.sewaDaysCount || "30+"}
+                  {content.sewaDaysCount || "147+"}
                 </span>
                 <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
                   Days of Service
                 </span>
                 <span className="text-xs text-emerald-400/80 mt-1 block">Regular field drives</span>
-              </div>
-              <div>
-                <span className="text-3xl sm:text-5xl font-extrabold text-sky-400 font-mono block">
-                  {content.sewaCommunitiesCount || "12+"}
-                </span>
-                <span className="text-xs sm:text-sm text-emerald-100 uppercase tracking-wider font-semibold mt-2 block">
-                  Communities Reached
-                </span>
-                <span className="text-xs text-emerald-400/80 mt-1 block">Hospital & public hubs</span>
               </div>
             </div>
           </div>

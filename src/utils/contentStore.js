@@ -201,10 +201,9 @@ export const DEFAULT_CONTENT = {
   sewaPhilosophyTitle: "More Than a Meal",
   sewaPhilosophyP1: "Sewa Rasoi represents service, dignity, human connection, and community participation. It is not just about distributing calories; it is about reassuring people that in their toughest moments, they are not alone.",
   sewaPhilosophyP2: "Many attendants who travel from far-off villages to city hospitals spend their last penny on medical treatments, skipping meals themselves. Sewa Rasoi reaches these quiet warriors with hot, wholesome nutrition served with unconditional respect.",
-  sewaMealsCount: "2,500+",
-  sewaVolunteersCount: "45+",
-  sewaDaysCount: "30+",
-  sewaCommunitiesCount: "12+",
+  sewaMealsCount: "87,300+",
+  sewaVolunteersCount: "37+",
+  sewaDaysCount: "147+",
 
   // ==========================================
   // 6. NAI PEHAL PAGE
@@ -268,12 +267,12 @@ export const DEFAULT_CONTENT = {
   faqPageSubtitle: "Clear, straightforward answers about Tandicia's eye camps, volunteers, and operations."
 };
 
-const CONTENT_STORAGE_KEY = "tandicia_custom_content_v4";
+const CONTENT_STORAGE_KEY = "tandicia_custom_content_v5";
 
 // Get current content (merging defaults with any admin edits)
 export function getContent() {
   try {
-    const raw = localStorage.getItem(CONTENT_STORAGE_KEY) || localStorage.getItem("tandicia_custom_content_v3") || localStorage.getItem("tandicia_custom_content_v2") || localStorage.getItem("tandicia_custom_content_v1");
+    const raw = localStorage.getItem(CONTENT_STORAGE_KEY) || localStorage.getItem("tandicia_custom_content_v4") || localStorage.getItem("tandicia_custom_content_v3") || localStorage.getItem("tandicia_custom_content_v2") || localStorage.getItem("tandicia_custom_content_v1");
     if (!raw) return { ...DEFAULT_CONTENT };
     const saved = JSON.parse(raw);
     if (!saved.orgEmail || saved.orgEmail.includes("connect@tandiciaassociation.com")) {
@@ -281,6 +280,15 @@ export function getContent() {
     }
     if (saved.heroTagline && saved.heroTagline.includes("Serving Communities with Dignity")) {
       saved.heroTagline = DEFAULT_CONTENT.heroTagline;
+    }
+    if (saved.sewaMealsCount === "2,500+" || !saved.sewaMealsCount) {
+      saved.sewaMealsCount = DEFAULT_CONTENT.sewaMealsCount;
+    }
+    if (saved.sewaVolunteersCount === "45+" || !saved.sewaVolunteersCount) {
+      saved.sewaVolunteersCount = DEFAULT_CONTENT.sewaVolunteersCount;
+    }
+    if (saved.sewaDaysCount === "30+" || !saved.sewaDaysCount) {
+      saved.sewaDaysCount = DEFAULT_CONTENT.sewaDaysCount;
     }
     // Upgrade legacy placeholder numbers to newly verified numbers
     if (saved.stat1Number === "1,200+" || saved.stat1Number === "1200+") {
