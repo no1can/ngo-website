@@ -191,7 +191,7 @@ export default function Contact() {
                           required
                           value={formData.city}
                           onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                          placeholder="e.g. Lucknow, Kanpur"
+                          placeholder="e.g. Delhi, NCR, Faridabad"
                           className="w-full px-4 py-2.5 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
                         />
                       </div>
@@ -315,17 +315,6 @@ export default function Contact() {
                       </a>
                     </div>
                   </div>
-                </div>
-
-                {/* Location Card */}
-                <div className="bg-slate-900 text-white rounded-3xl p-8 border border-slate-800 space-y-3">
-                  <span className="text-xs uppercase tracking-widest text-emerald-400 font-semibold">
-                    Headquarters
-                  </span>
-                  <h4 className="text-xl font-bold">Lucknow Hub</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    Centrally operating across the state of Uttar Pradesh with mobile teams conducting eye camps and community kitchens in rural and urban nodes.
-                  </p>
                 </div>
 
               </div>
