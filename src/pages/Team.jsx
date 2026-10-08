@@ -8,11 +8,7 @@ import { useContent } from "../utils/contentStore";
 export default function Team() {
   const content = useContent();
   const teamMembers = useTeamMembers();
-  const [searchQuery, setSearchQuery] = useState("");
-
-  const filteredMembers = teamMembers.filter(member => {
-    return member.name.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  const filteredMembers = teamMembers;
 
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
@@ -58,33 +54,11 @@ export default function Team() {
                 On-Ground Volunteers
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                Tandicia Volunteers ({teamMembers.length})
+                Tandicia Volunteers
               </h2>
               <p className="text-slate-600 text-sm mt-3">
                 Dedicated citizens, doctors, and community pillars serving with equality, empathy, and dignity.
               </p>
-            </div>
-
-            {/* Centered Search Control */}
-            <div className="flex justify-center mb-12">
-              <div className="relative w-full max-w-md">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
-                <input
-                  type="text"
-                  placeholder="Search volunteers by name..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 text-sm rounded-full border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 shadow-xs"
-                />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery("")}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs font-bold"
-                  >
-                    ✕
-                  </button>
-                )}
-              </div>
             </div>
 
             {/* Volunteers Grid */}
