@@ -105,7 +105,7 @@ export default function Home() {
 
             {/* Sub-headline with italic elegance */}
             <p className="text-lg sm:text-2xl font-serif italic text-amber-200/90 font-normal tracking-wide max-w-3xl mx-auto mb-4 leading-relaxed">
-              {content.heroTagline}
+              {content.heroTagline || "Our Vision: Perfect Vision for All"}
             </p>
 
             {/* Decorative divider */}

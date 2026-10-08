@@ -29,7 +29,7 @@ export const DEFAULT_CONTENT = {
   heroBadge: "Our Vision: Perfect Vision for All",
   heroHeading1: "TANDICIA",
   heroHeading2: "ASSOCIATION",
-  heroTagline: "Our Vision: Perfect Vision for All — Serving Communities with Dignity & Care",
+  heroTagline: "Our Vision: Perfect Vision for All",
   heroSubtext: "Tandicia Association is a community-driven organisation bringing together volunteers, professionals, doctors, supporters, and everyday community members to address real social and community needs.",
   heroCta1Text: "Explore Eye Camps",
   heroCta2Text: "Join Tandicia",
@@ -268,16 +268,19 @@ export const DEFAULT_CONTENT = {
   faqPageSubtitle: "Clear, straightforward answers about Tandicia's eye camps, volunteers, and operations."
 };
 
-const CONTENT_STORAGE_KEY = "tandicia_custom_content_v3";
+const CONTENT_STORAGE_KEY = "tandicia_custom_content_v4";
 
 // Get current content (merging defaults with any admin edits)
 export function getContent() {
   try {
-    const raw = localStorage.getItem(CONTENT_STORAGE_KEY) || localStorage.getItem("tandicia_custom_content_v2") || localStorage.getItem("tandicia_custom_content_v1");
+    const raw = localStorage.getItem(CONTENT_STORAGE_KEY) || localStorage.getItem("tandicia_custom_content_v3") || localStorage.getItem("tandicia_custom_content_v2") || localStorage.getItem("tandicia_custom_content_v1");
     if (!raw) return { ...DEFAULT_CONTENT };
     const saved = JSON.parse(raw);
     if (!saved.orgEmail || saved.orgEmail.includes("connect@tandiciaassociation.com")) {
       saved.orgEmail = DEFAULT_CONTENT.orgEmail;
+    }
+    if (saved.heroTagline && saved.heroTagline.includes("Serving Communities with Dignity")) {
+      saved.heroTagline = DEFAULT_CONTENT.heroTagline;
     }
     // Upgrade legacy placeholder numbers to newly verified numbers
     if (saved.stat1Number === "1,200+" || saved.stat1Number === "1200+") {
