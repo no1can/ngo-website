@@ -250,49 +250,49 @@ export default function Home() {
             {/* 4 Verified Stat Blocks */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-                <span className="text-3xl sm:text-5xl font-extrabold text-amber-400 block mb-2 font-mono">
-                  {content.stat1Number}
+                <span className="text-3xl sm:text-5xl font-extrabold text-emerald-400 block mb-2 font-mono">
+                  {content.stat2Number || "15+"}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat1Label}
+                  {content.stat2Label || "Eye Camps"}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat1Sub}</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat2Sub || "Full-day clinical screening camps"}</span>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-                <span className="text-3xl sm:text-5xl font-extrabold text-emerald-400 block mb-2 font-mono">
-                  {content.stat2Number}
+                <span className="text-3xl sm:text-5xl font-extrabold text-amber-400 block mb-2 font-mono">
+                  {content.stat1Number || "6,950+"}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat2Label}
+                  {content.stat1Label || "People Screened"}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat2Sub}</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat1Sub || "Beneficiaries examined & verified"}</span>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
                 <span className="text-3xl sm:text-5xl font-extrabold text-sky-400 block mb-2 font-mono">
-                  {content.stat3Number}
+                  {content.stat3Number || "4,713+"}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat3Label}
+                  {content.stat3Label || "Spectacles Distributed"}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat3Sub}</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat3Sub || "Free precision prescription eyewear"}</span>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
-                <span className="text-3xl sm:text-5xl font-extrabold text-amber-300 block mb-2 font-mono">
-                  {content.stat4Number}
+                <span className="text-3xl sm:text-5xl font-extrabold text-rose-400 block mb-2 font-mono">
+                  {content.stat4Number || "169+"}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  {content.stat4Label}
+                  {content.stat4Label || "Volunteers & Doctors"}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">{content.stat4Sub}</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat4Sub || "Dedicated medical & field team"}</span>
               </div>
             </div>
 
             <div className="text-center">
               <Link
-                to="/impact"
+                to="/about#impact"
                 className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-sm transition-all shadow-md"
               >
                 <span>View Our Impact</span>

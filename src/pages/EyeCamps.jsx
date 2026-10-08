@@ -281,7 +281,7 @@ export default function EyeCamps() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-amber-400 font-mono block">
-                  {content.stat2Number || "4+"}
+                  {content.stat2Number || "15+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Camps Conducted
@@ -289,7 +289,7 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono block">
-                  {content.stat1Number || "1,200+"}
+                  {content.stat1Number || "6,950+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   People Screened
@@ -297,15 +297,15 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-sky-400 font-mono block">
-                  {content.stat3Number || "450+"}
+                  {content.stat3Number || "4,713+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Spectacles Distributed
                 </span>
               </div>
               <div>
-                <span className="text-3xl sm:text-4xl font-extrabold text-amber-300 font-mono block">
-                  {content.stat4Number || "50+"}
+                <span className="text-3xl sm:text-4xl font-extrabold text-rose-400 font-mono block">
+                  {content.stat4Number || "169+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Volunteers & Doctors

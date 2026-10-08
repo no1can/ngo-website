@@ -87,26 +87,11 @@ export default function About() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {/* Card 1 */}
-              <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-lg">
-                <div>
-                  <span className="text-4xl sm:text-5xl font-extrabold font-mono text-amber-400 block mb-3">
-                    {content.stat1Number || "1, 200+"}
-                  </span>
-                  <h3 className="text-base font-bold text-white mb-2">
-                    {content.stat1Label || "People Reached"}
-                  </h3>
-                  <p className="text-xs text-slate-400 leading-relaxed">
-                    {content.stat1Desc || "Direct beneficiaries of all field activities"}
-                  </p>
-                </div>
-              </div>
-
-              {/* Card 2 */}
+              {/* Card 1 - Eye Camps */}
               <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-emerald-500/50 transition-all shadow-lg">
                 <div>
                   <span className="text-4xl sm:text-5xl font-extrabold font-mono text-emerald-400 block mb-3">
-                    {content.stat2Number || "4+"}
+                    {content.stat2Number || "15+"}
                   </span>
                   <h3 className="text-base font-bold text-white mb-2">
                     {content.stat2Label || "Eye Camps"}
@@ -117,32 +102,47 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Card 3 */}
+              {/* Card 2 - People Screened */}
+              <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-amber-500/50 transition-all shadow-lg">
+                <div>
+                  <span className="text-4xl sm:text-5xl font-extrabold font-mono text-amber-400 block mb-3">
+                    {content.stat1Number || "6,950+"}
+                  </span>
+                  <h3 className="text-base font-bold text-white mb-2">
+                    {content.stat1Label || "People Screened"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat1Desc || "Direct beneficiaries examined across communities"}
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 3 - Spectacles Distributed */}
               <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-sky-500/50 transition-all shadow-lg">
                 <div>
                   <span className="text-4xl sm:text-5xl font-extrabold font-mono text-sky-400 block mb-3">
-                    {content.stat3Number || "450+"}
+                    {content.stat3Number || "4,713+"}
                   </span>
                   <h3 className="text-base font-bold text-white mb-2">
                     {content.stat3Label || "Spectacles Distributed"}
                   </h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    {content.stat3Desc || "Free prescription corrective eyeglasses"}
+                    {content.stat3Desc || "Free precision prescription corrective eyeglasses"}
                   </p>
                 </div>
               </div>
 
-              {/* Card 4 */}
+              {/* Card 4 - Volunteers & Doctors */}
               <div className="p-7 rounded-2xl bg-slate-800/80 border border-slate-700/80 text-center flex flex-col justify-between hover:border-rose-500/50 transition-all shadow-lg">
                 <div>
                   <span className="text-4xl sm:text-5xl font-extrabold font-mono text-rose-400 block mb-3">
-                    {content.stat4Number || "50+"}
+                    {content.stat4Number || "169+"}
                   </span>
                   <h3 className="text-base font-bold text-white mb-2">
-                    {content.stat4Label || "Volunteers & Supporters"}
+                    {content.stat4Label || "Volunteers & Doctors"}
                   </h3>
                   <p className="text-xs text-slate-400 leading-relaxed">
-                    {content.stat4Desc || "Professionals, doctors & community members"}
+                    {content.stat4Desc || "Dedicated ophthalmologists, specialists & field volunteers"}
                   </p>
                 </div>
               </div>

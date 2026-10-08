@@ -56,22 +56,22 @@ export const DEFAULT_CONTENT = {
   progNaiDesc: "New initiatives responding dynamically to emerging community needs: senior citizen care, single parent support, and grassroots solutions.",
   progNaiLinkText: "Explore Nai Pehal →",
 
-  // HOMEPAGE — IMPACT NUMBERS
-  impactBadge: "Transparent Accountability",
-  impactHeading: "Our Impact So Far",
+  // HOMEPAGE & GLOBAL — IMPACT NUMBERS
+  impactBadge: "Verified Records",
+  impactHeading: "Impact Dashboard",
   impactSubtext: "All numbers are tracked via verified on-ground camp logs and programme registers.",
-  stat1Number: "1,200+",
-  stat1Label: "People Reached",
-  stat1Sub: "Beneficiaries served",
-  stat2Number: "4+",
+  stat1Number: "6,950+",
+  stat1Label: "People Screened",
+  stat1Sub: "Beneficiaries examined & verified",
+  stat2Number: "15+",
   stat2Label: "Eye Camps",
   stat2Sub: "Conducted on-site",
-  stat3Number: "450+",
+  stat3Number: "4,713+",
   stat3Label: "Spectacles Distributed",
-  stat3Sub: "Free corrective eyewear",
-  stat4Number: "50+",
+  stat3Sub: "Free precision prescription eyeglasses",
+  stat4Number: "169+",
   stat4Label: "Volunteers & Doctors",
-  stat4Sub: "Dedicated team members",
+  stat4Sub: "Dedicated medical & field team",
 
   // HOMEPAGE — EYE CAMPS SPOTLIGHT
   eyeCampsBadge: "Flagship Initiative",
@@ -237,6 +237,23 @@ export function getContent() {
     const raw = localStorage.getItem(CONTENT_STORAGE_KEY);
     if (!raw) return { ...DEFAULT_CONTENT };
     const saved = JSON.parse(raw);
+    // Upgrade legacy placeholder numbers to newly verified numbers
+    if (saved.stat1Number === "1,200+" || saved.stat1Number === "1200+") {
+      saved.stat1Number = DEFAULT_CONTENT.stat1Number;
+      saved.stat1Label = DEFAULT_CONTENT.stat1Label;
+    }
+    if (saved.stat2Number === "4+") {
+      saved.stat2Number = DEFAULT_CONTENT.stat2Number;
+      saved.stat2Label = DEFAULT_CONTENT.stat2Label;
+    }
+    if (saved.stat3Number === "450+") {
+      saved.stat3Number = DEFAULT_CONTENT.stat3Number;
+      saved.stat3Label = DEFAULT_CONTENT.stat3Label;
+    }
+    if (saved.stat4Number === "50+") {
+      saved.stat4Number = DEFAULT_CONTENT.stat4Number;
+      saved.stat4Label = DEFAULT_CONTENT.stat4Label;
+    }
     return { ...DEFAULT_CONTENT, ...saved };
   } catch (err) {
     console.warn("Error reading content:", err);
