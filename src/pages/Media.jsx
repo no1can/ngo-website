@@ -356,7 +356,7 @@ export default function Media() {
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/tandicia-association-029b433b2/"
                 target="_blank"
                 rel="noreferrer"
                 className="px-5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200"

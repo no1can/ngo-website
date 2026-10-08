@@ -54,6 +54,14 @@ export default function Footer() {
         <div className="mt-8 pt-6 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
           <p>{content.footerCopyright || `© ${new Date().getFullYear()} Tandicia Association. All rights reserved.`}</p>
           <div className="flex items-center gap-6">
+            <a
+              href="https://www.linkedin.com/in/tandicia-association-029b433b2/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-emerald-400 transition-colors"
+            >
+              LinkedIn
+            </a>
             <Link to="/contact" className="hover:text-slate-300 transition-colors">
               Contact
             </Link>

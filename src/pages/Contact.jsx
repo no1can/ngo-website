@@ -8,7 +8,6 @@ export default function Contact() {
   const content = useContent();
   const location = useLocation();
 
-  const [pathway, setPathway] = useState("Volunteer");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,24 +18,14 @@ export default function Contact() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  // Sync pathway and interest with query parameters if present
+  // Sync interest with query parameters if present
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const interestParam = params.get("interest");
     if (interestParam) {
       setFormData(prev => ({ ...prev, interest: interestParam }));
-      if (interestParam.toLowerCase().includes("support") || interestParam.toLowerCase().includes("donat")) {
-        setPathway("Support");
-      } else {
-        setPathway("Volunteer");
-      }
     }
   }, [location.search]);
-
-  const handlePathwaySelect = (p, defaultInterest) => {
-    setPathway(p);
-    setFormData(prev => ({ ...prev, interest: defaultInterest }));
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -74,51 +63,6 @@ export default function Contact() {
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
               {content.contactDesc || "Whether you want to offer your time as a volunteer, collaborate on a community eye camp, or simply say hello, we look forward to hearing from you."}
             </p>
-          </div>
-        </section>
-
-        {/* ========================================================
-            ENGAGEMENT OPTIONS (Volunteer, Support)
-            ======================================================== */}
-        <section className="py-16 bg-white border-b border-slate-200">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              
-              {/* Option 1: Volunteer */}
-              <button
-                type="button"
-                onClick={() => handlePathwaySelect("Volunteer", "Volunteering")}
-                className={`p-6 rounded-3xl border text-left transition-all cursor-pointer ${
-                  pathway === "Volunteer"
-                    ? "bg-emerald-50/80 border-emerald-700 shadow-md ring-2 ring-emerald-700/20"
-                    : "bg-stone-50 border-slate-200 hover:border-slate-300"
-                }`}
-              >
-                <span className="text-3xl mb-3 block">🤝</span>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Volunteer</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  I want to contribute my time and effort to on-ground camps and initiatives.
-                </p>
-              </button>
-
-              {/* Option 2: Support */}
-              <button
-                type="button"
-                onClick={() => handlePathwaySelect("Support", "Supporting Tandicia")}
-                className={`p-6 rounded-3xl border text-left transition-all cursor-pointer ${
-                  pathway === "Support"
-                    ? "bg-amber-50/80 border-amber-600 shadow-md ring-2 ring-amber-600/20"
-                    : "bg-stone-50 border-slate-200 hover:border-slate-300"
-                }`}
-              >
-                <span className="text-3xl mb-3 block">❤️</span>
-                <h3 className="text-lg font-bold text-slate-900 mb-1">Support</h3>
-                <p className="text-xs text-slate-600 leading-relaxed">
-                  I want to sponsor eye screening kits, spectacles, or meals for community members.
-                </p>
-              </button>
-
-            </div>
           </div>
         </section>
 
@@ -296,10 +240,18 @@ export default function Contact() {
                     <span className="text-xs uppercase tracking-wider text-slate-400 font-semibold block mb-2">
                       Social Channels
                     </span>
-                    <div className="flex gap-2">
-                      <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">LinkedIn</span>
-                      <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Instagram</span>
-                      <span className="px-3 py-1 bg-slate-100 text-slate-700 rounded-lg text-xs font-semibold">Facebook</span>
+                    <div className="flex flex-wrap gap-2">
+                      <a
+                        href="https://www.linkedin.com/in/tandicia-association-029b433b2/"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="px-3 py-1 bg-sky-50 hover:bg-sky-100 text-sky-800 rounded-lg text-xs font-semibold transition-colors flex items-center gap-1.5"
+                      >
+                        <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                      </a>
+                      <span className="px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-xs font-semibold">Instagram</span>
+                      <span className="px-3 py-1 bg-slate-100 text-slate-500 rounded-lg text-xs font-semibold">Facebook</span>
                     </div>
                   </div>
                 </div>
