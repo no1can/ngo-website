@@ -78,6 +78,39 @@ const EYE_CAMP_FEATURE_SLIDES = [
   },
 ];
 
+function IconHospital({ className = "w-6 h-6" }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>
+  );
+}
+
+function IconUsers({ className = "w-6 h-6" }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    </svg>
+  );
+}
+
+function IconHandHeart({ className = "w-6 h-6" }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
+    </svg>
+  );
+}
+
+function IconEye({ className = "w-6 h-6" }) {
+  return (
+    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const content = useContent();
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -254,6 +287,122 @@ export default function Home() {
                     {content.progSewaLinkText || "Explore Sewa Rasoi →"}
                   </Link>
                 </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
+            SECTION 4 — IMPACT DASHBOARD (HIGH-TECH GLASS CARDS)
+            ======================================================== */}
+        <section id="impact" className="py-24 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white scroll-mt-20 relative overflow-hidden">
+          {/* Ambient Glow Orbs */}
+          <div className="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-amber-600/10 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-400 text-xs uppercase tracking-widest font-bold">
+                <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                {content.impactBadge || "VERIFIED RECORDS"}
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-4">
+                {content.impactHeading || "Impact Dashboard"}
+              </h2>
+              <p className="text-slate-400 text-sm mt-3">
+                Transparent data logged directly from ground registries and clinical camps.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+              
+              {/* Card 1 - Eye Camps */}
+              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-emerald-500/30 hover:border-emerald-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-emerald-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
+                  <IconHospital className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-5xl font-black font-mono tracking-tight text-emerald-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                    {content.stat2Number || "15+"}
+                  </span>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {content.stat2Label || "Eye Camps"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat2Desc || "Full-day clinical diagnostic screening camps"}
+                  </p>
+                </div>
+                <Link to="/eye-camps" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-emerald-400 font-semibold flex items-center gap-1 hover:underline">
+                  <span>Verified Field Camps</span>
+                  <span>→</span>
+                </Link>
+              </div>
+
+              {/* Card 2 - People Screened */}
+              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-amber-500/30 hover:border-amber-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-amber-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-amber-600 text-white flex items-center justify-center shadow-md">
+                  <IconUsers className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-5xl font-black font-mono tracking-tight text-amber-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                    {content.stat1Number || "6,950+"}
+                  </span>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {content.stat1Label || "People Screened"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat1Desc || "Direct beneficiaries examined across communities"}
+                  </p>
+                </div>
+                <Link to="/eye-camps" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-amber-400 font-semibold flex items-center gap-1 hover:underline">
+                  <span>Individual OPD Logbooks</span>
+                  <span>→</span>
+                </Link>
+              </div>
+
+              {/* Card 3 - Spectacles Distributed */}
+              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-sky-500/30 hover:border-sky-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-sky-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-sky-600 text-white flex items-center justify-center shadow-md">
+                  <IconEye className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-5xl font-black font-mono tracking-tight text-sky-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                    {content.stat3Number || "4,713+"}
+                  </span>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {content.stat3Label || "Spectacles Distributed"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat3Desc || "Free precision prescription corrective eyeglasses"}
+                  </p>
+                </div>
+                <Link to="/eye-camps" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-sky-400 font-semibold flex items-center gap-1 hover:underline">
+                  <span>Custom Fitted On-Site</span>
+                  <span>→</span>
+                </Link>
+              </div>
+
+              {/* Card 4 - Volunteers & Doctors */}
+              <div className="group relative p-8 rounded-3xl bg-slate-900/80 border border-rose-500/30 hover:border-rose-400/70 transition-all duration-300 shadow-xl hover:-translate-y-1 hover:shadow-rose-950/50 backdrop-blur-sm flex flex-col justify-between">
+                <div className="absolute top-0 right-8 transform -translate-y-1/2 w-10 h-10 rounded-xl bg-rose-600 text-white flex items-center justify-center shadow-md">
+                  <IconHandHeart className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="text-5xl font-black font-mono tracking-tight text-rose-400 block mb-2 group-hover:scale-105 transition-transform origin-left">
+                    {content.stat4Number || "169+"}
+                  </span>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {content.stat4Label || "Volunteers & Doctors"}
+                  </h3>
+                  <p className="text-xs text-slate-400 leading-relaxed">
+                    {content.stat4Desc || "Dedicated ophthalmologists, specialists & field volunteers"}
+                  </p>
+                </div>
+                <Link to="/team" className="pt-4 mt-4 border-t border-slate-800/80 text-[11px] text-rose-400 font-semibold flex items-center gap-1 hover:underline">
+                  <span>Equal Voluntary Service</span>
+                  <span>→</span>
+                </Link>
               </div>
 
             </div>
