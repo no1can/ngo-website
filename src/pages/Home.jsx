@@ -373,8 +373,56 @@ export default function Home() {
 
             </div>
 
+            {/* UPCOMING CAMP BANNER SPOTLIGHT */}
+            <div className="mb-10 rounded-3xl bg-gradient-to-r from-slate-950 via-emerald-950 to-slate-900 border-2 border-emerald-500/50 p-6 sm:p-8 text-white shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+                <div className="lg:col-span-5">
+                  <div className="rounded-2xl overflow-hidden border border-emerald-400/30 shadow-lg bg-slate-900">
+                    <img
+                      src="/shakurpur-eye-camp-banner.jpg"
+                      alt="Upcoming Shakurpur Eye Camp 11-Oct-2026"
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                </div>
+                <div className="lg:col-span-7 space-y-3">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-extrabold uppercase tracking-wider">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                    <span>★ Upcoming Eye Camp • 11-Oct-2026</span>
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+                    नि:शुल्क नेत्र जाँच शिविर — शकूरपुर कॉलोनी
+                  </h3>
+                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                    ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली (110034) • रविवार, 11 अक्टूबर 2026 (सुबह 10:00 से दोपहर 2:00 बजे तक)
+                  </p>
+                  <div className="flex flex-wrap gap-2 text-xs font-semibold pt-1">
+                    <span className="bg-emerald-900/60 text-emerald-300 border border-emerald-700/50 px-3 py-1 rounded-lg">✓ निःशुल्क नेत्र जाँच</span>
+                    <span className="bg-amber-900/60 text-amber-300 border border-amber-700/50 px-3 py-1 rounded-lg">✓ नज़र के चश्में भी मुफ्त</span>
+                    <span className="bg-sky-900/60 text-sky-300 border border-sky-700/50 px-3 py-1 rounded-lg">✓ सेवा भारती संयुक्त उपक्रम</span>
+                  </div>
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
+                    <Link
+                      to="/eye-camps"
+                      className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2"
+                    >
+                      <span>Camp Details & Timings</span>
+                      <span>→</span>
+                    </Link>
+                    <Link
+                      to="/contact?interest=Camp-Volunteer"
+                      className="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs transition-all"
+                    >
+                      Volunteer for This Camp
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* 3 Featured Camp Cards with Real Photos & Verified Banners */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               {/* Camp 1 */}
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>

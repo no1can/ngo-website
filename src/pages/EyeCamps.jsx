@@ -7,6 +7,37 @@ import { useContent } from "../utils/contentStore";
 
 const verifiedCamps = [
   {
+    id: "camp-upcoming-shakurpur-2026",
+    isUpcoming: true,
+    campNumber: "Upcoming Camp",
+    tag: "UPCOMING",
+    title: "Upcoming Camp — Shakurpur Colony, New Delhi",
+    name: "नि:शुल्क नेत्र जाँच शिविर — Shakurpur Colony (11-Oct-2026)",
+    year: "2026",
+    location: "ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली, दिल्ली-110034",
+    date: "11 अक्टूबर 2026 (रविवार) • सुबह 10:00 से दोपहर 2:00 बजे तक",
+    peopleServed: "Free Registration Open",
+    supportSummary: "टेंडिशिया एसोसिएशन एवं सेवा भारती द्वारा आयोजित — निःशुल्क नेत्र जाँच, अनुभवी डॉक्टरों का परामर्श एवं नज़र के चश्में भी मुफ्त दिए जाएंगे।",
+    image: "/shakurpur-eye-camp-banner.jpg",
+    video: null,
+    objective: "ब्लॉक G, शकूरपुर कॉलोनी एवं आसपास के क्षेत्रों के नागरिकों के लिए आँखों की संपूर्ण जाँच, कंप्यूटराइज्ड नंबर टेस्टिंग, वरिष्ठ डॉक्टरों का परामर्श एवं निःशुल्क चश्मा वितरण शिविर।",
+    medicalTeam: "Certified Ophthalmologists, Senior Eye Surgeons & Specialist Optometrists",
+    volunteers: "Tandicia Association Volunteers & Seva Bharti Field Coordinators",
+    eventsList: [
+      { name: "नि:शुल्क नेत्र जाँच (Free Diagnostics)", desc: "कंप्यूटराइज्ड मशीन द्वारा आँखों की संपूर्ण जाँच एवं नंबर टेस्टिंग।" },
+      { name: "वरिष्ठ नेत्र विशेषज्ञ परामर्श (Doctor Consultation)", desc: "मोतियाबिंद, ग्लूकोमा एवं दृष्टि समस्याओं पर अनुभवी नेत्र डॉक्टरों की सलाह।" },
+      { name: "नज़र के चश्में मुफ्त वितरण (Free Spectacles)", desc: "जाँच के बाद ज़रूरतमंदों को नज़र के चश्में पूरी तरह मुफ्त उपलब्ध कराए जाएंगे।" },
+      { name: "निःशुल्क आई ड्रॉप्स एवं दवाइयाँ (Free Eye Drops)", desc: "डॉक्टर द्वारा सुझाई गई आवश्यक आई ड्रॉप्स एवं दवाइयों का निःशुल्क वितरण।" }
+    ],
+    servicesProvided: "Computerized eye refraction, specialist doctor consultations, free prescription spectacles, free eye drops.",
+    spectaclesDistributed: "नज़र के चश्में भी मुफ्त दिए जाएंगे — Free precision corrective glasses.",
+    referrals: "Cataract surgery linkages & partner hospital referrals.",
+    mediaCoverage: "Official Public Camp Notice — Tandicia Association & Seva Bharti.",
+    gallery: [
+      "/shakurpur-eye-camp-banner.jpg"
+    ]
+  },
+  {
     id: "camp-delhi-bhati-mines",
     campNumber: "Camp 1",
     tag: "CAMP 01",
@@ -194,8 +225,8 @@ export default function EyeCamps() {
     gallery: [p.src]
   }));
 
-  const dynamicVerifiedCamps = verifiedCamps.map((camp, idx) => {
-    if (idx === 0) {
+  const dynamicVerifiedCamps = verifiedCamps.map((camp) => {
+    if (camp.id === "camp-delhi-bhati-mines") {
       return {
         ...camp,
         title: content.camp1Title || camp.title,
@@ -203,7 +234,7 @@ export default function EyeCamps() {
         objective: content.camp1Desc || camp.objective,
         medicalTeam: content.camp1Doctor || camp.medicalTeam
       };
-    } else if (idx === 1) {
+    } else if (camp.id === "camp-delhi-kusumpur") {
       return {
         ...camp,
         title: content.camp2Title || camp.title,
@@ -211,7 +242,7 @@ export default function EyeCamps() {
         objective: content.camp2Desc || camp.objective,
         medicalTeam: content.camp2Doctor || camp.medicalTeam
       };
-    } else if (idx === 2) {
+    } else if (camp.id === "camp-faridabad-mewla") {
       return {
         ...camp,
         title: content.camp3Title || camp.title,
@@ -219,7 +250,7 @@ export default function EyeCamps() {
         objective: content.camp3Desc || camp.objective,
         medicalTeam: content.camp3Doctor || camp.medicalTeam
       };
-    } else if (idx === 3) {
+    } else if (camp.id === "camp-delhi-gb-road") {
       return {
         ...camp,
         title: content.camp4Title || camp.title,
@@ -231,10 +262,12 @@ export default function EyeCamps() {
     return camp;
   });
 
-  const allCamps = [...dynamicCamps, ...dynamicVerifiedCamps];
+  const allCamps = [...dynamicVerifiedCamps, ...dynamicCamps];
 
   const filteredCamps = filter === "All" 
     ? allCamps 
+    : filter === "Upcoming"
+    ? allCamps.filter(c => c.isUpcoming)
     : filter === "Earlier"
     ? allCamps.filter(c => parseInt(c.year) < 2025)
     : allCamps.filter(c => c.year === filter);
@@ -332,7 +365,7 @@ export default function EyeCamps() {
 
               {/* Filters */}
               <div className="flex flex-wrap items-center gap-2 mt-4 md:mt-0">
-                {["All", "2026", "2025", "Earlier"].map((f) => (
+                {["All", "Upcoming", "2026", "2025", "Earlier"].map((f) => (
                   <button
                     key={f}
                     onClick={() => setFilter(f)}
@@ -348,6 +381,93 @@ export default function EyeCamps() {
               </div>
             </div>
 
+            {/* UPCOMING CAMP HERO SPOTLIGHT CARD */}
+            <div className="mb-14 rounded-3xl bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-900 text-white p-6 sm:p-10 border-2 border-emerald-500/50 shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                {/* Banner Image Preview */}
+                <div className="lg:col-span-6">
+                  <div 
+                    onClick={() => setSelectedCamp(dynamicVerifiedCamps[0])}
+                    className="relative rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-2xl group cursor-pointer bg-slate-900"
+                  >
+                    <img
+                      src="/shakurpur-eye-camp-banner.jpg"
+                      alt="Upcoming Free Eye Screening Camp Banner - Shakurpur 11-Oct-2026"
+                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors" />
+                    <div className="absolute bottom-3 right-3 bg-slate-950/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5 shadow-md">
+                      <span>🔍</span>
+                      <span>Click to view full poster</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Details */}
+                <div className="lg:col-span-6 space-y-4">
+                  <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-extrabold uppercase tracking-widest">
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
+                    <span>★ UPCOMING EYE CAMP</span>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
+                    नि:शुल्क नेत्र जाँच शिविर
+                  </h3>
+                  <p className="text-amber-300 font-serif text-lg font-medium">
+                    Shakurpur Colony, New Delhi • 11-Oct-2026
+                  </p>
+
+                  <div className="space-y-2 text-xs sm:text-sm text-slate-200 bg-slate-900/70 p-4 sm:p-5 rounded-2xl border border-slate-800">
+                    <div className="flex items-start gap-2.5">
+                      <span className="text-amber-400 font-bold text-base">📅</span>
+                      <div>
+                        <span className="font-bold text-white">दिनांक (Date):</span>{" "}
+                        <span className="text-slate-200">11 अक्टूबर 2026 (रविवार / Sunday)</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <span className="text-sky-400 font-bold text-base">⏰</span>
+                      <div>
+                        <span className="font-bold text-white">समय (Time):</span>{" "}
+                        <span className="text-slate-200">सुबह 10:00 बजे से दोपहर 2:00 बजे तक</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5">
+                      <span className="text-rose-400 font-bold text-base">📍</span>
+                      <div>
+                        <span className="font-bold text-white">स्थान (Location):</span>{" "}
+                        <span className="text-slate-200">ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली, दिल्ली-110034</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5 pt-1 border-t border-slate-800 mt-2">
+                      <span className="text-emerald-400 font-bold text-base">👓</span>
+                      <div>
+                        <span className="font-bold text-amber-300">विशेष:</span>{" "}
+                        <span className="text-amber-200 font-medium">नज़र के चश्में भी मुफ्त दिए जाएंगे</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <button
+                      onClick={() => setSelectedCamp(dynamicVerifiedCamps[0])}
+                      className="px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg flex items-center gap-2 cursor-pointer"
+                    >
+                      <span>Explore Camp Details</span>
+                      <span>→</span>
+                    </button>
+                    <Link
+                      to="/contact?interest=Camp-Volunteer"
+                      className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs transition-all"
+                    >
+                      Volunteer for Shakurpur Camp
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Camp Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredCamps.map((camp, index) => {
@@ -357,7 +477,9 @@ export default function EyeCamps() {
                 return (
                   <div
                     key={camp.id}
-                    className="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1"
+                    className={`bg-white rounded-3xl overflow-hidden border shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1 ${
+                      camp.isUpcoming ? "border-2 border-emerald-500 ring-4 ring-emerald-500/10" : "border-slate-200"
+                    }`}
                   >
                     {/* Card Top Image & Badges */}
                     <div className="relative h-60 overflow-hidden bg-slate-900">
@@ -370,7 +492,10 @@ export default function EyeCamps() {
 
                       {/* Camp Number Badge */}
                       <div className="absolute top-4 left-4 flex items-center gap-2">
-                        <span className="bg-emerald-600 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow-md tracking-wider">
+                        <span className={`text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full shadow-md tracking-wider flex items-center gap-1.5 ${
+                          camp.isUpcoming ? "bg-gradient-to-r from-amber-500 to-emerald-600" : "bg-emerald-600"
+                        }`}>
+                          {camp.isUpcoming && <span className="w-2 h-2 rounded-full bg-white animate-ping" />}
                           {campTag}
                         </span>
                         {camp.video && (
@@ -380,7 +505,9 @@ export default function EyeCamps() {
                         )}
                       </div>
 
-                      <div className="absolute top-4 right-4 bg-slate-950/80 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md">
+                      <div className={`absolute top-4 right-4 text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md ${
+                        camp.isUpcoming ? "bg-amber-400 text-slate-950 font-bold" : "bg-slate-950/80 text-white"
+                      }`}>
                         {camp.year}
                       </div>
 
@@ -391,7 +518,7 @@ export default function EyeCamps() {
                           <span>{camp.date}</span>
                         </span>
                         <span className="text-[11px] bg-white/20 backdrop-blur-md px-2 py-0.5 rounded text-white font-mono">
-                          Verified
+                          {camp.isUpcoming ? "Upcoming" : "Verified"}
                         </span>
                       </div>
                     </div>
