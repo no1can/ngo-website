@@ -372,7 +372,7 @@ export default function Media() {
                 Instagram
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/p/Tandicia-Association-61582800004998/"
                 target="_blank"
                 rel="noreferrer"
                 className="px-5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 border border-slate-700 text-xs font-semibold text-slate-200"

@@ -70,6 +70,14 @@ export default function Footer() {
             >
               Instagram
             </a>
+            <a
+              href="https://www.facebook.com/p/Tandicia-Association-61582800004998/"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:text-sky-400 transition-colors"
+            >
+              Facebook
+            </a>
             <Link to="/contact" className="hover:text-slate-300 transition-colors">
               Contact
             </Link>
