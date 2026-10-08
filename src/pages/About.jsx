@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useContent } from "../utils/contentStore";
@@ -39,14 +38,6 @@ function IconHandHeart({ className = "w-6 h-6" }) {
   return (
     <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
-    </svg>
-  );
-}
-
-function IconSparkles({ className = "w-6 h-6" }) {
-  return (
-    <svg className={className} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
     </svg>
   );
 }
@@ -358,40 +349,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* ========================================================
-            6. FINAL INVITATION CTA
-            ======================================================== */}
-        <section className="relative py-24 bg-gradient-to-br from-emerald-950 via-slate-950 to-emerald-950 text-white text-center overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-emerald-500/10 via-transparent to-transparent pointer-events-none" />
-
-          <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-300 text-xs uppercase tracking-widest font-bold">
-              <IconSparkles className="w-4 h-4 text-emerald-300" />
-              Walk With Us
-            </span>
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
-              Be Part of This Community Movement
-            </h2>
-            <p className="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed font-light">
-              Whether you are a medical doctor, an optometry student, a working professional, or simply a caring citizen, there is a place of honor for you at Tandicia.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-6">
-              <Link
-                to="/contact?interest=Volunteering"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-white text-slate-950 hover:bg-slate-100 font-bold text-sm shadow-xl hover:shadow-2xl transition-all"
-              >
-                Join as Volunteer
-              </Link>
-              <Link
-                to="/donate"
-                className="w-full sm:w-auto px-8 py-4 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white border border-emerald-500 font-bold text-sm shadow-xl transition-all flex items-center justify-center gap-2"
-              >
-                <span>Support Our Work</span>
-                <span className="text-amber-300">♥</span>
-              </Link>
-            </div>
-          </div>
-        </section>
       </main>
 
       <Footer />
