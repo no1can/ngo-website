@@ -1,9 +1,20 @@
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { teamMembers } from "../data/teamData";
+import { getContent } from "../utils/contentStore";
 
 export default function Home() {
+  const [content, setContent] = useState(getContent());
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setContent(getContent());
+    };
+    window.addEventListener("tandicia_content_updated", handleUpdate);
+    return () => window.removeEventListener("tandicia_content_updated", handleUpdate);
+  }, []);
   return (
     <div className="min-h-screen bg-stone-50 text-slate-900 font-sans">
       <Navbar />
@@ -31,7 +42,7 @@ export default function Home() {
             <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-emerald-900/40 border border-emerald-400/30 backdrop-blur-xl mb-8">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-lg shadow-emerald-400/50" />
               <span className="text-xs sm:text-sm font-semibold tracking-[0.2em] text-emerald-200/90 uppercase">
-                मित्रता • दोस्ती • अपनापन
+                {content.heroBadge}
               </span>
             </div>
 
@@ -44,15 +55,13 @@ export default function Home() {
 
             {/* Main Heading */}
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-5 drop-shadow-[0_2px_20px_rgba(255,255,255,0.08)]">
-              <span className="block">TANDICIA</span>
-              <span className="block mt-1 bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">ASSOCIATION</span>
+              <span className="block">{content.heroHeading1}</span>
+              <span className="block mt-1 bg-gradient-to-r from-white via-amber-100 to-white bg-clip-text text-transparent">{content.heroHeading2}</span>
             </h1>
 
             {/* Sub-headline with italic elegance */}
             <p className="text-lg sm:text-2xl font-serif italic text-amber-200/90 font-normal tracking-wide max-w-3xl mx-auto mb-4 leading-relaxed">
-              Connecting People. Serving Communities.
-              <br className="hidden sm:block" />
-              Being There for Each Other.
+              {content.heroTagline}
             </p>
 
             {/* Decorative divider */}
@@ -64,7 +73,7 @@ export default function Home() {
 
             {/* Supporting text */}
             <p className="text-base sm:text-lg text-slate-300/90 max-w-2xl mx-auto leading-relaxed mb-10 font-light">
-              A community-driven initiative bringing people, professionals and volunteers together to create meaningful social impact.
+              {content.heroSubtext}
             </p>
 
             {/* Global CTAs */}
@@ -73,13 +82,13 @@ export default function Home() {
                 to="/eye-camps"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-base transition-all shadow-lg hover:shadow-emerald-900/40 hover:-translate-y-0.5"
               >
-                Explore Our Work
+                {content.heroCta1Text || "Explore Our Work"}
               </Link>
               <Link
                 to="/contact?interest=Volunteering"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/25 backdrop-blur-md font-semibold text-base transition-all hover:-translate-y-0.5"
               >
-                Join Tandicia
+                {content.heroCta2Text || "Join Tandicia"}
               </Link>
             </div>
           </div>
@@ -98,7 +107,7 @@ export default function Home() {
                 Our Purpose
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
-                Together, We Can Make a Difference
+                {content.purposeHeading}
               </h2>
               <div className="w-16 h-1 bg-amber-600 mx-auto mt-4 rounded-full" />
             </div>
@@ -112,7 +121,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Mitrata</h3>
                 <p className="text-sm font-semibold text-sky-800 mb-3">मित्रता</p>
                 <p className="text-slate-600 leading-relaxed text-base">
-                  Building meaningful connections across barriers, cultivating friendship that creates trust and mutual respect in communities.
+                  {content.purposeMitrata}
                 </p>
               </div>
 
@@ -124,7 +133,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Dosti</h3>
                 <p className="text-sm font-semibold text-emerald-800 mb-3">दोस्ती</p>
                 <p className="text-slate-600 leading-relaxed text-base">
-                  Standing by people when they need support the most, offering reliable companionship and dedicated solidarity through life’s struggles.
+                  {content.purposeDosti}
                 </p>
               </div>
 
@@ -136,7 +145,7 @@ export default function Home() {
                 <h3 className="text-2xl font-bold text-slate-900 mb-2">Apnapan</h3>
                 <p className="text-sm font-semibold text-amber-800 mb-3">अपनापन</p>
                 <p className="text-slate-600 leading-relaxed text-base">
-                  Creating dignity, belonging, and genuine warmth so no one feels abandoned, overlooked, or unheard in our society.
+                  {content.purposeApnapan}
                 </p>
               </div>
             </div>
@@ -273,42 +282,42 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
                 <span className="text-3xl sm:text-5xl font-extrabold text-amber-400 block mb-2 font-mono">
-                  XX+
+                  {content.stat1Number}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  People Reached
+                  {content.stat1Label}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">Beneficiaries served</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat1Sub}</span>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
                 <span className="text-3xl sm:text-5xl font-extrabold text-emerald-400 block mb-2 font-mono">
-                  XX+
+                  {content.stat2Number}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  Eye Camps
+                  {content.stat2Label}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">Conducted on-site</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat2Sub}</span>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
                 <span className="text-3xl sm:text-5xl font-extrabold text-sky-400 block mb-2 font-mono">
-                  XX+
+                  {content.stat3Number}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  Spectacles Distributed
+                  {content.stat3Label}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">Free corrective eyewear</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat3Sub}</span>
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-900/80 border border-slate-800 text-center">
                 <span className="text-3xl sm:text-5xl font-extrabold text-amber-300 block mb-2 font-mono">
-                  XX+
+                  {content.stat4Number}
                 </span>
                 <span className="text-sm sm:text-base font-semibold text-slate-200 block">
-                  Volunteers & Supporters
+                  {content.stat4Label}
                 </span>
-                <span className="text-xs text-slate-500 mt-1 block">Dedicated community members</span>
+                <span className="text-xs text-slate-500 mt-1 block">{content.stat4Sub}</span>
               </div>
             </div>
 
@@ -353,10 +362,10 @@ export default function Home() {
                   Dedicated Programme
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 leading-tight">
-                  Bringing Vision Closer to Those Who Need It
+                  {content.eyeCampsHeading}
                 </h2>
                 <p className="text-slate-600 text-base leading-relaxed">
-                  Poor eyesight shouldn't prevent children from learning, parents from earning, or grandparents from seeing the faces of their loved ones. Our community eye camps bring professional diagnosis directly to doorsteps.
+                  {content.eyeCampsSubtext}
                 </p>
 
                 {/* 4 Pillars */}
@@ -763,23 +772,23 @@ export default function Home() {
               Make An Impact Today
             </span>
             <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4">
-              Be There for Someone
+              {content.ctaHeading}
             </h2>
             <p className="text-lg sm:text-xl text-amber-200/90 font-serif max-w-2xl mx-auto leading-relaxed mb-10">
-              "You don't need to do everything. Sometimes, simply being there makes a difference."
+              {content.ctaQuote}
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 to="/contact?interest=Volunteering"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-base transition-all shadow-lg"
               >
-                Become a Volunteer
+                {content.ctaButton1Text || "Become a Volunteer"}
               </Link>
               <Link
                 to="/donate"
                 className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-slate-950 hover:bg-slate-100 font-semibold text-base transition-all shadow-lg"
               >
-                Support Our Work
+                {content.ctaButton2Text || "Support Our Work"}
               </Link>
             </div>
           </div>
