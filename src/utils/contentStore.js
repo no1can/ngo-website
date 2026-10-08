@@ -11,7 +11,7 @@ export const DEFAULT_CONTENT = {
   // ==========================================
   orgName: "Tandicia Association",
   orgTagline: "Our Vision: Perfect Vision for All",
-  orgEmail: "connect@tandiciaassociation.com",
+  orgEmail: "tandiciaassociation@gmail.com",
   orgPhone: "+91 98716 74098",
   orgAddress: "Abhyudaya, Sanjay Colony, Bhati Mines & New Delhi, India",
   orgWorkingHours: "Monday – Saturday: 9:00 AM – 6:00 PM",
@@ -268,14 +268,17 @@ export const DEFAULT_CONTENT = {
   faqPageSubtitle: "Clear, straightforward answers about Tandicia's eye camps, volunteers, and operations."
 };
 
-const CONTENT_STORAGE_KEY = "tandicia_custom_content_v2";
+const CONTENT_STORAGE_KEY = "tandicia_custom_content_v3";
 
 // Get current content (merging defaults with any admin edits)
 export function getContent() {
   try {
-    const raw = localStorage.getItem(CONTENT_STORAGE_KEY) || localStorage.getItem("tandicia_custom_content_v1");
+    const raw = localStorage.getItem(CONTENT_STORAGE_KEY) || localStorage.getItem("tandicia_custom_content_v2") || localStorage.getItem("tandicia_custom_content_v1");
     if (!raw) return { ...DEFAULT_CONTENT };
     const saved = JSON.parse(raw);
+    if (!saved.orgEmail || saved.orgEmail.includes("connect@tandiciaassociation.com")) {
+      saved.orgEmail = DEFAULT_CONTENT.orgEmail;
+    }
     // Upgrade legacy placeholder numbers to newly verified numbers
     if (saved.stat1Number === "1,200+" || saved.stat1Number === "1200+") {
       saved.stat1Number = DEFAULT_CONTENT.stat1Number;

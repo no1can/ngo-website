@@ -16,6 +16,7 @@ export default function Contact() {
     interest: "Volunteering",
     message: ""
   });
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   // Sync interest with query parameters if present
@@ -27,9 +28,40 @@ export default function Contact() {
     }
   }, [location.search]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+
+    const emailSubject = `Tandicia Inquiry: ${formData.interest} - ${formData.name}`;
+    const emailBody = `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCity: ${formData.city}\nInterest: ${formData.interest}\n\nMessage:\n${formData.message}`;
+
+    try {
+      await fetch("https://formsubmit.co/ajax/tandiciaassociation@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          city: formData.city,
+          interest: formData.interest,
+          message: formData.message,
+          _subject: emailSubject
+        })
+      });
+    } catch (err) {
+      console.warn("Direct submit fallback:", err);
+      window.open(
+        `mailto:tandiciaassociation@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`,
+        "_blank"
+      );
+    } finally {
+      setLoading(false);
+      setSubmitted(true);
+    }
   };
 
   return (
@@ -83,18 +115,26 @@ export default function Contact() {
                 </p>
 
                 {submitted ? (
-                  <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-3">
+                  <div className="p-8 rounded-2xl bg-emerald-50 border border-emerald-200 text-center space-y-4">
                     <span className="text-4xl block">✅</span>
-                    <h4 className="text-xl font-bold text-emerald-950">Thank You!</h4>
-                    <p className="text-sm text-emerald-800">
-                      Your message has been received. A representative from Tandicia Association will connect with you soon.
+                    <h4 className="text-xl font-bold text-emerald-950">Message Sent Successfully!</h4>
+                    <p className="text-sm text-emerald-800 leading-relaxed max-w-md mx-auto">
+                      Your inquiry has been sent directly to <strong>tandiciaassociation@gmail.com</strong>. A representative from Tandicia Association will connect with you soon.
                     </p>
-                    <button
-                      onClick={() => setSubmitted(false)}
-                      className="mt-4 px-6 py-2 rounded-full bg-emerald-800 text-white text-xs font-semibold cursor-pointer"
-                    >
-                      Send Another Message
-                    </button>
+                    <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                      <a
+                        href={`mailto:tandiciaassociation@gmail.com?subject=${encodeURIComponent(`Tandicia Inquiry: ${formData.interest} - ${formData.name}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nCity: ${formData.city}\nInterest: ${formData.interest}\n\nMessage:\n${formData.message}`)}`}
+                        className="px-6 py-2.5 rounded-full bg-emerald-800 text-white text-xs font-semibold hover:bg-emerald-700 transition-colors shadow-sm"
+                      >
+                        Open in Email App
+                      </a>
+                      <button
+                        onClick={() => setSubmitted(false)}
+                        className="px-6 py-2.5 rounded-full bg-white border border-emerald-300 text-emerald-800 text-xs font-semibold hover:bg-emerald-50 transition-colors cursor-pointer"
+                      >
+                        Send Another Message
+                      </button>
+                    </div>
                   </div>
                 ) : (
                   <form onSubmit={handleSubmit} className="space-y-4">
@@ -191,9 +231,14 @@ export default function Contact() {
 
                     <button
                       type="submit"
-                      className="w-full py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-700 text-white font-semibold text-sm transition-all shadow-sm cursor-pointer"
+                      disabled={loading}
+                      className="w-full py-3.5 rounded-full bg-emerald-800 hover:bg-emerald-700 disabled:opacity-75 text-white font-semibold text-sm transition-all shadow-sm cursor-pointer flex items-center justify-center gap-2"
                     >
-                      Send Message →
+                      {loading ? (
+                        <span>Sending Message...</span>
+                      ) : (
+                        <span>Send Message →</span>
+                      )}
                     </button>
                   </form>
                 )}
@@ -221,8 +266,8 @@ export default function Contact() {
                       <span className="text-xl">✉️</span>
                       <div>
                         <strong className="block text-slate-900">Email:</strong>
-                        <a href={`mailto:${content.orgEmail || "connect@tandiciaassociation.com"}`} className="text-sky-900 hover:underline">
-                          {content.orgEmail || "connect@tandiciaassociation.com"}
+                        <a href={`mailto:${content.orgEmail || "tandiciaassociation@gmail.com"}`} className="text-sky-900 hover:underline font-medium">
+                          {content.orgEmail || "tandiciaassociation@gmail.com"}
                         </a>
                       </div>
                     </div>

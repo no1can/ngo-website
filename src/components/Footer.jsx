@@ -34,10 +34,10 @@ export default function Footer() {
             <div>
               <span className="block text-xs uppercase tracking-wider text-slate-400 font-semibold mb-1">Email</span>
               <a 
-                href={`mailto:${content.orgEmail || "connect@tandiciaassociation.com"}`} 
+                href={`mailto:${content.orgEmail || "tandiciaassociation@gmail.com"}`} 
                 className="text-slate-300 hover:text-emerald-400 transition-colors font-medium"
               >
-                {content.orgEmail || "connect@tandiciaassociation.com"}
+                {content.orgEmail || "tandiciaassociation@gmail.com"}
               </a>
             </div>
             <div>
