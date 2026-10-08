@@ -421,8 +421,45 @@ export default function Home() {
               </div>
             </div>
 
-            {/* 3 Featured Camp Cards with Real Photos & Verified Banners */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+            {/* 4 Featured Camp Cards with Real Photos & Verified Banners */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-2">
+              {/* Camp - Budh Vihar */}
+              <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ring-1 ring-emerald-500/20">
+                <div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
+                    <img src="/camps/budh_vihar/budh_vihar_1.jpg" alt="Budh Vihar Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-700 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
+                      New Eye Camp
+                    </span>
+                    <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                      20 Sep 2026
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold mb-1">
+                    <span>📍</span>
+                    <span>Budh Vihar, North West Delhi</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
+                    Budh Vihar Camp
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    Comprehensive community eye screening, computerized autorefraction, prescription eyewear, and senior doctor consultations.
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ Eye Screening</span>
+                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ Free Eyewear</span>
+                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Videos Live</span>
+                  </div>
+                </div>
+                <Link
+                  to="/eye-camps"
+                  className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
+                >
+                  <span>Explore Camp Details</span>
+                  <span>→</span>
+                </Link>
+              </div>
+
               {/* Camp 1 */}
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1">
                 <div>

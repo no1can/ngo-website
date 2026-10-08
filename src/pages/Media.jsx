@@ -166,35 +166,87 @@ export default function Media() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white relative group">
-                <div className="relative h-64 overflow-hidden">
-                  <img src="/story3.png" alt="Eye camp video" className="w-full h-full object-cover filter brightness-[0.6]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-emerald-600/90 text-white flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform">
-                      ▶
-                    </div>
-                  </div>
+              {/* Video 1 - Budh Vihar Camp */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster="/camps/budh_vihar/budh_vihar_1.jpg"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/camps/budh_vihar/budh_vihar_video_1.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
                 </div>
                 <div className="p-6">
-                  <span className="text-xs text-emerald-400 font-semibold">Video Document</span>
-                  <h4 className="text-lg font-bold mt-1">A Day at Tandicia Eye Screening Camp</h4>
-                  <p className="text-xs text-slate-400 mt-2">Real interactions between volunteer optometrists and rural patients.</p>
+                  <span className="text-xs text-emerald-400 font-semibold uppercase tracking-wider">New Camp Footage • 20 Sep 2026</span>
+                  <h4 className="text-lg font-bold mt-1 text-white">Budh Vihar Free Eye Screening Camp</h4>
+                  <p className="text-xs text-slate-400 mt-2">On-ground operations, screening queues, and doctor consultations at Budh Vihar, New Delhi.</p>
                 </div>
               </div>
 
-              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white relative group">
-                <div className="relative h-64 overflow-hidden">
-                  <img src="/image.png" alt="Sewa Rasoi video" className="w-full h-full object-cover filter brightness-[0.6]" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-14 h-14 rounded-full bg-emerald-600/90 text-white flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform">
-                      ▶
-                    </div>
-                  </div>
+              {/* Video 2 - Budh Vihar Diagnosis */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster="/camps/budh_vihar/budh_vihar_2.jpg"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/camps/budh_vihar/budh_vihar_video_2.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
                 </div>
                 <div className="p-6">
-                  <span className="text-xs text-amber-400 font-semibold">Video Document</span>
-                  <h4 className="text-lg font-bold mt-1">Sewa Rasoi: The Spirit of Cooking With Love</h4>
-                  <p className="text-xs text-slate-400 mt-2">Behind the scenes with volunteers slicing, boiling, and packing nutritious meals.</p>
+                  <span className="text-xs text-sky-400 font-semibold uppercase tracking-wider">Diagnostic Video Record</span>
+                  <h4 className="text-lg font-bold mt-1 text-white">Doctor Examination & Ophthalmic Care</h4>
+                  <p className="text-xs text-slate-400 mt-2">Senior ophthalmologist conducting retinal checks and prescription glasses fittings.</p>
+                </div>
+              </div>
+
+              {/* Video 3 - Bhati Mines Camp */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster="/camps/camp1/1st Camp/E1-4.jpeg"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/camps/camp1/1st Camp/E1-9.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-amber-400 font-semibold uppercase tracking-wider">Field Document</span>
+                  <h4 className="text-lg font-bold mt-1 text-white">Bhati Mines Rural Eye Screening</h4>
+                  <p className="text-xs text-slate-400 mt-2">Serving remote families, quarry laborers, and village elders at Abhyudaya, Sanjay Colony.</p>
+                </div>
+              </div>
+
+              {/* Video 4 - Kusumpur Pahari */}
+              <div className="bg-slate-900 rounded-3xl overflow-hidden border border-slate-800 text-white flex flex-col justify-between shadow-xl">
+                <div className="relative aspect-video bg-black overflow-hidden">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster="/camps/camp2/2nd Camp/E2-3.jpeg"
+                    className="w-full h-full object-cover"
+                  >
+                    <source src="/camps/camp2/2nd Camp/E2-10.mp4" type="video/mp4" />
+                    Your browser does not support video playback.
+                  </video>
+                </div>
+                <div className="p-6">
+                  <span className="text-xs text-rose-400 font-semibold uppercase tracking-wider">Field Document</span>
+                  <h4 className="text-lg font-bold mt-1 text-white">Kusumpur Pahari Diagnostic Drive</h4>
+                  <p className="text-xs text-slate-400 mt-2">Computerized autorefractor screening and high-volume spectacles distribution.</p>
                 </div>
               </div>
             </div>

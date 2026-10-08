@@ -156,6 +156,11 @@ export const DEFAULT_CONTENT = {
   upcomingCampSummary: "टेंडिशिया एसोसिएशन एवं सेवा भारती द्वारा आयोजित — निःशुल्क नेत्र जाँच, अनुभवी डॉक्टरों का परामर्श एवं नज़र के चश्में भी मुफ्त दिए जाएंगे।",
   upcomingCampBanner: "/shakurpur-eye-camp-banner.jpg",
 
+  campBvTitle: "Budh Vihar, New Delhi",
+  campBvDateLoc: "20 September 2026 • Budh Vihar, North West Delhi",
+  campBvDesc: "Comprehensive community eye screening, computerized autorefraction, prescription eyewear, and senior doctor consultations.",
+  campBvDoctor: "Dr. Atul Garg & Senior Clinical Optometrists Team",
+
   camp1Title: "Bhati Mines, New Delhi",
   camp1DateLoc: "29 August 2025 • Abhyudaya, Sanjay Colony, Bhati Mines",
   camp1Desc: "Reaching daily wage earners, elder residents, and remote families in the Bhati Mines region with critical eye health diagnosis.",

@@ -191,6 +191,16 @@ export default function AdminTextEditor({
           ]
         },
         {
+          title: "📍 Budh Vihar, New Delhi",
+          desc: "Camp on 20 September 2026 at Budh Vihar",
+          fields: [
+            { key: "campBvTitle", label: "Camp Title", type: "text" },
+            { key: "campBvDateLoc", label: "Date & Location", type: "text" },
+            { key: "campBvDesc", label: "Objective & Description", type: "textarea" },
+            { key: "campBvDoctor", label: "Medical Team / Senior Surgeon", type: "text" }
+          ]
+        },
+        {
           title: "📍 Bhati Mines, New Delhi",
           desc: "Abhyudaya, Sanjay Colony, Bhati Mines camp details",
           fields: [

@@ -37,6 +37,43 @@ const verifiedCamps = [
     ]
   },
   {
+    id: "camp-delhi-budh-vihar",
+    tag: "Eye Camp",
+    title: "Budh Vihar, New Delhi",
+    name: "Budh Vihar Free Eye Screening & Spectacle Camp",
+    year: "2026",
+    location: "Budh Vihar, Phase-1 / Phase-2, North West Delhi",
+    date: "20 September 2026",
+    peopleServed: "Verified On-Site Records",
+    supportSummary: "नि:शुल्क नेत्र जांच शिविर — Comprehensive Eye Screening, Doctor Consultation, Spectacles Distribution",
+    image: "/camps/budh_vihar/budh_vihar_1.jpg",
+    video: "/camps/budh_vihar/budh_vihar_video_1.mp4",
+    objective: "Delivering primary ophthalmic diagnostic checkups, refraction correction, and free prescription spectacles directly to residents and families in Budh Vihar with utmost care and dignity.",
+    medicalTeam: "Dr. Atul Garg & Senior Clinical Optometrists Team",
+    volunteers: "Tandicia Association Core Field Volunteers & Budh Vihar Local Community Team",
+    eventsList: [
+      { name: "Visual Acuity & Refraction Screening", desc: "On-site eye testing using trial lenses and computerized autorefraction." },
+      { name: "Senior Surgeon Consultation", desc: "One-on-one diagnosis by senior eye surgeon for cataract and ocular health." },
+      { name: "Prescription Spectacles Fitting", desc: "Custom reading and distance corrective eyeglasses fitted and distributed." },
+      { name: "Medicines & Eye Drops Dispensing", desc: "Free distribution of prophylactic eye drops and lubricating medications." },
+      { name: "Surgery Linkages & Guidance", desc: "Direct guidance and linkages for beneficiaries needing cataract surgery." }
+    ],
+    servicesProvided: "Visual acuity assessment, refraction check, spectacle dispensing, medicine distribution.",
+    spectaclesDistributed: "Custom prescription corrective glasses provided free of cost.",
+    referrals: "Hospital linkages for advanced cataract cases.",
+    mediaCoverage: "Documented in live Tandicia field register with verified photography & videos.",
+    gallery: [
+      "/camps/budh_vihar/budh_vihar_1.jpg",
+      "/camps/budh_vihar/budh_vihar_2.jpg",
+      "/camps/budh_vihar/budh_vihar_3.jpg",
+      "/camps/budh_vihar/budh_vihar_4.jpg",
+      "/camps/budh_vihar/budh_vihar_5.jpg",
+      "/camps/budh_vihar/budh_vihar_6.jpg",
+      "/camps/budh_vihar/budh_vihar_7.jpg",
+      "/camps/budh_vihar/budh_vihar_8.jpg"
+    ]
+  },
+  {
     id: "camp-delhi-bhati-mines",
     tag: "Eye Camp",
     title: "Bhati Mines, New Delhi",
@@ -221,7 +258,15 @@ export default function EyeCamps() {
   }));
 
   const dynamicVerifiedCamps = verifiedCamps.map((camp) => {
-    if (camp.id === "camp-delhi-bhati-mines") {
+    if (camp.id === "camp-delhi-budh-vihar") {
+      return {
+        ...camp,
+        title: content.campBvTitle || camp.title,
+        location: content.campBvDateLoc || camp.location,
+        objective: content.campBvDesc || camp.objective,
+        medicalTeam: content.campBvDoctor || camp.medicalTeam
+      };
+    } else if (camp.id === "camp-delhi-bhati-mines") {
       return {
         ...camp,
         title: content.camp1Title || camp.title,
