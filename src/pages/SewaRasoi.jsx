@@ -98,6 +98,33 @@ export default function SewaRasoi() {
         </section>
 
         {/* ========================================================
+            OFFICIAL SEWA RASOI INITIATIVE POSTER
+            ======================================================== */}
+        <section className="py-16 bg-stone-100 border-b border-stone-200">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
+                Official Programme Announcement
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
+                सेवा रसोई — एक प्रयास कोई भूखा न सोये
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base mt-2">
+                मधुबन चौक पर प्रतिदिन लंगर सेवा • अन्नदान महादान • सहयोग एवं हेल्पलाइन: 98112 09004
+              </p>
+            </div>
+
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-white p-2 sm:p-4">
+              <img
+                src="/sewa_rasoi/sewa_rasoi_poster.jpg"
+                alt="Tandicia Association Sewa Rasoi Official Poster"
+                className="w-full h-auto rounded-2xl object-contain shadow-md"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ========================================================
             3. ON-GROUND VIDEO HIGHLIGHTS (Right below Dashboard)
             ======================================================== */}
         <section className="py-20 bg-slate-950 text-white">
