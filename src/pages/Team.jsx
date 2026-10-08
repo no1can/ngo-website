@@ -16,9 +16,7 @@ export default function Team() {
 
   const filteredMembers = teamMembers.filter(member => {
     const matchesCategory = selectedCategory === "All" || member.category === selectedCategory;
-    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          member.volunteerId.includes(searchQuery) ||
-                          member.role.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesSearch = member.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
@@ -81,9 +79,6 @@ export default function Team() {
                   />
                 </div>
                 <div className="space-y-3">
-                  <div className="inline-block px-3 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-bold">
-                    Volunteer ID: {patron.volunteerId}
-                  </div>
                   <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">
                     {patron.name}
                   </h3>
@@ -133,9 +128,6 @@ export default function Team() {
                     />
                   </div>
                   <div className="space-y-2 text-center sm:text-left">
-                    <span className="inline-block px-2.5 py-0.5 rounded-md bg-sky-50 text-sky-900 text-xs font-semibold">
-                      Volunteer ID: {doc.volunteerId}
-                    </span>
                     <h3 className="text-xl font-bold text-slate-900">
                       {doc.name}
                     </h3>
@@ -165,7 +157,7 @@ export default function Team() {
                 Tandicia Volunteers ({teamMembers.length})
               </h2>
               <p className="text-slate-600 text-sm mt-3">
-                Real citizens, verified identity badge holders, and community pillars serving at our Eye Camps & Sewa Rasoi.
+                Dedicated citizens, professionals, and community pillars serving across our on-ground camps and initiatives.
               </p>
             </div>
 
@@ -190,7 +182,7 @@ export default function Team() {
               <div className="w-full sm:w-64">
                 <input
                   type="text"
-                  placeholder="Search by name or ID..."
+                  placeholder="Search volunteers by name..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-4 py-2 text-xs rounded-full border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20"
@@ -214,16 +206,12 @@ export default function Team() {
                     />
                   </div>
 
-                  <span className="text-[10px] font-mono font-bold text-slate-400 bg-white px-2 py-0.5 rounded-full border border-slate-200 mb-1">
-                    ID: {member.volunteerId}
-                  </span>
-
                   <h4 className="text-sm font-bold text-slate-900 group-hover:text-emerald-800 transition-colors">
                     {member.name}
                   </h4>
 
-                  <p className="text-[11px] text-slate-500 line-clamp-1 mt-0.5">
-                    {member.role}
+                  <p className="text-xs font-semibold text-emerald-800 mt-1">
+                    Volunteer
                   </p>
                 </div>
               ))}
