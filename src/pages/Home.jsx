@@ -98,54 +98,57 @@ export default function Home() {
         </section>
 
         {/* ========================================================
-            SECTION 2 — OUR PURPOSE
+            SECTION 2 — OUR VISION: PERFECT VISION FOR ALL
             ======================================================== */}
         <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto mb-16">
               <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold">
-                Our Purpose
+                Guiding Mission
               </span>
               <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-slate-900 mt-2">
                 {content.purposeHeading}
               </h2>
-              <div className="w-16 h-1 bg-amber-600 mx-auto mt-4 rounded-full" />
+              <p className="text-slate-600 text-sm sm:text-base mt-3 max-w-2xl mx-auto">
+                {content.purposeSubtext}
+              </p>
+              <div className="w-16 h-1 bg-emerald-600 mx-auto mt-4 rounded-full" />
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Mitrata Block */}
+              {/* Pillar 1: Vision Screening */}
               <div className="p-8 rounded-3xl bg-slate-50 border border-slate-100 hover:border-sky-200 hover:shadow-md transition-all group">
                 <div className="w-14 h-14 rounded-2xl bg-sky-100 text-sky-900 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-105 transition-transform">
-                  मि
+                  👁️
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Mitrata</h3>
-                <p className="text-sm font-semibold text-sky-800 mb-3">मित्रता</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.pillar1Title || "Free Vision Screening"}</h3>
+                <p className="text-sm font-semibold text-sky-800 mb-3">नेत्र जांच शिविर</p>
                 <p className="text-slate-600 leading-relaxed text-base">
-                  {content.purposeMitrata}
+                  {content.pillar1Desc}
                 </p>
               </div>
 
-              {/* Dosti Block */}
+              {/* Pillar 2: Prescription Spectacles */}
               <div className="p-8 rounded-3xl bg-emerald-50/60 border border-emerald-100 hover:border-emerald-300 hover:shadow-md transition-all group">
                 <div className="w-14 h-14 rounded-2xl bg-emerald-100 text-emerald-900 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-105 transition-transform">
-                  दो
+                  👓
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Dosti</h3>
-                <p className="text-sm font-semibold text-emerald-800 mb-3">दोस्ती</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.pillar2Title || "Prescription Spectacles"}</h3>
+                <p className="text-sm font-semibold text-emerald-800 mb-3">मुफ्त चश्मे वितरण</p>
                 <p className="text-slate-600 leading-relaxed text-base">
-                  {content.purposeDosti}
+                  {content.pillar2Desc}
                 </p>
               </div>
 
-              {/* Apnapan Block */}
+              {/* Pillar 3: Specialist Care */}
               <div className="p-8 rounded-3xl bg-amber-50/60 border border-amber-100 hover:border-amber-300 hover:shadow-md transition-all group">
                 <div className="w-14 h-14 rounded-2xl bg-amber-100 text-amber-900 flex items-center justify-center text-2xl font-bold mb-6 group-hover:scale-105 transition-transform">
-                  अप
+                  🩺
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Apnapan</h3>
-                <p className="text-sm font-semibold text-amber-800 mb-3">अपनापन</p>
+                <h3 className="text-2xl font-bold text-slate-900 mb-2">{content.pillar3Title || "Specialist Medical Care"}</h3>
+                <p className="text-sm font-semibold text-amber-800 mb-3">विशेषज्ञ परामर्श व उपचार</p>
                 <p className="text-slate-600 leading-relaxed text-base">
-                  {content.purposeApnapan}
+                  {content.pillar3Desc}
                 </p>
               </div>
             </div>
@@ -495,8 +498,8 @@ export default function Home() {
               <p className="text-slate-600 text-base mt-2">
                 New ideas. New connections. New possibilities.
               </p>
-              <div className="inline-block mt-4 px-4 py-1.5 rounded-full bg-amber-100/80 border border-amber-300/80 text-amber-900 font-semibold text-sm">
-                मित्रता, दोस्ती और अपनापन
+              <div className="inline-block mt-4 px-4 py-1.5 rounded-full bg-emerald-100/80 border border-emerald-300/80 text-emerald-900 font-semibold text-sm">
+                Our Vision: Perfect Vision for All
               </div>
             </div>
 

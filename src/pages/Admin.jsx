@@ -620,13 +620,13 @@ export default function Admin() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Top Badge / Hindi Tagline
+                      Top Badge / Vision Tagline
                     </label>
                     <input
                       type="text"
                       value={siteContent.heroBadge || ""}
                       onChange={(e) => handleContentFieldChange("heroBadge", e.target.value)}
-                      placeholder="e.g. मित्रता • दोस्ती • अपनापन"
+                      placeholder="e.g. Our Vision: Perfect Vision for All"
                       className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-medium"
                     />
                     <p className="text-[11px] text-slate-400 mt-1">Displayed in the small green badge at top of Hero</p>
@@ -713,66 +713,98 @@ export default function Admin() {
                 </div>
               </div>
 
-              {/* SECTION 2: PURPOSE (Mitrata, Dosti, Apnapan) */}
+              {/* SECTION 2: OUR VISION (PERFECT VISION FOR ALL) */}
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-xs">
                 <div className="flex items-center gap-2 pb-4 mb-6 border-b border-slate-100">
                   <span className="text-xl">🎯</span>
                   <div>
-                    <h3 className="text-base font-bold text-slate-900">Our Purpose — मित्रता • दोस्ती • अपनापन</h3>
-                    <p className="text-xs text-slate-400">Section 2 blocks describing Tandicia's foundational philosophy</p>
+                    <h3 className="text-base font-bold text-slate-900">Our Vision — Perfect Vision for All</h3>
+                    <p className="text-xs text-slate-400">Section 2 blocks describing Tandicia's eye healthcare mission</p>
                   </div>
                 </div>
 
                 <div className="space-y-6">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
-                      Section Heading
-                    </label>
-                    <input
-                      type="text"
-                      value={siteContent.purposeHeading || ""}
-                      onChange={(e) => handleContentFieldChange("purposeHeading", e.target.value)}
-                      placeholder="Together, We Can Make a Difference"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-semibold"
-                    />
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                        Section Heading
+                      </label>
+                      <input
+                        type="text"
+                        value={siteContent.purposeHeading || ""}
+                        onChange={(e) => handleContentFieldChange("purposeHeading", e.target.value)}
+                        placeholder="Our Vision: Perfect Vision for All"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm font-semibold"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
+                        Vision Subtitle / Description
+                      </label>
+                      <input
+                        type="text"
+                        value={siteContent.purposeSubtext || ""}
+                        onChange={(e) => handleContentFieldChange("purposeSubtext", e.target.value)}
+                        placeholder="Dedicated to eliminating preventable blindness..."
+                        className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20 text-sm"
+                      />
+                    </div>
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="p-4 rounded-2xl bg-sky-50/50 border border-sky-100">
-                      <div className="flex items-center gap-2 mb-2 font-bold text-sky-950 text-sm">
-                        <span>मि</span>
-                        <h4>Mitrata (मित्रता)</h4>
+                    <div className="p-4 rounded-2xl bg-sky-50/50 border border-sky-100 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-sky-950 text-sm">
+                        <span>👁️</span>
+                        <input
+                          type="text"
+                          value={siteContent.pillar1Title || ""}
+                          onChange={(e) => handleContentFieldChange("pillar1Title", e.target.value)}
+                          placeholder="Free Vision Screening"
+                          className="w-full font-bold text-sm bg-transparent border-b border-sky-300 pb-1 focus:outline-hidden"
+                        />
                       </div>
                       <textarea
                         rows={4}
-                        value={siteContent.purposeMitrata || ""}
-                        onChange={(e) => handleContentFieldChange("purposeMitrata", e.target.value)}
+                        value={siteContent.pillar1Desc || ""}
+                        onChange={(e) => handleContentFieldChange("pillar1Desc", e.target.value)}
                         className="w-full p-3 rounded-xl border border-sky-200 bg-white text-xs leading-relaxed focus:outline-hidden focus:ring-2 focus:ring-sky-700/20"
                       />
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100">
-                      <div className="flex items-center gap-2 mb-2 font-bold text-emerald-950 text-sm">
-                        <span>दो</span>
-                        <h4>Dosti (दोस्ती)</h4>
+                    <div className="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-emerald-950 text-sm">
+                        <span>👓</span>
+                        <input
+                          type="text"
+                          value={siteContent.pillar2Title || ""}
+                          onChange={(e) => handleContentFieldChange("pillar2Title", e.target.value)}
+                          placeholder="Prescription Spectacles"
+                          className="w-full font-bold text-sm bg-transparent border-b border-emerald-300 pb-1 focus:outline-hidden"
+                        />
                       </div>
                       <textarea
                         rows={4}
-                        value={siteContent.purposeDosti || ""}
-                        onChange={(e) => handleContentFieldChange("purposeDosti", e.target.value)}
+                        value={siteContent.pillar2Desc || ""}
+                        onChange={(e) => handleContentFieldChange("pillar2Desc", e.target.value)}
                         className="w-full p-3 rounded-xl border border-emerald-200 bg-white text-xs leading-relaxed focus:outline-hidden focus:ring-2 focus:ring-emerald-700/20"
                       />
                     </div>
 
-                    <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-100">
-                      <div className="flex items-center gap-2 mb-2 font-bold text-amber-950 text-sm">
-                        <span>अप</span>
-                        <h4>Apnapan (अपनापन)</h4>
+                    <div className="p-4 rounded-2xl bg-amber-50/50 border border-amber-100 space-y-2">
+                      <div className="flex items-center gap-2 font-bold text-amber-950 text-sm">
+                        <span>🩺</span>
+                        <input
+                          type="text"
+                          value={siteContent.pillar3Title || ""}
+                          onChange={(e) => handleContentFieldChange("pillar3Title", e.target.value)}
+                          placeholder="Specialist Medical Care"
+                          className="w-full font-bold text-sm bg-transparent border-b border-amber-300 pb-1 focus:outline-hidden"
+                        />
                       </div>
                       <textarea
                         rows={4}
-                        value={siteContent.purposeApnapan || ""}
-                        onChange={(e) => handleContentFieldChange("purposeApnapan", e.target.value)}
+                        value={siteContent.pillar3Desc || ""}
+                        onChange={(e) => handleContentFieldChange("pillar3Desc", e.target.value)}
                         className="w-full p-3 rounded-xl border border-amber-200 bg-white text-xs leading-relaxed focus:outline-hidden focus:ring-2 focus:ring-amber-700/20"
                       />
                     </div>

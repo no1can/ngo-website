@@ -6,7 +6,7 @@ export const teamMembers = [
     role: "Patron & Spiritual Inspiration",
     category: "Patron",
     image: "/team_members/volunteer_1.jpg",
-    bio: "Guiding light and spiritual inspiration behind the service ethos of Mitrata, Dosti, and Apnapan."
+    bio: "Guiding light and spiritual inspiration behind Tandicia's dedicated mission of Perfect Vision for All."
   },
   {
     id: 2,

@@ -346,8 +346,8 @@ export default function Contact() {
             <p className="text-xl sm:text-2xl font-serif text-slate-900">
               "Let's work together to create a more connected and compassionate community."
             </p>
-            <p className="text-xs text-slate-500">
-              मित्रता • दोस्ती • अपनापन
+            <p className="text-xs text-slate-500 font-semibold tracking-wide">
+              Our Vision: Perfect Vision for All
             </p>
           </div>
         </section>

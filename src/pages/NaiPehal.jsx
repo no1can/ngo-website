@@ -99,8 +99,8 @@ export default function NaiPehal() {
             <span className="text-xs uppercase tracking-widest text-emerald-800 font-semibold block">
               Core Guiding Principle
             </span>
-            <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
-              मित्रता, दोस्ती और अपनापन
+            <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+              Our Vision: Perfect Vision for All
             </h2>
             <div className="w-20 h-1 bg-amber-600 mx-auto rounded-full" />
             <p className="text-xl text-slate-700 font-serif max-w-2xl mx-auto leading-relaxed pt-2">

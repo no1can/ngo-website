@@ -6,19 +6,23 @@
 
 export const DEFAULT_CONTENT = {
   // Hero Section
-  heroBadge: "मित्रता • दोस्ती • अपनापन",
+  heroBadge: "Our Vision: Perfect Vision for All",
   heroHeading1: "TANDICIA",
   heroHeading2: "ASSOCIATION",
-  heroTagline: "Connecting People. Serving Communities. Being There for Each Other.",
-  heroSubtext: "A community-driven initiative bringing people, professionals and volunteers together to create meaningful social impact.",
-  heroCta1Text: "Explore Our Work",
+  heroTagline: "Our Vision: Perfect Vision for All — Serving Communities with Dignity & Care",
+  heroSubtext: "A community-driven initiative bringing dedicated eye doctors, professionals, and volunteers together to eradicate preventable vision impairment.",
+  heroCta1Text: "Explore Eye Camps",
   heroCta2Text: "Join Tandicia",
 
-  // Purpose (Mitrata, Dosti, Apnapan)
-  purposeHeading: "Together, We Can Make a Difference",
-  purposeMitrata: "Building meaningful connections across barriers, cultivating friendship that creates trust and mutual respect in communities.",
-  purposeDosti: "Standing by people when they need support the most, offering reliable companionship and dedicated solidarity through life’s struggles.",
-  purposeApnapan: "Creating dignity, belonging, and genuine warmth so no one feels abandoned, overlooked, or unheard in our society.",
+  // Purpose / Vision Section
+  purposeHeading: "Our Vision: Perfect Vision for All",
+  purposeSubtext: "Dedicated to eliminating preventable blindness and ensuring clear vision, dignity, and accessible eye healthcare for every family.",
+  pillar1Title: "Free Vision Screening",
+  pillar1Desc: "Advanced diagnostic checkups with computerized refraction and autorefractor machines conducted directly inside community clusters.",
+  pillar2Title: "Prescription Spectacles",
+  pillar2Desc: "Custom-tested, durable prescription corrective eyeglasses fitted and distributed completely free of charge to verified attendees.",
+  pillar3Title: "Specialist Medical Care",
+  pillar3Desc: "Senior ophthalmologist consultations, cataract grading, and direct subsidised surgical referrals in partnership with leading eye institutes.",
 
   // Impact Numbers
   stat1Number: "1,200+",
@@ -34,8 +38,8 @@ export const DEFAULT_CONTENT = {
   stat3Sub: "Free corrective eyewear",
 
   stat4Number: "50+",
-  stat4Label: "Volunteers & Supporters",
-  stat4Sub: "Dedicated community members",
+  stat4Label: "Volunteers & Doctors",
+  stat4Sub: "Dedicated team members",
 
   // Eye Camps Spotlight Section
   eyeCampsHeading: "Bringing Vision Closer to Those Who Need It",

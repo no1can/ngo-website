@@ -43,7 +43,7 @@ export default function Footer() {
               </div>
               <div>
                 <span className="text-xl font-bold text-white tracking-tight">Tandicia Association</span>
-                <p className="text-xs text-emerald-400 font-medium">मित्रता • दोस्ती • अपनापन</p>
+                <p className="text-xs text-emerald-400 font-medium">Our Vision: Perfect Vision for All</p>
               </div>
             </div>
 

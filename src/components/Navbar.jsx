@@ -29,8 +29,8 @@ export default function Navbar() {
               <span className="text-lg md:text-xl font-bold tracking-tight text-slate-900 group-hover:text-sky-900 transition-colors">
                 Tandicia Association
               </span>
-              <span className="text-xs text-emerald-800 font-medium tracking-wide">
-                मित्रता • दोस्ती • अपनापन
+              <span className="text-xs text-emerald-800 font-semibold tracking-wide">
+                Our Vision: Perfect Vision for All
               </span>
             </div>
           </Link>

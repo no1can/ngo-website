@@ -29,7 +29,7 @@ export default function About() {
               About Tandicia
             </h1>
             <p className="text-2xl sm:text-3xl text-amber-200/90 font-serif mb-6">
-              मित्रता • दोस्ती • अपनापन
+              Our Vision: Perfect Vision for All
             </p>
             <p className="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
               Connecting People. Serving Communities. Being There for Each Other.
@@ -84,7 +84,7 @@ export default function About() {
               Our Vision
             </span>
             <blockquote className="text-2xl sm:text-4xl font-serif leading-relaxed text-white font-medium">
-              "A connected and compassionate community where people stand by each other—with Mitrata, Dosti aur Apnapan."
+              "A world where no one is deprived of clear sight — Perfect Vision for All through compassionate, accessible healthcare."
             </blockquote>
             <p className="text-sm text-slate-300 max-w-xl mx-auto">
               Every initiative we undertake is measured by one standard: does it elevate human dignity and strengthen social bonds?
@@ -203,7 +203,7 @@ export default function About() {
                   Formation of Tandicia Association
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed mt-2 mb-4">
-                  Born from a shared realization that compassion and friendship are vital social forces, professionals and community volunteers came together with the motto: मित्रता • दोस्ती • अपनापन.
+                  Born from a shared realization that accessible healthcare and clear sight are fundamental human rights, professionals and community volunteers came together with the mission: Our Vision — Perfect Vision for All.
                 </p>
                 <img src="/camps/camp1/1st Camp/E1-1.jpeg" alt="Inception core team" className="w-full max-w-md h-48 object-cover rounded-2xl shadow-xs" />
               </div>
