@@ -5,11 +5,12 @@ import Footer from "../components/Footer";
 import { useContent } from "../utils/contentStore";
 
 const HOME_HERO_IMAGES = [
+  { url: "/camps/shradnand_marg/shradnand_full_team.jpg", alt: "Tandicia Association Eye Camp Team and Doctors" },
+  { url: "/camps/shradnand_marg/shradnand_police_memento.jpg", alt: "79th Delhi Police Week Memento Presentation" },
   { url: "/camps/camp2/2nd Camp/E2-3.jpeg", alt: "Tandicia Volunteers and Community Activity" },
   { url: "/camps/gao_thora/gao_thora_1.jpg", alt: "Gao Thora Eye Camp Consultation" },
   { url: "/sewa_rasoi/sewa_rasoi_3.jpg", alt: "Sewa Rasoi Food Service" },
   { url: "/camps/camp3/3rd camp/E3-12.jpeg", alt: "Tandicia Community Camp Gathering" },
-  { url: "/camps/shradnand_marg/shradnand_4.jpg", alt: "Shraddhanand Marg Vision Camp" },
 ];
 
 const AWARENESS_POSTERS = [
@@ -52,6 +53,11 @@ const EYE_CAMP_FEATURE_SLIDES = [
     caption: "On-site diagnostic screening by qualified eye specialists",
   },
   {
+    image: "/camps/shradnand_marg/shradnand_police_checkup.jpg",
+    alt: "Doctor screening and trial frame eye checkup at Shradhanand Marg",
+    caption: "Comprehensive eye screening and refraction testing at Shradhanand Marg",
+  },
+  {
     image: "/camps/camp2/2nd Camp/E2-3.jpeg",
     alt: "Computerized autorefractor examination at Kusumpur Pahari",
     caption: "Computerized autorefractor examination & vision diagnostics",
@@ -75,6 +81,44 @@ const EYE_CAMP_FEATURE_SLIDES = [
     image: "/camps/shradnand_marg/shradnand_3.jpg",
     alt: "Compassionate specialist medical care at Shradhanand Marg",
     caption: "Compassionate specialist medical care and cataract referrals",
+  },
+];
+
+const SHRADNAND_CAMP_PHOTOS = [
+  {
+    image: "/camps/shradnand_marg/shradnand_full_team.jpg",
+    title: "समस्त मेडिकल टीम, वॉलंटियर्स एवं दिल्ली पुलिस सेन्ट्रल जिला टीम",
+    badge: "मुख्य टीम एवं डॉक्टर्स • Shradhanand Marg",
+    caption: "श्रद्धानन्द मार्ग महिला पुलिस चौकी पर आयोजित ऐतिहासिक स्वास्थ्य एवं नेत्र जांच शिविर",
+    colSpan: "sm:col-span-2 lg:col-span-2",
+  },
+  {
+    image: "/camps/shradnand_marg/shradnand_police_checkup.jpg",
+    title: "विशेषज्ञ नेत्र परीक्षण एवं विज़न जांच",
+    badge: "नेत्र परीक्षण • Eye Checkup",
+    caption: "सब-इंस्पेक्टर किरण सेठी जी एवं महिलाओं का दृष्टि परीक्षण",
+    colSpan: "sm:col-span-1 lg:col-span-1",
+  },
+  {
+    image: "/camps/shradnand_marg/shradnand_police_memento.jpg",
+    title: "79वें दिल्ली पुलिस सप्ताह पर तांदिशिया एसोसिएशन को सम्मान स्मृति चिन्ह",
+    badge: "79वाँ दिल्ली पुलिस सप्ताह • Special Honor",
+    caption: "उत्कृष्ट स्वास्थ्य व जनसेवा शिविर हेतु दिल्ली पुलिस द्वारा स्मृति चिन्ह भेंट",
+    colSpan: "sm:col-span-1 lg:col-span-1",
+  },
+  {
+    image: "/camps/shradnand_marg/shradnand_police_talk.jpg",
+    title: "स्वास्थ्य, सुरक्षा व सशक्तिकरण पर विशेष जनसंवाद",
+    badge: "जनसंवाद एवं मार्गदर्शन • Community Outreach",
+    caption: "महिला पुलिस चौकी प्रांगण में महिलाओं व बच्चों को मार्गदर्शन एवं स्वास्थ्य सलाह",
+    colSpan: "sm:col-span-1 lg:col-span-1",
+  },
+  {
+    image: "/camps/shradnand_marg/shradnand_police_ceremony.jpg",
+    title: "प्रोजेक्ट साहस एवं प्रोजेक्ट नव्या के तहत संयुक्त मंच",
+    badge: "प्रोजेक्ट साहस व नव्या • Joint Initiative",
+    caption: "लाभार्थी महिलाओं व दिल्ली पुलिस टीम के साथ सशक्तिकरण एवं सम्मान समारोह",
+    colSpan: "sm:col-span-1 lg:col-span-1",
   },
 ];
 
@@ -860,6 +904,68 @@ export default function Home() {
                   <span>Explore All Camps</span>
                   <span>→</span>
                 </Link>
+              </div>
+            </div>
+
+            {/* 5-Photo On-Ground Gallery Grid */}
+            <div className="mt-12 sm:mt-16">
+              <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-400/30 text-emerald-400 text-[11px] sm:text-xs uppercase tracking-widest font-bold">
+                  On-Ground Photo Gallery
+                </span>
+                <h3 className="text-xl sm:text-3xl font-extrabold text-white mt-2">
+                  शिविर की ऐतिहासिक झलकियाँ
+                </h3>
+                <p className="text-slate-400 text-xs sm:text-sm mt-1.5">
+                  फोटो पर क्लिक करके फुल स्क्रीन में देखें (Click any photo to enlarge)
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                {SHRADNAND_CAMP_PHOTOS.map((item, idx) => (
+                  <div
+                    key={idx}
+                    onClick={() => setSelectedPoster({ title: item.title, badge: item.badge, image: item.image })}
+                    className={`group relative rounded-2xl overflow-hidden bg-slate-900 border border-slate-800 hover:border-emerald-500/50 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-emerald-500/10 flex flex-col ${item.colSpan || ''}`}
+                  >
+                    <div className="relative aspect-[4/3] sm:aspect-video lg:aspect-[16/10] overflow-hidden bg-slate-950">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+                      
+                      <div className="absolute top-3 left-3">
+                        <span className="inline-block px-2.5 py-1 rounded-full bg-emerald-950/80 backdrop-blur-md border border-emerald-500/40 text-[10px] sm:text-[11px] font-bold text-emerald-300">
+                          {item.badge}
+                        </span>
+                      </div>
+
+                      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-md rounded-full p-1.5 text-white">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    <div className="p-4 sm:p-5 flex-1 flex flex-col justify-between">
+                      <div>
+                        <h4 className="text-sm sm:text-base font-bold text-white group-hover:text-emerald-300 transition-colors line-clamp-2">
+                          {item.title}
+                        </h4>
+                        <p className="text-xs text-slate-400 mt-1.5 line-clamp-2">
+                          {item.caption}
+                        </p>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] text-emerald-400 font-semibold">
+                        <span>फोटो बड़ा करके देखें</span>
+                        <span className="group-hover:translate-x-1 transition-transform">🔍 →</span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
