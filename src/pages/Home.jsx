@@ -1035,7 +1035,7 @@ export default function Home() {
                 </div>
 
                 <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 flex gap-3.5 sm:gap-4 items-center">
-                  <img src="/camps/camp2/2nd camp/E2-5.jpeg" alt="Spectacles distribution" className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-xl shrink-0" />
+                  <img src="/camps/budh_vihar/budh_vihar_1.jpg" alt="Spectacles distribution" className="w-16 h-16 sm:w-24 sm:h-24 object-cover rounded-xl shrink-0" />
                   <div>
                     <span className="text-[10px] sm:text-xs text-sky-800 font-semibold">Vision Assistance</span>
                     <h4 className="text-sm sm:text-base font-bold text-slate-900 line-clamp-1">{content.story3Title || "Free Spectacles Distribution"}</h4>
