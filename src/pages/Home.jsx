@@ -9,7 +9,7 @@ const HOME_HERO_IMAGES = [
   { url: "/camps/shradnand_marg/shradnand_police_memento.jpg", alt: "79th Delhi Police Week Memento Presentation" },
   { url: "/camps/camp2/2nd Camp/E2-3.jpeg", alt: "Tandicia Volunteers and Community Activity" },
   { url: "/camps/gao_thora/gao_thora_1.jpg", alt: "Gao Thora Eye Camp Consultation" },
-  { url: "/sewa_rasoi/sewa_rasoi_3.jpg", alt: "Sewa Rasoi Food Service" },
+  { url: "/sewa_rasoi/sewa_rasoi_main.jpg", alt: "Sewa Rasoi Food Service" },
   { url: "/camps/camp3/3rd camp/E3-12.jpeg", alt: "Tandicia Community Camp Gathering" },
 ];
 
@@ -309,7 +309,7 @@ export default function Home() {
               <div className="bg-white rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-xl transition-all flex flex-col group">
                 <div className="relative h-48 sm:h-64 overflow-hidden bg-slate-100">
                   <img
-                    src="/sewa_rasoi/sewa_rasoi_3.jpg"
+                    src="/sewa_rasoi/sewa_rasoi_main.jpg"
                     alt="Sewa Rasoi Daily Food Distribution"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
