@@ -810,6 +810,60 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ========================================================
+            SECTION 7 — ON-GROUND VIDEO SPOTLIGHT
+            ======================================================== */}
+        <section className="py-14 sm:py-24 bg-slate-950 text-white relative overflow-hidden border-t border-slate-800">
+          {/* Ambient glow effects */}
+          <div className="absolute top-1/4 -left-32 w-96 h-96 bg-emerald-600/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-amber-600/15 rounded-full blur-3xl pointer-events-none" />
+
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-400/30 text-amber-400 text-[11px] sm:text-xs uppercase tracking-widest font-bold">
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                Live On-Ground Video
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white mt-3">
+                महिला सशक्तिकरण एवं स्वास्थ्य अभियान — श्रद्धानन्द मार्ग
+              </h2>
+              <p className="text-slate-400 text-xs sm:text-sm mt-2 sm:mt-3 leading-relaxed">
+                महिला पुलिस चौकी, दिल्ली पुलिस सेन्ट्रल जिला (श्रद्धानन्द मार्ग, अजमेरी गेट) • प्रोजेक्ट साहस एवं प्रोजेक्ट नव्या के तहत संवेदना, सहयोग और सशक्तिकरण का साझा प्रयास।
+              </p>
+            </div>
+
+            <div className="max-w-4xl mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-emerald-500/30 shadow-2xl bg-black group relative">
+              <div className="relative aspect-video bg-black overflow-hidden flex items-center justify-center">
+                <video
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="w-full h-full object-contain"
+                >
+                  <source src="/videos/shradnand_marg_special_video.mp4" type="video/mp4" />
+                  Your browser does not support video playback.
+                </video>
+              </div>
+              <div className="p-4 sm:p-6 bg-slate-900/90 border-t border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <span className="text-[11px] font-semibold text-emerald-400 uppercase tracking-wider block mb-0.5">
+                    Delhi Police Central District • Special Initiative
+                  </span>
+                  <p className="text-xs sm:text-sm text-slate-300 font-medium">
+                    Tandicia Association एवं दिल्ली पुलिस का संयुक्त स्वास्थ्य, विज़न एवं पुनर्वास जागरूकता सत्र
+                  </p>
+                </div>
+                <Link
+                  to="/eye-camps"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-emerald-700 hover:bg-emerald-600 text-white font-semibold text-xs transition-colors shrink-0 self-start sm:self-auto"
+                >
+                  <span>Explore All Camps</span>
+                  <span>→</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* ========================================================
             SECTION 8 — MEDIA
