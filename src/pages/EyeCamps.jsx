@@ -7,32 +7,46 @@ import { useContent } from "../utils/contentStore";
 
 const verifiedCamps = [
   {
-    id: "camp-upcoming-shakurpur-2026",
-    isUpcoming: true,
-    tag: "UPCOMING",
+    id: "camp-delhi-shakurpur",
+    isUpcoming: false,
+    tag: "Eye Camp",
     title: "Shakurpur Colony, New Delhi",
     name: "नि:शुल्क नेत्र जाँच शिविर — Shakurpur Colony (11-Oct-2026)",
     year: "2026",
     location: "ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली, दिल्ली-110034",
-    date: "11 अक्टूबर 2026 (रविवार) • सुबह 10:00 से दोपहर 2:00 बजे तक",
-    peopleServed: "Free Registration Open",
-    supportSummary: "टेंडिशिया एसोसिएशन एवं सेवा भारती द्वारा आयोजित — निःशुल्क नेत्र जाँच, अनुभवी डॉक्टरों का परामर्श एवं नज़र के चश्में भी मुफ्त दिए जाएंगे।",
-    image: "/shakurpur-eye-camp-banner.jpg",
-    video: null,
+    date: "11 अक्टूबर 2026 (रविवार)",
+    peopleServed: "Verified On-Site Records",
+    supportSummary: "टेंडिशिया एसोसिएशन एवं सेवा भारती द्वारा आयोजित — निःशुल्क नेत्र जाँच, अनुभवी डॉक्टरों का परामर्श एवं नज़र के चश्में वितरण।",
+    image: "/camps/shakurpur/shakurpur_1.jpg",
+    video: "/camps/shakurpur/shakurpur_video_1.mp4",
+    videos: [
+      "/camps/shakurpur/shakurpur_video_1.mp4",
+      "/camps/shakurpur/shakurpur_video_2.mp4",
+      "/camps/shakurpur/shakurpur_video_3.mp4",
+      "/camps/shakurpur/shakurpur_video_4.mp4",
+      "/camps/shakurpur/shakurpur_video_5.mp4",
+      "/camps/shakurpur/shakurpur_video_6.mp4",
+      "/camps/shakurpur/shakurpur_video_7.mp4",
+      "/camps/shakurpur/shakurpur_video_8.mp4",
+      "/camps/shakurpur/shakurpur_video_9.mp4",
+      "/camps/shakurpur/shakurpur_video_10.mp4",
+      "/camps/shakurpur/shakurpur_video_11.mp4"
+    ],
     objective: "ब्लॉक G, शकूरपुर कॉलोनी एवं आसपास के क्षेत्रों के नागरिकों के लिए आँखों की संपूर्ण जाँच, कंप्यूटराइज्ड नंबर टेस्टिंग, वरिष्ठ डॉक्टरों का परामर्श एवं निःशुल्क चश्मा वितरण शिविर।",
     medicalTeam: "Certified Ophthalmologists, Senior Eye Surgeons & Specialist Optometrists",
     volunteers: "Tandicia Association Volunteers & Seva Bharti Field Coordinators",
     eventsList: [
       { name: "नि:शुल्क नेत्र जाँच (Free Diagnostics)", desc: "कंप्यूटराइज्ड मशीन द्वारा आँखों की संपूर्ण जाँच एवं नंबर टेस्टिंग।" },
       { name: "वरिष्ठ नेत्र विशेषज्ञ परामर्श (Doctor Consultation)", desc: "मोतियाबिंद, ग्लूकोमा एवं दृष्टि समस्याओं पर अनुभवी नेत्र डॉक्टरों की सलाह।" },
-      { name: "नज़र के चश्में मुफ्त वितरण (Free Spectacles)", desc: "जाँच के बाद ज़रूरतमंदों को नज़र के चश्में पूरी तरह मुफ्त उपलब्ध कराए जाएंगे।" },
+      { name: "नज़र के चश्में मुफ्त वितरण (Free Spectacles)", desc: "जाँच के बाद ज़रूरतमंदों को नज़र के चश्में पूरी तरह मुफ्त उपलब्ध कराए गए।" },
       { name: "निःशुल्क आई ड्रॉप्स एवं दवाइयाँ (Free Eye Drops)", desc: "डॉक्टर द्वारा सुझाई गई आवश्यक आई ड्रॉप्स एवं दवाइयों का निःशुल्क वितरण।" }
     ],
     servicesProvided: "Computerized eye refraction, specialist doctor consultations, free prescription spectacles, free eye drops.",
-    spectaclesDistributed: "नज़र के चश्में भी मुफ्त दिए जाएंगे — Free precision corrective glasses.",
+    spectaclesDistributed: "नज़र के चश्में भी मुफ्त दिए गए — Free precision corrective glasses.",
     referrals: "Cataract surgery linkages & partner hospital referrals.",
-    mediaCoverage: "Official Public Camp Notice — Tandicia Association & Seva Bharti.",
+    mediaCoverage: "Documented in live Tandicia field register with verified photography & 11 on-ground video records.",
     gallery: [
+      "/camps/shakurpur/shakurpur_1.jpg",
       "/shakurpur-eye-camp-banner.jpg"
     ]
   },
@@ -309,10 +323,16 @@ export default function EyeCamps() {
   const content = useContent();
   const [filter, setFilter] = useState("All");
   const [selectedCamp, setSelectedCamp] = useState(null);
+  const [activeCampVideo, setActiveCampVideo] = useState(null);
   const [selectedPoster, setSelectedPoster] = useState(null);
   const [customCampPhotos, setCustomCampPhotos] = useState(() => 
     getCustomPhotos().filter(p => p.category === "Eye Camps")
   );
+
+  const handleOpenCamp = (camp) => {
+    setSelectedCamp(camp);
+    setActiveCampVideo(camp?.video || null);
+  };
 
   useEffect(() => {
     const handleUpdate = () => {
@@ -509,38 +529,34 @@ export default function EyeCamps() {
               </div>
             </div>
 
-            {/* UPCOMING CAMP HERO SPOTLIGHT CARD */}
+            {/* RECENT COMPLETED CAMP HERO SPOTLIGHT CARD */}
             <div className="mb-14 rounded-3xl bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-900 text-white p-6 sm:p-10 border-2 border-emerald-500/50 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-                {/* Banner Image Preview */}
+                {/* Live Video Player Preview */}
                 <div className="lg:col-span-6">
-                  <div 
-                    onClick={() => setSelectedCamp(dynamicVerifiedCamps[0])}
-                    className="relative rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-2xl group cursor-pointer bg-slate-900"
-                  >
-                    <img
-                      src="/shakurpur-eye-camp-banner.jpg"
-                      alt="Upcoming Free Eye Screening Camp Banner - Shakurpur 11-Oct-2026"
-                      className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors" />
-                    <div className="absolute bottom-3 right-3 bg-slate-950/90 text-white text-xs font-semibold px-3 py-1.5 rounded-full backdrop-blur-md flex items-center gap-1.5 shadow-md">
-                      <span>🔍</span>
-                      <span>Click to view full poster</span>
-                    </div>
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-2xl bg-black aspect-video flex items-center justify-center">
+                    <video
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-contain"
+                    >
+                      <source src="/camps/shakurpur/shakurpur_video_1.mp4" type="video/mp4" />
+                      Your browser does not support video playback.
+                    </video>
                   </div>
                 </div>
 
                 {/* Details */}
                 <div className="lg:col-span-6 space-y-4">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-extrabold uppercase tracking-widest">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" />
-                    <span>★ UPCOMING EYE CAMP</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                    <span>✓ सपंन्न शिविर • 11-OCT-2026</span>
                   </div>
 
                   <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
-                    नि:शुल्क नेत्र जाँच शिविर
+                    नि:शुल्क नेत्र जाँच शिविर — शकूरपुर
                   </h3>
                   <p className="text-amber-300 font-serif text-lg font-medium">
                     Shakurpur Colony, New Delhi • 11-Oct-2026
@@ -551,14 +567,7 @@ export default function EyeCamps() {
                       <span className="text-amber-400 font-bold text-base">📅</span>
                       <div>
                         <span className="font-bold text-white">दिनांक (Date):</span>{" "}
-                        <span className="text-slate-200">11 अक्टूबर 2026 (रविवार / Sunday)</span>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <span className="text-sky-400 font-bold text-base">⏰</span>
-                      <div>
-                        <span className="font-bold text-white">समय (Time):</span>{" "}
-                        <span className="text-slate-200">सुबह 10:00 बजे से दोपहर 2:00 बजे तक</span>
+                        <span className="text-slate-200">11 अक्टूबर 2026 (सफलतापूर्वक संपन्न)</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-2.5">
@@ -569,28 +578,22 @@ export default function EyeCamps() {
                       </div>
                     </div>
                     <div className="flex items-start gap-2.5 pt-1 border-t border-slate-800 mt-2">
-                      <span className="text-emerald-400 font-bold text-base">👓</span>
+                      <span className="text-emerald-400 font-bold text-base">🎬</span>
                       <div>
-                        <span className="font-bold text-amber-300">विशेष:</span>{" "}
-                        <span className="text-amber-200 font-medium">नज़र के चश्में भी मुफ्त दिए जाएंगे</span>
+                        <span className="font-bold text-amber-300">वीडियो रिकॉर्ड्स:</span>{" "}
+                        <span className="text-amber-200 font-medium">11 ऑन-ग्राउंड लाइव वीडियो उपलब्ध हैं</span>
                       </div>
                     </div>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3 pt-2">
                     <button
-                      onClick={() => setSelectedCamp(dynamicVerifiedCamps[0])}
+                      onClick={() => handleOpenCamp(dynamicVerifiedCamps[0])}
                       className="px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg flex items-center gap-2 cursor-pointer"
                     >
-                      <span>Explore Camp Details</span>
+                      <span>Watch All 11 Videos & Report</span>
                       <span>→</span>
                     </button>
-                    <Link
-                      to="/contact?interest=Camp-Volunteer"
-                      className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white border border-white/20 font-semibold text-xs transition-all"
-                    >
-                      Volunteer for Shakurpur Camp
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -666,10 +669,10 @@ export default function EyeCamps() {
                       {/* Card Button */}
                       <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
                         <span className="text-xs font-semibold text-slate-500">
-                          {camp.gallery ? `${camp.gallery.length} Photos` : "Photos Included"}
+                          {camp.videos ? `${camp.videos.length} Videos` : (camp.gallery ? `${camp.gallery.length} Photos` : "Photos Included")}
                         </span>
                         <button
-                          onClick={() => setSelectedCamp(camp)}
+                          onClick={() => handleOpenCamp(camp)}
                           className="px-4 py-2 rounded-xl bg-slate-900 hover:bg-emerald-700 text-white text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
                         >
                           <span>Explore Camp Details</span>
@@ -846,18 +849,55 @@ export default function EyeCamps() {
 
               {/* Video Player if available */}
               {selectedCamp.video && (
-                <div className="p-4 rounded-2xl bg-slate-900 text-white space-y-2">
-                  <div className="flex items-center gap-2 text-xs font-bold text-amber-300">
-                    <span>🎬</span>
-                    <span>Live On-Ground Video Record</span>
+                <div className="p-4 sm:p-5 rounded-2xl bg-slate-900 text-white space-y-3">
+                  <div className="flex items-center justify-between text-xs font-bold text-amber-300">
+                    <span className="flex items-center gap-2">
+                      <span>🎬</span>
+                      <span>Live On-Ground Video Record</span>
+                    </span>
+                    {selectedCamp.videos && selectedCamp.videos.length > 1 && (
+                      <span className="text-[11px] text-emerald-400 font-semibold bg-emerald-950/80 px-2.5 py-0.5 rounded border border-emerald-500/30">
+                        {selectedCamp.videos.length} Videos Available
+                      </span>
+                    )}
                   </div>
                   <video
+                    key={activeCampVideo || selectedCamp.video}
                     controls
-                    className="w-full rounded-xl max-h-72 bg-black"
-                    src={selectedCamp.video}
+                    playsInline
+                    className="w-full rounded-xl max-h-80 bg-black aspect-video object-contain"
+                    src={activeCampVideo || selectedCamp.video}
                   >
                     Your browser does not support video playback.
                   </video>
+
+                  {/* Video playlist chips if multiple videos */}
+                  {selectedCamp.videos && selectedCamp.videos.length > 1 && (
+                    <div className="pt-2 border-t border-slate-800">
+                      <span className="text-[11px] text-slate-400 font-semibold block mb-2">
+                        Select Video to Play:
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {selectedCamp.videos.map((vid, idx) => {
+                          const isCurrent = (activeCampVideo || selectedCamp.video) === vid;
+                          return (
+                            <button
+                              key={idx}
+                              type="button"
+                              onClick={() => setActiveCampVideo(vid)}
+                              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer ${
+                                isCurrent
+                                  ? "bg-amber-400 text-slate-950 shadow-md scale-105"
+                                  : "bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700"
+                              }`}
+                            >
+                              <span>▶ Part {idx + 1}</span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
             </div>
