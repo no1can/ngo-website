@@ -19,6 +19,20 @@ const verifiedCamps = [
     supportSummary: "टेंडिशिया एसोसिएशन एवं सेवा भारती दिल्ली द्वारा आयोजित — 300+ निःशुल्क नेत्र जाँच व चश्मा वितरण, NTEP सहयोग से 76 बुजुर्गों का TB एक्स-रे, ब्लड शुगर परीक्षण, स्त्री रोग (गायनी) व सामान्य चिकित्सा परामर्श तथा सेवा रसोई (भण्डारा)।",
     image: "/camps/haiderpur/haiderpur_team_gps.jpg",
     bannerImage: "/camps/haiderpur/haiderpur_banner.jpg",
+    video: "/camps/haiderpur/haiderpur_video_1.mp4",
+    videos: [
+      "/camps/haiderpur/haiderpur_video_1.mp4",
+      "/camps/haiderpur/haiderpur_video_2.mp4",
+      "/camps/haiderpur/haiderpur_video_3.mp4",
+      "/camps/haiderpur/haiderpur_video_4.mp4",
+      "/camps/haiderpur/haiderpur_video_5.mp4",
+      "/camps/haiderpur/haiderpur_video_6.mp4",
+      "/camps/haiderpur/haiderpur_video_7.mp4",
+      "/camps/haiderpur/haiderpur_video_8.mp4",
+      "/camps/haiderpur/haiderpur_video_9.mp4",
+      "/camps/haiderpur/haiderpur_video_10.mp4",
+      "/camps/haiderpur/haiderpur_video_11.mp4"
+    ],
     objective: "विष्णु बाल निकेतन, सेवा भारती केंद्र (नेहरू कैंप, हैदरपुर) में समाज के वंचित वर्ग, बुजुर्गों एवं स्थानीय परिवारों के लिए व्यापक नेत्र जाँच, निःशुल्क चश्मा वितरण, NTEP पोर्टेबल एक्स-रे द्वारा टीबी स्क्रीनिंग, ब्लड शुगर जाँच, गायनी व फिजिशियन डॉक्टर परामर्श एवं सम्मानपूर्वक गर्म भोजन (भंडारा) की संपूर्ण व्यवस्था।",
     medicalTeam: "वरिष्ठ नेत्र रोग विशेषज्ञ व ऑप्टोमेट्रिस्ट, स्त्री रोग विशेषज्ञ (Gynaecologist), सामान्य चिकित्सक (General Physician) एवं National TB Elimination Programme (NTEP) मोबाइल मेडिकल टीम",
     volunteers: "40+ Tandicia Association Core Field Volunteers & Seva Bharti Coordinators",
@@ -33,9 +47,10 @@ const verifiedCamps = [
     servicesProvided: "Comprehensive eye refraction, free prescription spectacles, NTEP portable X-ray TB screening, blood sugar testing, gynaecology consultation, physician consultation, community langar.",
     spectaclesDistributed: "300+ जाँच के उपरांत जरूरतमंदों को उच्च गुणवत्ता वाले नज़र के चश्में पूरी तरह मुफ्त उपलब्ध कराए गए।",
     referrals: "Hospital linkages for advanced cataract cases and NTEP senior citizen clinical follow-ups.",
-    mediaCoverage: "Documented in live Tandicia field register with verified GPS camera photography (Ambedkar Nagar Marg, Haiderpur, Lat 28.727648, Long 77.148736).",
+    mediaCoverage: "Documented in live Tandicia field register with verified GPS camera photography & 11 on-ground video records.",
     gallery: [
       "/camps/haiderpur/haiderpur_team_gps.jpg",
+      "/camps/haiderpur/haiderpur_queue_gps.jpg",
       "/camps/haiderpur/haiderpur_banner.jpg"
     ]
   },
@@ -361,7 +376,7 @@ export default function EyeCamps() {
   const [customCampPhotos, setCustomCampPhotos] = useState(() => 
     getCustomPhotos().filter(p => p.category === "Eye Camps")
   );
-  const [haiderpurMediaTab, setHaiderpurMediaTab] = useState("gps");
+  const [haiderpurMediaTab, setHaiderpurMediaTab] = useState("video");
 
   const handleOpenCamp = (camp) => {
     setSelectedCamp(camp);
@@ -570,44 +585,90 @@ export default function EyeCamps() {
                 {/* Visual Preview */}
                 <div className="lg:col-span-6 space-y-3">
                   <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-2xl bg-black aspect-video flex items-center justify-center group">
-                    <img
-                      src={haiderpurMediaTab === "banner" ? "/camps/haiderpur/haiderpur_banner.jpg" : "/camps/haiderpur/haiderpur_team_gps.jpg"}
-                      alt="Haiderpur Health & Eye Camp"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {haiderpurMediaTab === "video" ? (
+                      <video
+                        controls
+                        playsInline
+                        preload="metadata"
+                        key="haiderpur-spotlight-video"
+                        className="w-full h-full object-contain"
+                      >
+                        <source src="/camps/haiderpur/haiderpur_video_1.mp4" type="video/mp4" />
+                        Your browser does not support video playback.
+                      </video>
+                    ) : (
+                      <img
+                        src={
+                          haiderpurMediaTab === "banner"
+                            ? "/camps/haiderpur/haiderpur_banner.jpg"
+                            : haiderpurMediaTab === "queue"
+                            ? "/camps/haiderpur/haiderpur_queue_gps.jpg"
+                            : "/camps/haiderpur/haiderpur_team_gps.jpg"
+                        }
+                        alt="Haiderpur Health & Eye Camp"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    )}
                     <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md px-3 py-1 rounded-full border border-emerald-400/40 text-[11px] font-semibold text-emerald-300 flex items-center gap-1.5 shadow-lg">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                      <span>{haiderpurMediaTab === "banner" ? "Official Event Banner" : "📍 GPS Map Verified Record"}</span>
+                      <span>
+                        {haiderpurMediaTab === "video"
+                          ? "🎬 On-Ground Video Record (1 of 11)"
+                          : haiderpurMediaTab === "banner"
+                          ? "Official Event Banner"
+                          : haiderpurMediaTab === "queue"
+                          ? "📍 GPS Patient Queue (10:48 AM)"
+                          : "📍 GPS Team Photo (03:33 PM)"}
+                      </span>
                     </div>
                   </div>
 
                   {/* Switcher Buttons */}
-                  <div className="flex items-center gap-2 pt-1">
+                  <div className="flex flex-wrap items-center gap-1.5 pt-1">
                     <button
                       type="button"
-                      onClick={() => setHaiderpurMediaTab("gps")}
-                      className={`text-xs px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
-                        haiderpurMediaTab === "gps"
+                      onClick={() => setHaiderpurMediaTab("video")}
+                      className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1 ${
+                        haiderpurMediaTab === "video"
                           ? "bg-emerald-600 text-white shadow-sm ring-1 ring-emerald-400/50"
                           : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                       }`}
                     >
-                      <span>📍 GPS Team Photo</span>
+                      <span>🎬 11 Live Videos</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setHaiderpurMediaTab("team")}
+                      className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1 ${
+                        haiderpurMediaTab === "team"
+                          ? "bg-emerald-600 text-white shadow-sm ring-1 ring-emerald-400/50"
+                          : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                      }`}
+                    >
+                      <span>📍 Team Photo</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setHaiderpurMediaTab("queue")}
+                      className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1 ${
+                        haiderpurMediaTab === "queue"
+                          ? "bg-emerald-600 text-white shadow-sm ring-1 ring-emerald-400/50"
+                          : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                      }`}
+                    >
+                      <span>👥 Patient Queue</span>
                     </button>
                     <button
                       type="button"
                       onClick={() => setHaiderpurMediaTab("banner")}
-                      className={`text-xs px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+                      className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1 ${
                         haiderpurMediaTab === "banner"
                           ? "bg-emerald-600 text-white shadow-sm ring-1 ring-emerald-400/50"
                           : "bg-slate-800 text-slate-300 hover:bg-slate-700"
                       }`}
                     >
-                      <span>📋 Event Banner</span>
+                      <span>📋 Banner</span>
                     </button>
-                    <span className="text-[11px] text-slate-400 ml-auto hidden sm:inline font-mono">
-                      Sunday, 22-Nov-2026
-                    </span>
                   </div>
                 </div>
 
@@ -661,6 +722,13 @@ export default function EyeCamps() {
                         <span className="text-slate-200">स्त्री रोग व सामान्य चिकित्सक, 40+ स्वयंसेवक और सैकड़ों लोगों हेतु सेवा रसोई (भण्डारा)</span>
                       </div>
                     </div>
+                    <div className="flex items-start gap-2.5 pt-1 border-t border-slate-800">
+                      <span className="text-emerald-400 font-bold text-base">🎬</span>
+                      <div>
+                        <span className="font-bold text-amber-300">वीडियो रिकॉर्ड्स:</span>{" "}
+                        <span className="text-amber-200 font-medium">11 ऑन-ग्राउंड लाइव वीडियो उपलब्ध हैं</span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -668,7 +736,7 @@ export default function EyeCamps() {
                       onClick={() => handleOpenCamp(dynamicVerifiedCamps[0])}
                       className="px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg flex items-center gap-2 cursor-pointer"
                     >
-                      <span>Explore Camp Report & Photos</span>
+                      <span>Watch All 11 Videos & Report</span>
                       <span>→</span>
                     </button>
                     {dynamicVerifiedCamps[1] && (
