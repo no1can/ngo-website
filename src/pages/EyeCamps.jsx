@@ -7,6 +7,39 @@ import { useContent } from "../utils/contentStore";
 
 const verifiedCamps = [
   {
+    id: "camp-delhi-haiderpur",
+    isUpcoming: false,
+    tag: "Health & Eye Camp",
+    title: "Haiderpur, Shalimar Bagh, New Delhi",
+    name: "नि:शुल्क स्वास्थ्य एवं नेत्र जाँच शिविर — Haiderpur (22-Nov-2026)",
+    year: "2026",
+    location: "विष्णु बाल निकेतन, सेवा भारती केंद्र, नेहरू कैंप, हैदरपुर, शालीमार बाग, नई दिल्ली, दिल्ली-110088",
+    date: "22 नवंबर 2026 (रविवार)",
+    peopleServed: "300+ Verified On-Site Records",
+    supportSummary: "टेंडिशिया एसोसिएशन एवं सेवा भारती दिल्ली द्वारा आयोजित — 300+ निःशुल्क नेत्र जाँच व चश्मा वितरण, NTEP सहयोग से 76 बुजुर्गों का TB एक्स-रे, ब्लड शुगर परीक्षण, स्त्री रोग (गायनी) व सामान्य चिकित्सा परामर्श तथा सेवा रसोई (भण्डारा)।",
+    image: "/camps/haiderpur/haiderpur_team_gps.jpg",
+    bannerImage: "/camps/haiderpur/haiderpur_banner.jpg",
+    objective: "विष्णु बाल निकेतन, सेवा भारती केंद्र (नेहरू कैंप, हैदरपुर) में समाज के वंचित वर्ग, बुजुर्गों एवं स्थानीय परिवारों के लिए व्यापक नेत्र जाँच, निःशुल्क चश्मा वितरण, NTEP पोर्टेबल एक्स-रे द्वारा टीबी स्क्रीनिंग, ब्लड शुगर जाँच, गायनी व फिजिशियन डॉक्टर परामर्श एवं सम्मानपूर्वक गर्म भोजन (भंडारा) की संपूर्ण व्यवस्था।",
+    medicalTeam: "वरिष्ठ नेत्र रोग विशेषज्ञ व ऑप्टोमेट्रिस्ट, स्त्री रोग विशेषज्ञ (Gynaecologist), सामान्य चिकित्सक (General Physician) एवं National TB Elimination Programme (NTEP) मोबाइल मेडिकल टीम",
+    volunteers: "40+ Tandicia Association Core Field Volunteers & Seva Bharti Coordinators",
+    eventsList: [
+      { name: "300+ निःशुल्क नेत्र जाँच एवं चश्मा वितरण", desc: "आँखों की संपूर्ण जाँच, नंबर टेस्टिंग तथा जरूरतमंदों को निःशुल्क चश्मे वितरित किए गए।" },
+      { name: "NTEP पोर्टेबल एक्स-रे टीबी स्क्रीनिंग (76 वरिष्ठ नागरिक)", desc: "National TB Elimination Programme के सहयोग से पोर्टेबल एक्स-रे मशीन द्वारा 60 वर्ष से अधिक आयु के 76 बुजुर्गों की टीबी संबंधी स्क्रीनिंग एवं चिकित्सकीय परामर्श।" },
+      { name: "निःशुल्क ब्लड शुगर जाँच (Blood Sugar Testing)", desc: "डायबिटीज एवं ब्लड शुगर स्तर की मौके पर निःशुल्क जाँच एवं जीवनशैली संबंधी परामर्श।" },
+      { name: "स्त्री रोग (गायनी) एवं फिजिशियन परामर्श", desc: "महिला स्वास्थ्य एवं सामान्य चिकित्सा के अनुभवी डॉक्टरों द्वारा निःशुल्क वन-ऑन-वन क्लीनिकल परामर्श।" },
+      { name: "सेवा रसोई — भण्डारा (लंगर)", desc: "सैकड़ों लोगों को प्रेम, श्रद्धा और सम्मान के साथ तृप्त एवं पौष्टिक गर्म भोजन कराया गया।" },
+      { name: "40+ स्वयंसेवकों का सेवा समर्पण", desc: "टेंडिशिया एवं सेवा भारती के 40 से अधिक स्वयंसेवकों ने संगठित होकर शिविर का सफल संचालन किया।" }
+    ],
+    servicesProvided: "Comprehensive eye refraction, free prescription spectacles, NTEP portable X-ray TB screening, blood sugar testing, gynaecology consultation, physician consultation, community langar.",
+    spectaclesDistributed: "300+ जाँच के उपरांत जरूरतमंदों को उच्च गुणवत्ता वाले नज़र के चश्में पूरी तरह मुफ्त उपलब्ध कराए गए।",
+    referrals: "Hospital linkages for advanced cataract cases and NTEP senior citizen clinical follow-ups.",
+    mediaCoverage: "Documented in live Tandicia field register with verified GPS camera photography (Ambedkar Nagar Marg, Haiderpur, Lat 28.727648, Long 77.148736).",
+    gallery: [
+      "/camps/haiderpur/haiderpur_team_gps.jpg",
+      "/camps/haiderpur/haiderpur_banner.jpg"
+    ]
+  },
+  {
     id: "camp-delhi-shakurpur",
     isUpcoming: false,
     tag: "Eye Camp",
@@ -328,6 +361,7 @@ export default function EyeCamps() {
   const [customCampPhotos, setCustomCampPhotos] = useState(() => 
     getCustomPhotos().filter(p => p.category === "Eye Camps")
   );
+  const [haiderpurMediaTab, setHaiderpurMediaTab] = useState("gps");
 
   const handleOpenCamp = (camp) => {
     setSelectedCamp(camp);
@@ -462,7 +496,7 @@ export default function EyeCamps() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-amber-400 font-mono block">
-                  {content.stat2Number || "15+"}
+                  {content.stat2Number || "16+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Camps Conducted
@@ -470,7 +504,7 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-emerald-400 font-mono block">
-                  {content.stat1Number || "6,950+"}
+                  {content.stat1Number || "7,250+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   People Screened
@@ -478,7 +512,7 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-sky-400 font-mono block">
-                  {content.stat3Number || "4,713+"}
+                  {content.stat3Number || "4,950+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Spectacles Distributed
@@ -486,7 +520,7 @@ export default function EyeCamps() {
               </div>
               <div>
                 <span className="text-3xl sm:text-4xl font-extrabold text-rose-400 font-mono block">
-                  {content.stat4Number || "169+"}
+                  {content.stat4Number || "210+"}
                 </span>
                 <span className="text-xs sm:text-sm text-slate-200 uppercase tracking-wider font-semibold mt-1 block">
                   Volunteers & Doctors
@@ -533,18 +567,47 @@ export default function EyeCamps() {
             <div className="mb-14 rounded-3xl bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-900 text-white p-6 sm:p-10 border-2 border-emerald-500/50 shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-                {/* Live Video Player Preview */}
-                <div className="lg:col-span-6">
-                  <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-2xl bg-black aspect-video flex items-center justify-center">
-                    <video
-                      controls
-                      playsInline
-                      preload="metadata"
-                      className="w-full h-full object-contain"
+                {/* Visual Preview */}
+                <div className="lg:col-span-6 space-y-3">
+                  <div className="relative rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-2xl bg-black aspect-video flex items-center justify-center group">
+                    <img
+                      src={haiderpurMediaTab === "banner" ? "/camps/haiderpur/haiderpur_banner.jpg" : "/camps/haiderpur/haiderpur_team_gps.jpg"}
+                      alt="Haiderpur Health & Eye Camp"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute top-3 left-3 bg-slate-950/85 backdrop-blur-md px-3 py-1 rounded-full border border-emerald-400/40 text-[11px] font-semibold text-emerald-300 flex items-center gap-1.5 shadow-lg">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>{haiderpurMediaTab === "banner" ? "Official Event Banner" : "📍 GPS Map Verified Record"}</span>
+                    </div>
+                  </div>
+
+                  {/* Switcher Buttons */}
+                  <div className="flex items-center gap-2 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => setHaiderpurMediaTab("gps")}
+                      className={`text-xs px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+                        haiderpurMediaTab === "gps"
+                          ? "bg-emerald-600 text-white shadow-sm ring-1 ring-emerald-400/50"
+                          : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                      }`}
                     >
-                      <source src="/camps/shakurpur/shakurpur_video_1.mp4" type="video/mp4" />
-                      Your browser does not support video playback.
-                    </video>
+                      <span>📍 GPS Team Photo</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setHaiderpurMediaTab("banner")}
+                      className={`text-xs px-3.5 py-1.5 rounded-lg font-semibold transition-all cursor-pointer flex items-center gap-1.5 ${
+                        haiderpurMediaTab === "banner"
+                          ? "bg-emerald-600 text-white shadow-sm ring-1 ring-emerald-400/50"
+                          : "bg-slate-800 text-slate-300 hover:bg-slate-700"
+                      }`}
+                    >
+                      <span>📋 Event Banner</span>
+                    </button>
+                    <span className="text-[11px] text-slate-400 ml-auto hidden sm:inline font-mono">
+                      Sunday, 22-Nov-2026
+                    </span>
                   </div>
                 </div>
 
@@ -552,36 +615,50 @@ export default function EyeCamps() {
                 <div className="lg:col-span-6 space-y-4">
                   <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-xs font-extrabold uppercase tracking-widest">
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-                    <span>✓ सपंन्न शिविर • 11-OCT-2026</span>
+                    <span>✓ संपन्न स्वास्थ्य एवं नेत्र शिविर • 22-NOV-2026</span>
                   </div>
 
-                  <h3 className="text-2xl sm:text-4xl font-black text-white leading-tight">
-                    नि:शुल्क नेत्र जाँच शिविर — शकूरपुर
+                  <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-white leading-tight">
+                    नि:शुल्क स्वास्थ्य एवं नेत्र जाँच शिविर — हैदरपुर
                   </h3>
-                  <p className="text-amber-300 font-serif text-lg font-medium">
-                    Shakurpur Colony, New Delhi • 11-Oct-2026
+                  <p className="text-amber-300 font-serif text-base sm:text-lg font-medium">
+                    Vishnu Bal Niketan, Sewa Bharti Centre, Nehru Camp, Haiderpur
                   </p>
 
-                  <div className="space-y-2 text-xs sm:text-sm text-slate-200 bg-slate-900/70 p-4 sm:p-5 rounded-2xl border border-slate-800">
+                  <div className="space-y-2.5 text-xs sm:text-sm text-slate-200 bg-slate-900/70 p-4 sm:p-5 rounded-2xl border border-slate-800">
                     <div className="flex items-start gap-2.5">
                       <span className="text-amber-400 font-bold text-base">📅</span>
                       <div>
                         <span className="font-bold text-white">दिनांक (Date):</span>{" "}
-                        <span className="text-slate-200">11 अक्टूबर 2026 (सफलतापूर्वक संपन्न)</span>
+                        <span className="text-slate-200">22 नवंबर 2026 (रविवार) • सुबह 10 बजे से दोपहर 2 बजे</span>
                       </div>
                     </div>
                     <div className="flex items-start gap-2.5">
                       <span className="text-rose-400 font-bold text-base">📍</span>
                       <div>
                         <span className="font-bold text-white">स्थान (Location):</span>{" "}
-                        <span className="text-slate-200">ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली, दिल्ली-110034</span>
+                        <span className="text-slate-200">विष्णु बाल निकेतन, सेवा भारती केंद्र, नेहरू कैंप, हैदरपुर, दिल्ली-110088</span>
                       </div>
                     </div>
-                    <div className="flex items-start gap-2.5 pt-1 border-t border-slate-800 mt-2">
-                      <span className="text-emerald-400 font-bold text-base">🎬</span>
+                    <div className="flex items-start gap-2.5 pt-1 border-t border-slate-800">
+                      <span className="text-emerald-400 font-bold text-base">👁️</span>
                       <div>
-                        <span className="font-bold text-amber-300">वीडियो रिकॉर्ड्स:</span>{" "}
-                        <span className="text-amber-200 font-medium">11 ऑन-ग्राउंड लाइव वीडियो उपलब्ध हैं</span>
+                        <span className="font-bold text-emerald-300">300+ नेत्र जाँच व चश्मा वितरण:</span>{" "}
+                        <span className="text-slate-200">निःशुल्क आँखों की जाँच, नंबर टेस्टिंग, मुफ्त चश्में एवं ब्लड शुगर परीक्षण</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5 pt-1 border-t border-slate-800">
+                      <span className="text-sky-400 font-bold text-base">🩻</span>
+                      <div>
+                        <span className="font-bold text-sky-300">NTEP टीबी स्क्रीनिंग:</span>{" "}
+                        <span className="text-slate-200">पोर्टेबल एक्स-रे द्वारा 60+ आयु के 76 बुजुर्गों की स्क्रीनिंग व डॉक्टरी सलाह</span>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-2.5 pt-1 border-t border-slate-800">
+                      <span className="text-amber-400 font-bold text-base">🍲</span>
+                      <div>
+                        <span className="font-bold text-amber-300">विशेषज्ञ परामर्श एवं लंगर:</span>{" "}
+                        <span className="text-slate-200">स्त्री रोग व सामान्य चिकित्सक, 40+ स्वयंसेवक और सैकड़ों लोगों हेतु सेवा रसोई (भण्डारा)</span>
                       </div>
                     </div>
                   </div>
@@ -591,9 +668,17 @@ export default function EyeCamps() {
                       onClick={() => handleOpenCamp(dynamicVerifiedCamps[0])}
                       className="px-6 py-3 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-lg flex items-center gap-2 cursor-pointer"
                     >
-                      <span>Watch All 11 Videos & Report</span>
+                      <span>Explore Camp Report & Photos</span>
                       <span>→</span>
                     </button>
+                    {dynamicVerifiedCamps[1] && (
+                      <button
+                        onClick={() => handleOpenCamp(dynamicVerifiedCamps[1])}
+                        className="px-5 py-3 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold text-xs uppercase tracking-wider transition-all border border-slate-700 flex items-center gap-2 cursor-pointer"
+                      >
+                        <span>🎬 Shakurpur 11-Video Archive</span>
+                      </button>
+                    )}
                   </div>
                 </div>
               </div>

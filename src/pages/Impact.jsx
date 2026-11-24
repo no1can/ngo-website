@@ -7,10 +7,10 @@ export default function Impact() {
   const content = useContent();
 
   const verifiedStats = [
-    { label: content.stat2Label || "Eye Camps", value: content.stat2Number || "15+", desc: "Full-day clinical diagnostic screening camps", color: "text-emerald-400" },
-    { label: content.stat1Label || "People Screened", value: content.stat1Number || "6,950+", desc: "Direct beneficiaries examined & verified", color: "text-amber-400" },
-    { label: content.stat3Label || "Spectacles Distributed", value: content.stat3Number || "4,713+", desc: "Free prescription corrective eyeglasses", color: "text-sky-400" },
-    { label: content.stat4Label || "Volunteers & Doctors", value: content.stat4Number || "169+", desc: "Dedicated ophthalmologists, specialists & field team", color: "text-rose-400" }
+    { label: content.stat2Label || "Eye Camps", value: content.stat2Number || "16+", desc: "Full-day clinical diagnostic screening camps", color: "text-emerald-400" },
+    { label: content.stat1Label || "People Screened", value: content.stat1Number || "7,250+", desc: "Direct beneficiaries examined & verified", color: "text-amber-400" },
+    { label: content.stat3Label || "Spectacles Distributed", value: content.stat3Number || "4,950+", desc: "Free prescription corrective eyeglasses", color: "text-sky-400" },
+    { label: content.stat4Label || "Volunteers & Doctors", value: content.stat4Number || "210+", desc: "Dedicated ophthalmologists, specialists & field team", color: "text-rose-400" }
   ];
 
   const programmes = [

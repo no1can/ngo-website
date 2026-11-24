@@ -48,6 +48,16 @@ const AWARENESS_POSTERS = [
 
 const EYE_CAMP_FEATURE_SLIDES = [
   {
+    image: "/camps/haiderpur/haiderpur_team_gps.jpg",
+    alt: "Tandicia Association & Seva Bharti team at Haiderpur Health & Eye Camp",
+    caption: "GPS-verified camp organization at Vishnu Bal Niketan, Haiderpur (22-Nov-2026)",
+  },
+  {
+    image: "/camps/haiderpur/haiderpur_banner.jpg",
+    alt: "Official Banner of Haiderpur Health & Eye Camp",
+    caption: "300+ Eye checkups, free spectacles, NTEP TB screening & Bhandara",
+  },
+  {
     image: "/camps/shakurpur/shakurpur_1.jpg",
     alt: "Doctor consultation and eye examination at Shakurpur Colony Camp",
     caption: "On-site eye examination & diagnostic checkup at Shakurpur Colony",
@@ -668,45 +678,45 @@ export default function Home() {
 
             </div>
 
-            {/* COMPLETED CAMP BANNER & VIDEO SPOTLIGHT */}
+            {/* COMPLETED CAMP BANNER & SPOTLIGHT */}
             <div className="mb-10 sm:mb-14 rounded-3xl bg-gradient-to-br from-slate-950 via-emerald-950 to-slate-900 border border-emerald-500/40 p-5 sm:p-8 text-white shadow-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
                 <div className="lg:col-span-5">
-                  <div className="rounded-2xl overflow-hidden border border-emerald-400/30 shadow-2xl bg-black aspect-video flex items-center justify-center">
-                    <video
-                      controls
-                      playsInline
-                      preload="metadata"
-                      className="w-full h-full object-contain"
-                    >
-                      <source src="/camps/shakurpur/shakurpur_video_1.mp4" type="video/mp4" />
-                      Your browser does not support video playback.
-                    </video>
+                  <div className="rounded-2xl overflow-hidden border border-emerald-400/30 shadow-2xl bg-black aspect-video flex items-center justify-center relative group">
+                    <img
+                      src="/camps/haiderpur/haiderpur_team_gps.jpg"
+                      alt="Haiderpur Health and Eye Camp GPS Team Photo"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute bottom-2 left-2 bg-slate-950/85 backdrop-blur-xs text-[10px] text-emerald-300 font-mono px-2.5 py-1 rounded-md border border-emerald-500/30 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>📍 GPS: Haiderpur (28.7276° N, 77.1487° E)</span>
+                    </div>
                   </div>
                 </div>
                 <div className="lg:col-span-7 space-y-2.5 sm:space-y-3">
                   <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 text-[11px] sm:text-xs font-extrabold uppercase tracking-wider">
                     <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                    <span>✓ On-Ground Video Record • 11-Oct-2026</span>
+                    <span>✓ On-Ground Verified Camp • 22-Nov-2026</span>
                   </div>
                   <h3 className="text-xl sm:text-3xl font-extrabold text-white leading-tight">
-                    नि:शुल्क नेत्र जाँच शिविर — शकूरपुर कॉलोनी
+                    नि:शुल्क स्वास्थ्य एवं नेत्र जाँच शिविर — हैदरपुर
                   </h3>
                   <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-                    ब्लॉक G, शकूरपुर कॉलोनी, नई दिल्ली (110034) • 11 अक्टूबर 2026 को सफलतापूर्वक संपन्न
+                    विष्णु बाल निकेतन, सेवा भारती केंद्र, नेहरू कैंप, हैदरपुर, दिल्ली (110088) • 22 नवंबर 2026 को सफलतापूर्वक संपन्न
                   </p>
                   <div className="flex flex-wrap gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-semibold pt-1">
-                    <span className="bg-emerald-900/60 text-emerald-300 border border-emerald-700/50 px-2.5 py-1 rounded-lg">✓ निःशुल्क नेत्र जाँच</span>
-                    <span className="bg-amber-900/60 text-amber-300 border border-amber-700/50 px-2.5 py-1 rounded-lg">✓ नज़र के चश्में वितरित</span>
-                    <span className="bg-sky-900/60 text-sky-300 border border-sky-700/50 px-2.5 py-1 rounded-lg">✓ 11 लाइव वीडियो उपलब्ध</span>
+                    <span className="bg-emerald-900/60 text-emerald-300 border border-emerald-700/50 px-2.5 py-1 rounded-lg">✓ 300+ नेत्र जाँच व मुफ्त चश्मे</span>
+                    <span className="bg-sky-900/60 text-sky-300 border border-sky-700/50 px-2.5 py-1 rounded-lg">✓ 76 सीनियर TB एक्स-रे (NTEP)</span>
+                    <span className="bg-amber-900/60 text-amber-300 border border-amber-700/50 px-2.5 py-1 rounded-lg">✓ गायनी, फिजिशियन व लंगर</span>
                   </div>
                   <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
                     <Link
                       to="/eye-camps"
                       className="px-5 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md flex items-center gap-2"
                     >
-                      <span>Watch All 11 Videos & Camp Details</span>
+                      <span>Explore Camp Report & Details</span>
                       <span>→</span>
                     </Link>
                   </div>
@@ -716,6 +726,43 @@ export default function Home() {
 
             {/* Featured Camp Cards with Real Photos & Verified Banners */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
+              {/* Camp - Haiderpur (Newest) */}
+              <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ring-1 ring-emerald-500/20">
+                <div>
+                  <div className="relative h-48 rounded-2xl overflow-hidden mb-4 bg-slate-900">
+                    <img src="/camps/haiderpur/haiderpur_banner.jpg" alt="Haiderpur Camp Banner" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 bg-emerald-700 text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-md backdrop-blur-xs">
+                      Health & Eye Camp
+                    </span>
+                    <span className="absolute bottom-2.5 right-3 bg-slate-950/80 text-white text-[11px] font-semibold px-2 py-0.5 rounded backdrop-blur-xs">
+                      22 Nov 2026
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 text-xs text-emerald-800 font-semibold mb-1">
+                    <span>📍</span>
+                    <span>Nehru Camp, Haiderpur, Shalimar Bagh</span>
+                  </div>
+                  <h4 className="text-lg font-bold text-slate-900 mb-1.5 group-hover:text-emerald-700 transition-colors">
+                    Haiderpur Health & Eye Camp
+                  </h4>
+                  <p className="text-xs text-slate-600 mb-3 leading-relaxed">
+                    विष्णु बाल निकेतन, सेवा भारती केंद्र। 300+ नेत्र जाँच व चश्मा वितरण, 76 बुजुर्गों की NTEP TB स्क्रीनिंग, ब्लड शुगर, गायनी, फिजिशियन व भण्डारा।
+                  </p>
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    <span className="text-[10px] font-semibold bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded-md">✓ 300+ Eye Checkups</span>
+                    <span className="text-[10px] font-semibold bg-sky-50 text-sky-800 px-2 py-0.5 rounded-md">✓ 76 TB X-Rays</span>
+                    <span className="text-[10px] font-semibold bg-amber-50 text-amber-800 px-2 py-0.5 rounded-md">✓ Free Eyewear & Langar</span>
+                  </div>
+                </div>
+                <Link
+                  to="/eye-camps"
+                  className="pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-slate-900 hover:text-emerald-700 transition-colors"
+                >
+                  <span>Explore Camp Details & Photos</span>
+                  <span>→</span>
+                </Link>
+              </div>
+
               {/* Camp - Shakurpur Colony */}
               <div className="rounded-3xl border border-slate-200 p-5 bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ring-1 ring-emerald-500/20">
                 <div>
